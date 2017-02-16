@@ -2,6 +2,9 @@
 # -*- coding: utf-8 -*-
 
 from unidecode import unidecode
+from srv import *
+
+print myd.test_yourself()
 
 # spell a word
 def spell_word(word, method, max_letter = -1):
