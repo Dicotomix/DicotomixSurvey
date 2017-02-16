@@ -1,31 +1,32 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from unidecode import unidecode
+import unidecode
 from srv import *
 
-print myd.test_yourself()
+#print myd.compute_distrib(myd.find_word)
 
 # spell a word
 def spell_word(word, method, max_letter = -1):
     count_letter = 0
     total_steps = 0
+
+    word = word.decode('utf-8')
     
     for letter in word:
+        if not letter.isalpha():
+            continue
+
         count_letter += 1
         total_steps += method(letter)
-        print letter, method(letter)
-
         if(max_letter >= 0 and count_letter >= max_letter):
             return total_steps
         
     return total_steps
 
-
 # remove accents and uppercase
 def minimize_letter(s):
-    s.encode(encoding='UTF-8',errors='strict')
-    s = unidecode(s)
+    s = unidecode.unidecode(s)
     return s.lower()
 
 # dichotomy on letter
@@ -120,4 +121,21 @@ def check_alphabet(count_steps):
         cur = count_steps(chr(c))
         s += cur
         c += 1
-    print s
+    print(s)
+
+
+spell_word_1 = lambda w : spell_word(w, letter_dichotomy)
+spell_word_2 = lambda w : spell_word(w, letter_ejasint)
+spell_word_3 = lambda w : spell_word(w, letter_clignement)
+spell_word_4 = lambda w : spell_word(w, letter_keyboard)
+spell_word_5 = lambda w : spell_word(w, letter_4)
+spell_word_6 = lambda w : spell_word(w, letter_5)
+
+
+print("dicho_freq = " + str(myd.compute_distrib(myd.find_word)))
+print("letter_dicho_freq = " + str(myd.compute_distrib(spell_word_1)))
+print("letter_ejasint_freq = " + str(myd.compute_distrib(spell_word_2)))
+print("letter_clignement_freq = " + str(myd.compute_distrib(spell_word_3)))
+print("letter_keyboard_freq = " + str(myd.compute_distrib(spell_word_4)))
+print("letter_sep1_freq = " + str(myd.compute_distrib(spell_word_5)))
+print("letter_sep2_freq = " + str( myd.compute_distrib(spell_word_6)))

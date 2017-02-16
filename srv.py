@@ -66,7 +66,6 @@ class dicotomix:
                 s += np.float128(d[1])
                 self.words_x.append(s)
             self.words_x = np.array(self.words_x)/s
-            print(self.words_x)
 
         #print(self.words_x)
         #self.restart()
@@ -147,10 +146,10 @@ class dicotomix:
         gets = self.get_word()
 
         if gets == w:
-            return (True,0)
+            return 0
 
         if self.is_finished():
-            return (False,0)
+            return 0
 
         to_cmp = [gets,w]
 
@@ -163,23 +162,47 @@ class dicotomix:
             self.right()
 
         res = self.find_word(w)
-        return (res[0],1+res[1])
+        return 1+res
 
     # It tests the method over the dictionary
     # gives back the mean number of trials
     # TODO: problem with finding the last word ([:-1] l.167)
     def test_yourself(self):
+        mini = 100000
+        maxi = 0
         m = 0
         self.restart()
         for w in self.words_s[:-1]:
    #         print(w)
             res = self.find_word(w)
             self.restart()
-            if not res[0]:
-                print("Error occurs with word: "+w)
-                return
-            m += res[1]
-        return float(m)/len(self.words_s)
+            mini = min(mini, res)
+            maxi = max(maxi, res)
+            m += res
+        return mini, float(m)/len(self.words_s), maxi
+
+    def compute_max(self, method):
+        maxi = 0
+        current_word = ""
+        self.restart()
+        for w in self.words_s[:-1]:
+            res = method(w)
+            self.restart()
+            if res > maxi:
+                current_word = w
+            maxi = max(maxi, res)
+        return maxi                
+        
+    def compute_distrib(self, method):
+        maxi = self.compute_max(method)
+        val = [0] * (maxi + 1)
+        self.restart()
+        for i in range(len(self.words_s) - 1):
+            res = method(self.words_s[i])
+            self.restart()
+            val[res] += self.words_x[i + 1] - self.words_x[i]
+        return val       
+        
 
 myd = dicotomix()
 myd.load_dict("LexiqueComplet.csv",True)
