@@ -124,12 +124,13 @@ def check_alphabet(count_steps):
     print(s)
 
 
-spell_word_1 = lambda w : spell_word(w, letter_dichotomy)
-spell_word_2 = lambda w : spell_word(w, letter_ejasint)
-spell_word_3 = lambda w : spell_word(w, letter_clignement)
-spell_word_4 = lambda w : spell_word(w, letter_keyboard)
-spell_word_5 = lambda w : spell_word(w, letter_4)
-spell_word_6 = lambda w : spell_word(w, letter_5)
+nb = 4
+spell_word_1 = lambda w : spell_word(w, letter_dichotomy, nb)
+spell_word_2 = lambda w : spell_word(w, letter_ejasint, nb)
+spell_word_3 = lambda w : spell_word(w, letter_clignement, nb)
+spell_word_4 = lambda w : spell_word(w, letter_keyboard, nb)
+spell_word_5 = lambda w : spell_word(w, letter_4, nb)
+spell_word_6 = lambda w : spell_word(w, letter_5, nb)
 
 
 print("dicho_freq = " + str(myd.compute_distrib(myd.find_word)))
