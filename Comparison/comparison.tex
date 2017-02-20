@@ -75,7 +75,7 @@
 
 \pretitle{\begin{center}\Huge\bfseries} % Article title formatting
 \posttitle{\end{center}} % Article title closing formatting
-\title{Comparaison de la méthode de saisie dichotomique sur le dictionnaire avec les méthodes d'épellation traditionnelles} % Article title
+\title{Comparaison de la méthode de saisie dichotomique avec les méthodes d'épellation traditionnelles} % Article title
 \author{%
 \textsc{Équipe Dicotomix}
 \normalsize ENS de Lyon \\ % Your institution
@@ -136,17 +136,17 @@ L'intérêt de l'approche dichotomique est très simple : à chaque question, la
 
 %------------------------------------------------
 
-\section{Résultats}
+\section{Épellation complète}
 
 Nous nous référerons, dans cette partie, aux différentes méthodes au travers des numéros suivants : 0 - recherche dichotomique, 1 - épellation dichotomique, 2 - alphabet EJASINT, les suivants correspondant aux numéros des alphabets en annexe.
 
 \subsection{Distribution des temps de frappe}
 
-Pour mesurer l'efficacité de chaque méthode, l'idée est de compter le nombre de questions nécessaire pour trouver les mots. Ainsi, nous considérons chaque mot du dictionnaire et calculons le temps qu'il faut pour le trouver.
+Pour mesurer l'efficacité de chaque méthode, nous comptons le nombre de questions nécessaire pour trouver les mots. Ainsi, nous considérons chaque mot du dictionnaire et calculons le temps qu'il faut pour le trouver.
 
 La distribution de ces longueurs de frappe, ajustée à l'aide de la fréquence d'apparition des mots dans la langue française, est un bon indicateur de la rapidité d'utilisation des différentes méthodes. La figure \ref{distrib} montre que la recherche dichotomique affiche une fréquence plus élevée pour les mots de longueur de frappe faible : toutes les autres méthodes nécessitent parfois énormément plus de questions pour épeler un même mot. 
 
-La figure \ref{frappe-mini} confirme cette tendance, étant donné que la fréquence d'apparition de mots nécessitant au moins 20 coups pour être tapés est presque nulle, contre plus de 50\% pour les autres méthodes.
+La figure \ref{frappe-mini} montre la probabilité pour qu'un mot ait une longueur de frappe supérieure à une longueur de frappe donnée. Elle confirme cette tendance, étant donné que la fréquence d'apparition de mots nécessitant au moins 20 coups pour être tapés est presque nulle, contre plus de 50\% pour les autres méthodes.
 
 La méthode d'épellation dichotomique, quant à elle, donne des résultats proches de l'alphabet EJASINT.
 \begin{center}
@@ -160,16 +160,16 @@ La méthode d'épellation dichotomique, quant à elle, donne des résultats proc
 \begin{center}
 \begin{figure}
   \includegraphics[scale=0.35]{frappe-mini.png}
-  \caption{Proportion de mots ayant un temps de frappe donné. Bleu - recherche dichotomique, orange : épellation dichotomique, vert : alphabet EJASINT, rouge : 3, violet : 4, marron : 5, rose pâle : 6}
+  \caption{Proportion de mots ayant un temps de frappe supérieur à un temps donné. Bleu - recherche dichotomique, orange : épellation dichotomique, vert : alphabet EJASINT, rouge : 3, violet : 4, marron : 5, rose pâle : 6}
   \label{frappe-mini}
 \end{figure}
 \end{center}
 
 \subsection{Moyenne et maximum}
 
-Les distributions donnent beaucoup d'information sur les méthodes, mais les graphes sont difficilement lisibles. D'un point de vue pratique, on est principalement intéressés par le temps moyen nécessaire pour écrire un mot, et le temps maximal garanti.
+Les distributions donnent beaucoup d'information sur les méthodes, mais les graphes sont difficilement lisibles. D'un point de vue pratique, on est s'intéresse principalement au temps moyen nécessaire pour écrire un mot, et le temps maximal garanti.
 
-La figure \ref{mean} montre que la recherche dichotomique a une longueur de frappe moyenne significativement plus faible que toutes les autres méthodes considérées, ce qui signifie que les mots sont en moyenne tapés trois à cinq plus vite. De plus, son écart-type plus faible donc il est peu probable d'avoir à écrire un mot fastidieux à écrire.
+La figure \ref{mean} montre que la recherche dichotomique a une longueur de frappe moyenne significativement plus faible que toutes les autres méthodes considérées, ce qui signifie que les mots sont en moyenne tapés trois à cinq plus vite. De plus, son écart-type plus faible donc il est peu probable d'avoir à écrire un mot ``long''.
 
 \begin{center}
 \begin{figure}
@@ -188,12 +188,66 @@ Même si l'intervention de l'aidant permet souvent de trouver les mots sans épe
   \label{maxi}
 \end{figure}
 \end{center}
+%------------------------------------------------
+
+\section{Épellation des 4 premières lettres}
+
+Remarquons que, en fréquence, plus de la moitié des mots du français continennent moins de 4 lettres (cf figure \ref{dico}). Par ailleurs, faisons l'hypothèse qu'en pratique, l'on arrive à savoir quel est le mot tapé à partir de la quatrième lettre. Nous reprenons donc dans cette partie la même comparaison des différentes méthodes, cette fois en se limitant à l'épellation des 4 premières lettres de chaque mot. Notons par ailleurs, que la méthode de recherche dichotomique continue, en revanche, à épeler les mots complètement.
+
+\begin{center}
+\begin{figure}
+  \includegraphics[scale=0.55]{dico.png}
+  \caption{Fréquence des mots de longueur supérieure à une longueur donnée dans le dictionnaire}
+  \label{dico}
+\end{figure}
+\end{center}
+\subsection{Distribution des temps de frappe}
+
+La distribution des temps de frappe (figure \ref{distrib4}) continue à donner la même tendance que précedemment, et la méthode de recherche dichotomique permet toujours de trouver plus rapidement les mots les plus fréquents.
+
+Cette tendance est également confirmée par la fréquence des mots ayant une longueur de frappe supérieure à une longueur donnée (figure \ref{frappe-mini4}).
+
+\begin{center}
+\begin{figure}
+  \includegraphics[scale=0.35]{distrib4.png}
+  \caption{Distribution du temps de frappe en fonction de la longueur des mots pour différentes méthodes (épellation des 4 premières lettres uniquement). Bleu - recherche dichotomique, orange : épellation dichotomique, vert : alphabet EJASINT, rouge : 3, violet : 4, marron : 5, rose pâle : 6}
+  \label{distrib4}
+\end{figure}
+\end{center}
+
+\begin{center}
+\begin{figure}
+  \includegraphics[scale=0.35]{frappe-mini4.png}
+  \caption{Proportion de mots ayant un temps de frappe donné (épellation des 4 premières lettres uniquement). Bleu - recherche dichotomique, orange : épellation dichotomique, vert : alphabet EJASINT, rouge : 3, violet : 4, marron : 5, rose pâle : 6}
+  \label{frappe-mini4}
+\end{figure}
+\end{center}
+
+\subsection{Moyenne et maximum}
+
+La longueur moyenne de frappe (figure \ref{mean4}) reste aussi avantageuse par rapport aux autres méthodes. Cependant, la longueur maximale (\ref{maxi4}) est plus élevée que pour l'épellation dichotomique. Malgré tout, la recherche dichotomique reste meilleure, de ce point de vue, que toutes les méthodes à présent utilisées dans le milieu médical.
+
+\begin{center}
+\begin{figure}
+  \includegraphics[scale=0.5]{mean4.png}
+  \caption{Longueur de frappe moyenne sur l'ensemble du dictionnaire (barre violettes), avec l'écart-type de la distribution (petites barres violettes claires) (épellation des 4 premières lettres uniquement). 0 - recherche dichotomique, 1 - épellation dichotomique, 2 - alphabet EJASINT, 3 à 6 - méthodes 3 à 6}
+  \label{mean4}
+\end{figure}
+\end{center}
+
+\begin{center}
+\begin{figure}
+  \includegraphics[scale=0.5]{frappe-maxi4.png}
+  \caption{Temps de frappe du mot le moins accessible (épellation des 4 premières lettres uniquement). 0 - recherche dichotomique, 1 - épellation dichotomique, 2 - alphabet EJASINT, 3 à 6 - méthodes 3 à 6}
+  \label{maxi4}
+\end{figure}
+\end{center}
 
 %------------------------------------------------
 
 \section{Conclusion}
 
-La méthode de recherche dichotomique utilisée par le projet Dicotomix est donc une méthode permettant, d'un point de vue théorique, d'écrire de façon significativement plus rapide que les méthodes actuelles. Cependant, elle nécessite un coût cognitif plus important, afin de répondre aux questions nécessaires à identifier un mot. 
+La méthode de recherche dichotomique utilisée par le projet Dicotomix est donc une méthode permettant, d'un point de vue théorique comme pratique, d'écrire de façon significativement plus rapide que les méthodes actuelles. Cependant, elle nécessite un coût cognitif plus important, afin de répondre aux questions nécessaires à identifier un mot. 
 
 %----------------------------------------------------------------------------------------
 %	REFERENCE LIST
@@ -210,5 +264,40 @@ La méthode de recherche dichotomique utilisée par le projet Dicotomix est donc
 %\end{thebibliography}
 %
 %----------------------------------------------------------------------------------------
+
+
+\newpage
+\section*{Annexes}
+\begin{center}
+\begin{figure}[h!]
+  \includegraphics[scale=0.2]{methode3.png}
+  \caption{Alphabet de la méthode d'épellation 3.}
+  \label{maxi}
+\end{figure}
+\end{center}
+
+\begin{center}
+\begin{figure}[h!]
+  \includegraphics[scale=0.23]{methode4.png}
+  \caption{Alphabet de la méthode d'épellation 4.}
+  \label{maxi}
+\end{figure}
+\end{center}
+
+\begin{center}
+\begin{figure}[h!]
+  \includegraphics[scale=0.35]{methode5.png}
+  \caption{Alphabet de la méthode d'épellation 5.}
+  \label{maxi}
+\end{figure}
+\end{center}
+
+\begin{center}
+\begin{figure}[h!]
+  \includegraphics[scale=0.45]{methode6.png}
+  \caption{Alphabet de la méthode d'épellation 6.}
+  \label{maxi}
+\end{figure}
+\end{center}
 
 \end{document}
