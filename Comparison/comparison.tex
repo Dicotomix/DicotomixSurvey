@@ -35,6 +35,7 @@
 
 \usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
 \usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage[format=plain,indention=0mm]{caption} % To change caption style
 \usepackage{booktabs} % Horizontal rules in tables
 
 \usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
@@ -63,6 +64,9 @@
 
 \usepackage{hyperref} % For hyperlinks in the PDF
 
+
+
+
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION
 %----------------------------------------------------------------------------------------
@@ -84,7 +88,8 @@
 \date{} % Leave empty to omit a date
 \renewcommand{\maketitlehookd}{%
 \begin{abstract}
-\noindent Les méthodes traditionnelles permettant de communiquer en se limitant à une entrée de la forme \textit{oui} ou \textit{non} sont basées sur une épellation lettre par lettre. Ici, une approche différente est considérée, où les mots sont épelés un à un par dichotomie sur l'ensemble du dictionnaire français. Cette méthode est ici comparée aux méthodes traditionnelles en vigueur dans le milieu médical. Nous montrons ainsi qu'une recherche dichotomique sur le dictionnaire permet d'écrire plus efficacement, en comparant les résultats obtenus en terme de temps de frappe de ces différentes méthodes. 
+%\noindent 
+Les méthodes traditionnelles permettant de communiquer en se limitant à une entrée de la forme \textit{oui} ou \textit{non} sont basées sur une épellation lettre par lettre. Ici, une approche différente est considérée, où les mots sont épelés un à un par dichotomie sur l'ensemble du dictionnaire français. Cette méthode est ici comparée aux méthodes traditionnelles en vigueur dans le milieu médical. Nous montrons ainsi qu'une recherche dichotomique sur le dictionnaire permet d'écrire plus efficacement, en comparant les résultats obtenus en terme de temps de frappe de ces différentes méthodes. 
 \end{abstract}
 }
 
@@ -101,7 +106,7 @@
 
 \section{Introduction}
 
-\lettrine[nindent=0em,lines=3]{L}es méthodes de saisie traditionnelles utilisées dans le milieu médical reposent toutes sur le même principe. Elles consistent à épeler les mots lettre à lettre, en parcourant l'alphabet pour chacun des lettres. Ce type de méthode peut s'avérer frustrant pour l'utilisateur, qui décide parfois même de renoncer à la communication, tant elle peut être fastidieuse. Une autre approche propose d'utiliser plus efficacement une entrée binaire afin d'écrire non pas une lettre à la fois, mais un mot à la fois. Ainsi, nous mettons ici en avant l'intérêt d'une telle méthode, en les comparant sur l'ensemble du dictionnaire.
+\lettrine[nindent=0em,lines=3]{L}es méthodes de saisie traditionnelles utilisées dans le milieu médical reposent toutes sur le même principe. Elles consistent à épeler les mots lettre à lettre, en parcourant l'alphabet pour chacune des lettres. Ce type de méthode peut s'avérer frustrant pour l'utilisateur, qui décide parfois même de renoncer à la communication, tant elle peut être fastidieuse. Une autre approche propose d'utiliser plus efficacement une entrée binaire afin d'écrire non pas une lettre à la fois, mais un mot à la fois. Ainsi, nous mettons ici en avant l'intérêt d'une telle méthode, en les comparant sur l'ensemble du dictionnaire.
 
 %------------------------------------------------
 
@@ -109,7 +114,7 @@
 
 Toutes les méthodes traditionnelles reposent sur une division de l'alphabet en une table en deux dimensions, où la recherche de la lettre voulue se fait en deux temps. Dans un premier temps, on recherche la ligne dans laquelle se situe la lettre voulue, en posant la question ``est-ce que ma lettre est dans la \textit{première} ligne'', ou dans la \textit{seconde}, jusqu'à arriver à la bonne ligne. Ensuite, on itère de la même manière sur chacune des lettres de la ligne jusqu'à trouver la lettre voulue.
 
-Une des méthodes d'épellation les plus répandues utilise l'alphabet EJASINT décrit dans la figure \ref{ejasint}. Les autres méthodes envisagées ici sont décrites en annexe, et reposent toutes sur le même principe, avec une répartition différente de l'alphabet.
+Une des méthodes d'épellation les plus répandues utilise l'alphabet EJASINT décrit dans la figure \ref{ejasint}. Les autres méthodes envisagées ici sont décrites en annexe, et reposent toutes sur ce même principe de grille de lettres, avec une répartition différente de l'alphabet.
 \begin{center}
 \begin{figure}
   \includegraphics[scale=0.45]{ejasint.jpg}
@@ -124,7 +129,9 @@ Une des méthodes d'épellation les plus répandues utilise l'alphabet EJASINT d
 
 Notre méthode repose sur un parcours du dictionnaire français par dichotomie, en tenant compte des fréquences des mots dans l'usage courant de la langue française. La question posée porte ainsi sur des mots et n'est plus de la forme ``est-ce le bon mot ?'', mais ``est-il avant ou après dans l'alphabet ?''
 
-Une seconde méthode que nous évoquerons est la méthode de l'épellation dichotomique, reprenant le principe de la dichotomie mais cette fois pour une épellation lettre par lettre.
+Une seconde méthode que nous évoquerons est la méthode de l'épellation dichotomique, reprenant le principe de la dichotomie mais cette fois pour une épellation lettre par lettre : ``la lettre recherchée est-elle avant ou après dans l'alphabet ?''.
+
+L'intérêt de l'approche dichotomique est très simple : à chaque question, la moitié des possibilités sont éliminées. Cela permet de se rapprocher rapidement de la solution, même dans un grand lexique.
 
 
 %------------------------------------------------
@@ -133,10 +140,15 @@ Une seconde méthode que nous évoquerons est la méthode de l'épellation dicho
 
 Nous nous référerons, dans cette partie, aux différentes méthodes au travers des numéros suivants : 0 - recherche dichotomique, 1 - épellation dichotomique, 2 - alphabet EJASINT, les suivants correspondant aux numéros des alphabets en annexe.
 
-\subsection{Répartition de la longueur de frappe}
+\subsection{Distribution des temps de frappe}
 
-Le premier axe de comparaison étudié est le nombre de questions nécessaires afin de taper un mot donné (longueur de frappe) et la distribution de cette longueur de frappe pour chacune des méthodes. Ainsi, nous considérons chacun des mots du dictionnaire avec sa fréquence dans l'usage courant de la langue française pour calculer la fréquence d'apparition d'un mot ayant une longueur de frappe donnée, et ce pour chacune des méthodes considérées (cf. figure \ref{distrib}).
+Pour mesurer l'efficacité de chaque méthode, l'idée est de compter le nombre de questions nécessaire pour trouver les mots. Ainsi, nous considérons chaque mot du dictionnaire et calculons le temps qu'il faut pour le trouver.
 
+La distribution de ces longueurs de frappe, ajustée à l'aide de la fréquence d'apparition des mots dans la langue française, est un bon indicateur de la rapidité d'utilisation des différentes méthodes. La figure \ref{distrib} montre que la recherche dichotomique affiche une fréquence plus élevée pour les mots de longueur de frappe faible : toutes les autres méthodes nécessitent parfois énormément plus de questions pour épeler un même mot. 
+
+La figure \ref{frappe-mini} confirme cette tendance, étant donné que la fréquence d'apparition de mots nécessitant au moins 20 coups pour être tapés est presque nulle, contre plus de 50\% pour les autres méthodes.
+
+La méthode d'épelation dichotomique, quant à elle, donne des résultats proches de l'alphabet EJASINT.
 \begin{center}
 \begin{figure}
   \includegraphics[scale=0.35]{distrib.png}
@@ -148,27 +160,34 @@ Le premier axe de comparaison étudié est le nombre de questions nécessaires a
 \begin{center}
 \begin{figure}
   \includegraphics[scale=0.35]{frappe-mini.png}
-  \caption{Distribution du temps de frappe minimal (ie x questions ou plus) en fonction de la longueur des mots. Bleu - recherche dichotomique, orange : épellation dichotomique, vert : alphabet EJASINT, rouge : 3, violet : 4, marron : 5, rose pâle : 6}
+  \caption{Proportion de mots ayant un temps de frappe donné. Bleu - recherche dichotomique, orange : épellation dichotomique, vert : alphabet EJASINT, rouge : 3, violet : 4, marron : 5, rose pâle : 6}
   \label{frappe-mini}
 \end{figure}
 \end{center}
 
-En figure \ref{distrib}, la méthode de recherche dichotomique affiche une fréquence plus élevée pour les mots de longueur de frappe faible, là où toutes les autres méthodes nécessitent parfois énormément plus de questions pour épeler un mot. La figure \ref{frappe-mini} confirme cette tendance, étant donné que la fréquence d'apparition de mots nécessitant au moins 20 coups pour être tapés est presque nulle, contre plus de 50\% pour les autres méthodes.
+\subsection{Moyenne et maximum}
 
-La méthode d'épelation dichotomique, quant à elle, donne des résultats proches de l'alphabet EJASINT.
+Les distributions donnent beaucoup d'information sur les méthodes, mais les graphes sont difficilement lisibles. D'un point de vue pratique, on est principalement intéressés par le temps moyen nécessaire pour écrire un mot, et le temps maximal garanti.
 
-\subsection{Longueur de frappe moyenne}
+La figure \ref{mean} montre que la recherche dichotomique a une longueur de frappe moyenne significativement plus faible que toutes les autres méthodes considérées, ce qui signifie que les mots sont en moyenne tapés trois à cinq plus vite. De plus, son écart-type plus faible donc il est peu probable d'avoir à écrire un mot fastidieux à écrire.
 
 \begin{center}
 \begin{figure}
   \includegraphics[scale=0.5]{mean.png}
-  \caption{Longueur de frappe moyenne sur l'ensemble du dictionnaire (barre violettes), avec l'écart-type de la distribution (petites barres violettes claires). 0 - recherche dichotomique, 1 - épellation dichotomique, 2 - alphabet EJASINT, 3 - méthode 3, 4 - méthode 4, 5 - méthode 5, 6 - méthode 6}
+  \caption{Longueur de frappe moyenne sur l'ensemble du dictionnaire (barre violettes), avec l'écart-type de la distribution (petites barres violettes claires). 0 - recherche dichotomique, 1 - épellation dichotomique, 2 - alphabet EJASINT, 3 à 6 - méthodes 3 à 6}
   \label{mean}
 \end{figure}
 \end{center}
 
-La longueur de frappe moyenne (cf. figure \ref{mean}) pour chacune des méthodes affiche ainsi une longueur de frappe moyenne significativement plus faible que toutes les autres méthodes considérées, tout en offrant un écart-type plus faible, ce qui signifie que les mots sont en moyenne tapés plus vite, et qu'il est peu probable d'avoir à écrire un mot long à écrire.
+Même si l'intervention de l'aidant permet souvent de trouver les mots sans épeler toutes les lettres, on peut s'intéresser au pire des cas, c'est-à-dire au mot du dictionnaire le plus long à trouver. On remarque sur la figure \ref{maxi} que la dichotomie sur le lexique offre une performance drastiquement meilleure que les autres méthodes, avec un facteur variant de quatre à sept.
 
+\begin{center}
+\begin{figure}
+  \includegraphics[scale=0.5]{frappe-maxi.png}
+  \caption{Temps de frappe du mot le moins accessible. 0 - recherche dichotomique, 1 - épellation dichotomique, 2 - alphabet EJASINT, 3 à 6 - méthodes 3 à 6}
+  \label{maxi}
+\end{figure}
+\end{center}
 
 %------------------------------------------------
 
