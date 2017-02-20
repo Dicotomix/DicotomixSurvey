@@ -79,7 +79,7 @@
 \author{%
 \textsc{Équipe Dicotomix}
 \normalsize ENS de Lyon \\ % Your institution
-\normalsize \href{mailto:dicotomix@ens-lyon.fr}{dicotomix@ens-lyon.fr} % Your email address
+\normalsize \href{mailto:dicotomix@listes.ens-lyon.fr}{dicotomix@listes.ens-lyon.fr} % Your email address
 %\and % Uncomment if 2 authors are required, duplicate these 4 lines if more
 %\textsc{Jane Smith}\thanks{Corresponding author} \\[1ex] % Second author's name
 %\normalsize University of Utah \\ % Second author's institution
@@ -89,7 +89,7 @@
 \renewcommand{\maketitlehookd}{%
 \begin{abstract}
 %\noindent 
-Les méthodes traditionnelles permettant de communiquer en se limitant à une entrée de la forme \textit{oui} ou \textit{non} sont basées sur une épellation lettre par lettre. Ici, une approche différente est considérée, où les mots sont épelés un à un par dichotomie sur l'ensemble du dictionnaire français. Cette méthode est ici comparée aux méthodes traditionnelles en vigueur dans le milieu médical. Nous montrons ainsi qu'une recherche dichotomique sur le dictionnaire permet d'écrire plus efficacement, en comparant les résultats obtenus en terme de temps de frappe de ces différentes méthodes. 
+Les méthodes traditionnelles permettant de communiquer en se limitant à une entrée de la forme \textit{oui} ou \textit{non} sont basées sur une épellation lettre par lettre. Ici, une approche différente est considérée, où les mots sont épelés un à un par dichotomie sur l'ensemble du dictionnaire français. Cette méthode est comparée aux méthodes traditionnelles en vigueur dans le milieu médical. Nous montrons que notre méthode permet d'écrire les mots beaucoup plus rapidement, et ce même si l'on présuppose que quatre lettres suffisent à deviner le mot dans les méthodes classiques.
 \end{abstract}
 }
 
@@ -112,7 +112,7 @@ Les méthodes traditionnelles permettant de communiquer en se limitant à une en
 
 \section{Méthodes traditionnelles}
 
-Toutes les méthodes traditionnelles reposent sur une division de l'alphabet en une table en deux dimensions, où la recherche de la lettre voulue se fait en deux temps. Dans un premier temps, on recherche la ligne dans laquelle se situe la lettre voulue, en posant la question ``est-ce que ma lettre est dans la \textit{première} ligne'', ou dans la \textit{seconde}, jusqu'à arriver à la bonne ligne. Ensuite, on itère de la même manière sur chacune des lettres de la ligne jusqu'à trouver la lettre voulue.
+Toutes les méthodes traditionnelles reposent sur une division de l'alphabet en une table en deux dimensions, où la recherche de la lettre voulue se fait en deux temps. Dans un premier temps, on recherche la ligne dans laquelle se situe la lettre voulue, en posant la question ``est-ce que votre lettre est dans la \textit{première} ligne'', ou dans la \textit{seconde}, jusqu'à arriver à la bonne ligne. Ensuite, on itère de la même manière sur les colonnes, en proposant chacune des lettres de la ligne jusqu'à trouver celle voulue.
 
 Une des méthodes d'épellation les plus répandues utilise l'alphabet EJASINT décrit dans la figure \ref{ejasint}. Les autres méthodes envisagées ici sont décrites en annexe, et reposent toutes sur ce même principe de grille de lettres, avec une répartition différente de l'alphabet.
 \begin{center}
@@ -127,7 +127,7 @@ Une des méthodes d'épellation les plus répandues utilise l'alphabet EJASINT d
 
 \section{Méthode dichotomique}
 
-Notre méthode repose sur un parcours du dictionnaire français par dichotomie, en tenant compte des fréquences des mots dans l'usage courant de la langue française. La question posée porte ainsi sur des mots et n'est plus de la forme ``est-ce le bon mot ?'', mais ``est-il avant ou après dans l'alphabet ?''
+Notre méthode repose sur un parcours du dictionnaire français par dichotomie, en tenant compte des fréquences des mots dans l'usage courant de la langue française. L'on présente un mot au patient et la question posée est de la forme ``votre mot est-il avant ou après dans l'alphabet ?''
 
 Une seconde méthode que nous évoquerons est la méthode de l'épellation dichotomique, reprenant le principe de la dichotomie mais cette fois pour une épellation lettre par lettre : ``la lettre recherchée est-elle avant ou après dans l'alphabet ?''.
 
@@ -138,15 +138,15 @@ L'intérêt de l'approche dichotomique est très simple : à chaque question, la
 
 \section{Épellation complète}
 
-Nous nous référerons, dans cette partie, aux différentes méthodes au travers des numéros suivants : 0 - recherche dichotomique, 1 - épellation dichotomique, 2 - alphabet EJASINT, les suivants correspondant aux numéros des alphabets en annexe.
+Nous nous référerons, dans cette partie, aux différentes méthodes au travers des numéros suivants : 0 - recherche dichotomique (implémentée dans Dicotomix), 1 - épellation dichotomique, 2 - alphabet EJASINT, les suivants correspondant aux numéros des alphabets en annexe.
 
 \subsection{Distribution des temps de frappe}
 
 Pour mesurer l'efficacité de chaque méthode, nous comptons le nombre de questions nécessaire pour trouver les mots. Ainsi, nous considérons chaque mot du dictionnaire et calculons le temps qu'il faut pour le trouver.
 
-La distribution de ces longueurs de frappe, ajustée à l'aide de la fréquence d'apparition des mots dans la langue française, est un bon indicateur de la rapidité d'utilisation des différentes méthodes. La figure \ref{distrib} montre que la recherche dichotomique affiche une fréquence plus élevée pour les mots de longueur de frappe faible : toutes les autres méthodes nécessitent parfois énormément plus de questions pour épeler un même mot. 
+La distribution de ces longueurs de frappe, ajustée à l'aide de la fréquence d'apparition des mots dans la langue française, est un bon indicateur de la rapidité d'utilisation des différentes méthodes. La figure \ref{distrib} montre que la probabilité d'utiliser peu de coups pour épeler un mot est très élevée avec la méthode Dicotomix. Les autres méthodes sont distribuées sur des temps d'épellation beaucoup plus élevés. 
 
-La figure \ref{frappe-mini} montre la probabilité pour qu'un mot ait une longueur de frappe supérieure à une longueur de frappe donnée. Elle confirme cette tendance, étant donné que la fréquence d'apparition de mots nécessitant au moins 20 coups pour être tapés est presque nulle, contre plus de 50\% pour les autres méthodes.
+La figure \ref{frappe-mini} montre la probabilité pour qu'un mot ait une longueur de frappe supérieure à la longueur de frappe donnée en abscisse. Elle confirme l'efficacité théorique de notre méthode car la fréquence d'apparition de mots nécessitant au moins 20 coups pour être tapés est presque nulle, contre plus de 50\% pour les autres méthodes.
 
 La méthode d'épellation dichotomique, quant à elle, donne des résultats proches de l'alphabet EJASINT.
 \begin{center}
@@ -205,7 +205,7 @@ Remarquons que, en fréquence, plus de la moitié des mots du français continen
 
 La distribution des temps de frappe (figure \ref{distrib4}) continue à donner la même tendance que précedemment, et la méthode de recherche dichotomique permet toujours de trouver plus rapidement les mots les plus fréquents.
 
-Cette tendance est également confirmée par la fréquence des mots ayant une longueur de frappe supérieure à une longueur donnée (figure \ref{frappe-mini4}).
+Cette tendance est également confirmée par la fréquence des mots ayant une longueur de frappe supérieure à la longueur donnée en abscisse (figure \ref{frappe-mini4}).
 
 \begin{center}
 \begin{figure}
@@ -247,7 +247,15 @@ La longueur moyenne de frappe (figure \ref{mean4}) reste aussi avantageuse par r
 
 \section{Conclusion}
 
-La méthode de recherche dichotomique utilisée par le projet Dicotomix est donc une méthode permettant, d'un point de vue théorique comme pratique, d'écrire de façon significativement plus rapide que les méthodes actuelles. Cependant, elle nécessite un coût cognitif plus important, afin de répondre aux questions nécessaires à identifier un mot. 
+La méthode de recherche dichotomique utilisée par le projet Dicotomix est donc une méthode permettant, d'un point de vue théorique, d'écrire de façon significativement plus rapide que les méthodes actuelles. \\
+Il faut noter que cette étude théorique ne prend pas en compte :
+\begin{itemize}
+\item Le protocole expérimental qui sera effectivement implémenté avec chaque patient et qui pourrait potentiellement rajouter des questions à la recherche.
+\item Le coût cognitif supérieur que notre méthode nécessite par rapport aux autres méthodes.
+\item L'impact plus grand d'une erreur commise par le patient sur la recherche d'un mot ainsi que la nécessité d'être à l'aise avec son orthographe.
+\end{itemize} 
+
+Malgré ces obstacles pratiques, notre étude montre son potentiel pour aider les patients à communiquer. Charge à nous de faire diminuer son coût cognitif pour proposer une phase de test stimulante aux patients. 
 
 %----------------------------------------------------------------------------------------
 %	REFERENCE LIST
@@ -274,7 +282,7 @@ La méthode de recherche dichotomique utilisée par le projet Dicotomix est donc
 \begin{figure}[h!]
   \includegraphics[scale=0.45]{ejasint.jpg}
   \caption{Alphabet EJASINT, majoritairement utilisé pour la saisie lettre à lettre par l'association ALIS}
-  \label{ejasint}
+  \label{ejasint2}
 \end{figure}
 \end{center}
 
@@ -306,7 +314,7 @@ La méthode de recherche dichotomique utilisée par le projet Dicotomix est donc
 \begin{figure}[h!]
   \includegraphics[scale=0.45]{methode6.png}
   \caption{Alphabet de la méthode d'épellation 6.}
-  \label{maxi}
+  \label{maxi6}
 \end{figure}
 \end{center}
 
