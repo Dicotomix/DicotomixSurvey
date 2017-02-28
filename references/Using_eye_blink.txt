@@ -1,0 +1,4 @@
+Augmentative and Alternative Communication Training Using Eye Blink Switch for Locked-in Syndrome Patient - Summary
+
+The article focuses on a study made on one locked-in syndrome patient who was still able to blink eyes. It describes a sensor fixed on glasses which detects eye blinks. After a three-week training period when the patient was trained to blink his eyes to interact with what was showed to him on a computer screen, it allowed the patient to make sentence by selecting symbols (of the Korean alphabet) on the screen. He finally said that he wanted to keep using this system to communicate.
+The article also evokes some other examples of successful interaction between LIS patients and computers to do several tasks, like reading and sending e-mails, or even coming back to the job they had before.
