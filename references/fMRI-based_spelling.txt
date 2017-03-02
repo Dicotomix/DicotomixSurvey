@@ -1,0 +1,1 @@
+fMRI is a technic to catch brain signals by analysing blood. Those are called "hemodynamic brain signals". Since BCI does not work with all locked-in subjects, fMRI can be used to make them spell letters. It even allow real time automated decoding with little effort and trainning.
