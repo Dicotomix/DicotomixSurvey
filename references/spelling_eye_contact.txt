@@ -1,0 +1,1 @@
+Method to spell using only vertical eye movement which are easier than horizontal movements. The subject is given a grid of letters divided between vowels and consonants. The rows are alphabetically organised and easy to memorise. This method seems to be quite efficient in practise.
