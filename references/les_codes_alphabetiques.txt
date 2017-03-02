@@ -1,0 +1,1 @@
+List of spelling methods from http://caa.ortho-n-co.fr. We assume we have someone (or something) to catch a binary answer from the subject. Some of those allow to spell phonemes raiser than letters and most of them uses frequences of letters/phonemes to increase the spelling efficiency.
