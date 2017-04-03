@@ -89,7 +89,7 @@
 \renewcommand{\maketitlehookd}{%
 \begin{abstract}
 %\noindent 
-Les méthodes traditionnelles permettant de communiquer en se limitant à une entrée de la forme \textit{oui} ou \textit{non} sont basées sur une épellation lettre par lettre. Ici, une approche différente est considérée, où les mots sont épelés un à un par dichotomie sur l'ensemble du dictionnaire français. Cette méthode est comparée aux méthodes traditionnelles en vigueur dans le milieu médical. Nous montrons que notre méthode permet d'écrire les mots beaucoup plus rapidement, et ce même si l'on présuppose que quatre lettres suffisent à deviner le mot dans les méthodes classiques.
+Les méthodes traditionnelles permettant de communiquer en se limitant à une entrée de la forme \textit{oui} ou \textit{non} sont basées sur une épellation lettre par lettre. Ici, une approche différente est considérée, où les mots sont épelés un à un par dichotomie \cite{dichotomy} sur l'ensemble du dictionnaire français. Cette méthode est comparée aux méthodes traditionnelles en vigueur dans le milieu médical. Nous montrons que notre méthode permet d'écrire les mots beaucoup plus rapidement, et ce même si l'on présuppose que quatre lettres suffisent à deviner le mot dans les méthodes classiques.
 \end{abstract}
 }
 
@@ -106,15 +106,17 @@ Les méthodes traditionnelles permettant de communiquer en se limitant à une en
 
 \section{Introduction}
 
-\lettrine[nindent=0em,lines=3]{L}es méthodes de saisie traditionnelles utilisées dans le milieu médical reposent toutes sur le même principe. Elles consistent à épeler les mots lettre à lettre, en parcourant l'alphabet pour chacune des lettres. Ce type de méthode peut s'avérer frustrant pour l'utilisateur, qui décide parfois même de renoncer à la communication, tant elle peut être fastidieuse. Une autre approche propose d'utiliser plus efficacement une entrée binaire afin d'écrire non pas une lettre à la fois, mais un mot à la fois. Ainsi, nous mettons ici en avant l'intérêt d'une telle méthode, en les comparant sur l'ensemble du dictionnaire.
+\lettrine[nindent=0em,lines=3]{L}a communication chez des patients atteints de locked-in syndrom (LIS) ou de la maladie de Charcot est difficile. Elle se fait avec un aide soignant, qui interprète les signaux que le patient parvient à exprimer, que ce soit par des techniques d'eye-tracking \cite{eyetracking}, de Brain-Computer interface \cite{bci} \cite{bloodbci} ou autrement. \cite{methods}
+
+Les méthodes de saisie traditionnelles utilisées dans le milieu médical reposent toutes sur le même principe. \cite{anxiete} Elles consistent à épeler les mots lettre à lettre, en parcourant l'alphabet pour chacune des lettres. Ce type de méthode peut s'avérer frustrant \cite{anxiete} pour l'utilisateur, qui décide parfois même de renoncer à la communication, tant elle peut être fastidieuse. L'outil informatique s'avère ainsi être capital \cite{haristoy} pour permettre à l'aide-soignant d'aider le patient à communiquer. Une autre approche propose d'utiliser plus efficacement une entrée binaire afin d'écrire non pas une lettre à la fois, mais un mot à la fois. Ainsi, nous mettons ici en avant l'intérêt d'une telle méthode, en les comparant sur l'ensemble du dictionnaire.
 
 %------------------------------------------------
 
 \section{Méthodes traditionnelles}
 
-Toutes les méthodes traditionnelles reposent sur une division de l'alphabet en une table en deux dimensions, où la recherche de la lettre voulue se fait en deux temps. Dans un premier temps, on recherche la ligne dans laquelle se situe la lettre voulue, en posant la question ``est-ce que votre lettre est dans la \textit{première} ligne'', ou dans la \textit{seconde}, jusqu'à arriver à la bonne ligne. Ensuite, on itère de la même manière sur les colonnes, en proposant chacune des lettres de la ligne jusqu'à trouver celle voulue.
+L'essentiel des méthodes traditionnelles repose sur une division de l'alphabet en une table en deux dimensions, où la recherche de la lettre voulue se fait en deux temps. \cite{codes} Dans un premier temps, on recherche la ligne dans laquelle se situe la lettre voulue, en posant la question ``est-ce que votre lettre est dans la \textit{première} ligne'', ou dans la \textit{seconde}, jusqu'à arriver à la bonne ligne. Ensuite, on itère de la même manière sur les colonnes, en proposant chacune des lettres de la ligne jusqu'à trouver celle voulue.
 
-Une des méthodes d'épellation les plus répandues utilise l'alphabet EJASINT décrit dans la figure \ref{ejasint}. Les autres méthodes envisagées ici sont décrites en annexe, et reposent toutes sur ce même principe de grille de lettres, avec une répartition différente de l'alphabet.
+Une des méthodes d'épellation les plus répandues utilise l'alphabet EJASINT \cite{sans-parole} décrit dans la figure \ref{ejasint}. Les autres méthodes envisagées ici sont décrites en annexe, et reposent toutes sur ce même principe de grille de lettres, avec une répartition différente de l'alphabet.
 \begin{center}
 \begin{figure}
   \includegraphics[scale=0.45]{ejasint.jpg}
@@ -255,7 +257,7 @@ Il faut noter que cette étude théorique ne prend pas en compte :
 \item L'impact plus grand d'une erreur commise par le patient sur la recherche d'un mot ainsi que la nécessité d'être à l'aise avec son orthographe.
 \end{itemize} 
 
-Malgré ces obstacles pratiques, notre étude montre son potentiel pour aider les patients à communiquer. Charge à nous de faire diminuer son coût cognitif pour proposer une phase de test stimulante aux patients. 
+Malgré ces obstacles pratiques, notre étude montre son potentiel pour aider les patients à communiquer. Charge à nous de faire diminuer son coût cognitif pour proposer une phase de test stimulante aux patients.
 
 %----------------------------------------------------------------------------------------
 %	REFERENCE LIST
@@ -312,10 +314,32 @@ Malgré ces obstacles pratiques, notre étude montre son potentiel pour aider le
 
 \begin{center}
 \begin{figure}[h!]
-  \includegraphics[scale=0.45]{methode6.png}
+  \includegraphics[scale=0.43]{methode6.png}
   \caption{Alphabet de la méthode d'épellation 6.}
   \label{maxi6}
 \end{figure}
 \end{center}
+
+
+%----------------------------------------------------------------------------------------
+%	REFERENCE LIST
+%----------------------------------------------------------------------------------------
+\newpage
+\newpage
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{references}
+
+% \begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
+
+%\bibitem[Figueredo and Wolf, 2009]{Figueredo:2009dg}
+%Figueredo, A.~J. and Wolf, P. S.~A. (2009).
+%\newblock Assortative pairing and life history strategy - a cross-cultural
+%  study.
+%\newblock {\em Human Nature}, 20:317--330.
+ 
+%\end{thebibliography}
+%
+%----------------------------------------------------------------------------------------
 
 \end{document}
