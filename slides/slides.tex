@@ -84,23 +84,16 @@
 		\begin{itemize}
 			\item Write word by word rather than spelling
 			\item Optimize every question
+				\note[item]{First, we thought about using something like "Akinator".}
 			\item Intuitive thanks to a simple interface
+				\note[item]{We've worked with designers.}
 			\item The only requirement is a binary input
+				\note[item]{Our software is indenpent of the binary input.}
 		\end{itemize}
 	\end{center}
 \end{frame}
 
 \section{Dicotomix method}
-\subsection{Algortithm}
-\begin{frame}{Algorithm}
-	\begin{center}
-		\begin{itemize}
-			\item Dicotomy over a dictionary (right/left signals)
-			\item Frequences of words taken into account
-			%plus tard gestion dynamique fréquences
-		\end{itemize}
-	\end{center}
-\end{frame}
 
 \subsection{Demo}
 \begin{frame}{Demo}
@@ -109,10 +102,53 @@
 	\end{center}
 \end{frame}
 
+\subsection{Algorithm}
+\begin{frame}{Algorithm}
+	\begin{center}
+		\begin{itemize}
+			\item Dicotomy over a dictionary (right/left signals)
+			\item Frequences of words taken into account
+				\note[item]{Explainations on the board !}
+			\item We can deduce the prefix which is certain and mark it green.
+				\note[item]{This is espacially useful for error detection. We'll see later.}
+		\end{itemize}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Proof that Dicotomix is fast !}
+	%Include here the graphic that compare different methods.
+\end{frame}
+
 \begin{frame}{Assets / Drawbacks}
-	\begin{tcolorbox}[colback=green!5,colframe=green!40!black,title=A nice heading]
-		
+	\begin{tcolorbox}[colback=green!5,colframe=green!40!black,title=Assets]
+		\begin{itemize}
+			\item Faster than spelling
+			\item One can get better by training
+		\end{itemize}
 	\end{tcolorbox}
+	\pause
+	\begin{tcolorbox}[colback=red!5,colframe=red!40!black,title=Drawbacks]
+		\begin{itemize}
+			\item It's hard to deal with mistakes
+			\item Counter intuitive at the beginning (requires some training)
+			\item Requires to be really focused
+			\item What about proper names ?
+		\end{itemize}
+	\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{How to deal with mistakes ?}
+	\begin{itemize}
+		\item Cannot automatically correct mistakes
+			\note[item]{What is the patient is wrong on the first letter ?}
+		\item How to discard last choice ?
+			\note[item]{We've implemented it, we will show you next.}
+		\item How to edit the current sentence ?
+			\note[item]{Currently, Dicotomix aimed to be used in everyday life, not for writting a book !}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Demo (the return)}
 \end{frame}
 
 \begin{frame}{Modularity}
@@ -168,7 +204,7 @@
 
 \begin{frame}{Questions ?}
 	\begin{center}
-		Merci de votre attention
+		Thank you for your attention !
 	\end{center}
 \end{frame}
 \end{document}
