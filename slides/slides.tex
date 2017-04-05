@@ -1,7 +1,11 @@
-\documentclass[notes]{beamer}
+\documentclass[graphics]{beamer}
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{tcolorbox}
+\usepackage{pgfpages}
+
+\setbeameroption{show notes}
+\setbeameroption{show notes on second screen=right}
 
 \usetheme{ENSLyon}
 
@@ -43,11 +47,8 @@
 
 \begin{frame}{Charcot disease and locked-in syndrome}
 	\begin{center}
-		\includegraphics[scale=0.5]{hawking}
+		\includegraphics[scale=0.25]{hawking}
 	\end{center}
-\end{frame}
-
-\begin{frame}{Charcot disease and locked-in syndrome 2}
 	\begin{center}
 		\begin{itemize}
 			\item Almost entirely paralized
@@ -78,14 +79,14 @@
 	\item bob
 	\item alice
 }
-\subsection{Dicotomix idea}
+\subsection{The concept}
 \begin{frame}{Concept}
 	\begin{center}
 		\begin{itemize}
-			\item Writing word by word rather than spelling
-			\item Optimize each question
+			\item Writing word by word rather than spelling (reduce frustration)
+			\item Optimizing each question
 				\note[item]{First, we thought about using something like "Akinator".}
-			\item Intuitive thanks to a simple interface
+			\item Making it intuitive thanks to a simple interface
 				\note[item]{We've worked with designers.}
 			\item The only requirement is a binary input
 				\note[item]{Our software is indenpent of the binary input.}
@@ -93,7 +94,7 @@
 	\end{center}
 \end{frame}
 
-\section{Dicotomix method}
+\section{The Dicotomix's original approach}
 
 \subsection{Demo}
 \begin{frame}{Demo}
@@ -115,7 +116,7 @@
 	\end{center}
 \end{frame}
 
-\begin{frame}{Proof that Dicotomix is fast !}
+\begin{frame}{The proof that Dicotomix is fast !}
 	%Include here the graphic that compare different methods.
 \end{frame}
 
@@ -123,7 +124,11 @@
 	\begin{tcolorbox}[colback=green!5,colframe=green!40!black,title=Assets]
 		\begin{itemize}
 			\item Faster than spelling
+				\note[item]{We made a comparison between some existing methods and ours. This could also be proved theoretically.}
 			\item One can get better by training
+				\note[item]{This will be confirmed by the study.}
+			\item Could even have some fun playing with Dicotomix !
+				\note[item]{The user is not as passive as in the methods described before.}
 		\end{itemize}
 	\end{tcolorbox}
 	\pause
@@ -141,10 +146,14 @@
 	\begin{itemize}
 		\item Cannot automatically correct mistakes
 			\note[item]{What is the patient is wrong on the first letter ?}
+		\pause
 		\item How to discard last choice ?
 			\note[item]{We've implemented it, we will show you next.}
+		\pause
 		\item How to edit the current sentence ?
 			\note[item]{Currently, Dicotomix aimed to be used in everyday life, not for writing a book !}
+		\pause
+		\item Can we deal with semantic mistakes ?
 	\end{itemize}
 \end{frame}
 
@@ -161,26 +170,42 @@
 	\end{center}
 \end{frame}
 
-\section{Demarche}
-\subsection{Contacts}
-\begin{frame}{Contacts}
+\section{Approach}
+\subsection{Evolution of the project}
+\begin{frame}{First, get in touch with people}
 	\begin{center}
 		%graphe de Fabrice (mettre à jour) -> ajouter linguistes, métropole de Lyon, (physicien)
 		%parler du bullshit?
 	\end{center}
 \end{frame}
 
-\begin{frame}{Evolutions}
+\begin{frame}{BCI (Brain Computer Interface)}
 	\begin{center}
-		\begin{itemize}
-			\item Use of BCI, at the beginning
-			\item Ergonomy, cognitive cost %interface simple, intuitive
-			\item Modularity (Web interface)
-		\end{itemize}
+		\includegraphics[scale=0.1]{bci}
+		\includegraphics[scale=0.1]{openbci}
+	\end{center}
+	\begin{center}
+		\begin{tcolorbox}[colback=green!5,colframe=green!40!black,title=Initial Idea]
+			Use of BCI for people who cannot move anything.
+				\note{This was our initial idea.}
+		\end{tcolorbox}
+		\pause
+		\begin{tcolorbox}[colback=red!5,colframe=red!40!black,title=Reallity]
+			Problem is having a good signal and then dealing with it was very hard !
+				\note{We decided to make a break with BCI and to focus on the software part. But we are currently working on it again with Stephan Roux and Amine Metani (physicians at ENS Lyon).}
+		\end{tcolorbox}
 	\end{center}
 \end{frame}
 
-\section{In the future}
+\begin{frame}{The ergonomy of Dicotomix}
+	content...
+\end{frame}
+
+\begin{frame}{Modularity}
+	\includegraphics[scale=0.1]{opensource}
+\end{frame}
+
+\section{What's next ?}
 \subsection{Test phase}
 \begin{frame}{Clinical trials}
 	\begin{center}
@@ -205,6 +230,16 @@
 \begin{frame}{Questions ?}
 	\begin{center}
 		Thank you for your attention !
+		\begin{center}
+			\begin{picture}(100,100)
+				\put(20,30){\includegraphics[scale=0.2]{dicotomix}}
+				\put(-10,50){\includegraphics[scale=0.2]{ars}}
+				\put(60,-25){\includegraphics[scale=0.1]{alis}}
+				\put(95,30){\includegraphics[scale=0.1]{arsla}}
+				\put(35,80){\includegraphics[scale=0.05]{logoens}}
+				\put(-10,0){\includegraphics[scale=0.2]{hospices_civils_de_lyon}}
+			\end{picture}
+		\end{center}
 	\end{center}
 \end{frame}
 \end{document}
