@@ -1,0 +1,159 @@
+\documentclass[12pt]{article}
+
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning,shadows,arrows,graphs}
+% Define the layers to draw the diagram
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+
+\begin{document}
+
+
+\title{Projet Intégré M1IF ENS Lyon 2016-2017 \\ Rapport de mi-parcours \\ Projet Dicotomix }
+\author{M.Guy, E.Hazard, E.Kerinec,\\ F.Lécuyer, P.Mangold, A.Martin,\\ R.Pellerin, N.Pinson, T.Stérin}
+\date{\today}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Introduction}
+
+Dans le cadre de l'U.E "Projet Intégré" du master d'informatique fondamentale de l'ENS de Lyon, nous réalisons le projet \textbf{Dicotomix}. \\
+Le but de notre projet est de réaliser un système de communication afin d'aider des patients atteints de lourds handicaps moteurs les empêchant de s'exprimer de manière traditionnelle. Les pathologies qui concernent notre système sont par exemple le Locked-in Syndrome (\textbf{LIS}) ou encore la maladie de Charcot (\textbf{SLA}). \\ \ \\
+Notre projet se divise en deux composantes :
+\begin{itemize}
+\item La réalisation d'un algorithme pour trouver des mots dans un lexique de manière efficace en se limitant à des entrées binaires ('oui'/'non') pour effectuer la recherche.
+\item L'interfaçage de cet algorithme avec un casque d'électroencéphalographie (EEG) pour pouvoir effectuer cette recherche grâce à l'activité cérébrale.
+\end{itemize}
+\ \\
+\indent Notre équipe étant novice dans le domaine de la \textbf{Brain Computer Interface} ainsi que dans les systèmes d'interaction avec patients atteints, notre projet s'est constamment remodelé au fil des \textbf{rencontres} avec professionnels dont nous avons pu bénéficier. C'est pourquoi vous trouverez d'abord dans ce rapport une \textbf{liste chronologique} de nos rencontres et des conclusions que nous avons tirés d'elles.  \\ \ \\
+\indent À l'heure actuelle, grâce à ces rencontres, nous avons une idée assez précise de la direction à adopter pour la suite du projet. Vous en trouverez la synthèse, accompagnée d'une description du travail déjà effectué, dans la troisième partie de ce rapport.
+\newpage
+
+\section{Chronologie}
+	\subsection{Résumé des rencontres}
+	
+	\begin{itemize}
+		\item \textbf{Octobre : } Rendez vous téléphonique avec \textbf{Maureen Clerc}, spécialiste de la BCI à l'INRIA Grenoble. Prise de connaissance de ses travaux autour du paradigme \textbf{P300} et des \textbf{P300-spellers}. Son équipe publiera bientôt ses résultats autour de leur système d'épellation P300 présenté comme le plus performant au monde. Comme vous le verrez dans la synthèse nous n'utilisons pas ce paradigme mais pourrons donc \textbf{comparer} notre méthode à celle-ci. \\
+		\item \textbf{9 novembre : } Rendez vous avec Yves Béroujon et son équipe de la fondation OVE. Ces orthophonistes travaillent au contact de jeunes malentendants. Première confrontation avec les \textbf{systèmes d'expression à base d'images}, piste un temps considérée pour notre projet.  \textbf{Problème :} le caractère trop peu formalisé de ces méthodes qui les rend difficiles à implémenter de manière générale. \\
+		\item \textbf{10 novembre : } rendez-vous téléphonique avec \textbf{Carole Lapra}, docteur qui nous mettra en relation avec des professionnels de santé spécialisés dans le domaine qui nous intéresse. \\
+		\item \textbf{18 novembre : } rendez vous avec \textbf{Stéphanie Verneyre} par l'intermédiaire de Carole Lapra, du service de neurologie de l'hôpital neurologique Pierre Wertheimer. Spécialiste de l'aphasie, Mme.Verneyre nous a aidé à \textbf{cibler} les pathologies pour lesquelles notre méthode pourrait être efficace. Nous découvrons à cette occasion la maladie de Charcot (SLA). \\
+		\item \textbf{18-20 novembre : } participation au Hackathon "Hacking Health". Nous rencontrons de nombreux professionnels de santé notamment \textbf{Odile Souquet} médecin à l'ARS (Agence régionale de Santé) qui n'a eu cesse par la suite de nous accompagner de manière très personnalisée. Nous lui devons parmi les rencontres les plus déterminantes pour notre projet. \\
+		\item \textbf{19 novembre : } rencontre avec \textbf{Alexandra Corneyllie} du CNRS qui nous a prêté le système de BCI que nous utilisons. Madame Corneyllie est l'une de nos interlocuteurs principaux sur la partie BCI du projet. \\ 
+		\item \textbf{22 décembre : } rencontre téléphonique avec \textbf{Jérémie Mattout}, spécialiste de la BCI et de ses applications à la médecine au CNRS, dans l'équipe d'Alexandre Corneyllie. À la suite de cette discussion \textbf{nous adoptons définitivement le paradigme SSVEP} (au lieu de P300) pour notre interface. Sous ses conseils, nous empruntons un générateur basse-fréquence et une led au laboratoire de physique. Ce dispositif nous permet de contrôler précisément notre système oscillant et pallie les difficultés que nous avons rencontrées avec la BCI. \\
+		\item \textbf{3 janvier : } rencontre avec le Professeur \textbf{Jacques Luauté}, via Odile Souquet, chef du service de rééducation neurologique à l'hôpital Henry Gabrielle. M. Luauté nous explique que faire marcher la BCI chez les sujets handicapés est un défi non encore résolu par les chercheurs spécialistes comme M. Mattout. Cependant le Professeur se montre très enthousiaste quand à notre méthode dichotomique d'énumération du dictionnaire. Il nous propose de la tester dès février étant donné que tous ses patients disposent déjà d'interfaces personnalisées pour exprimer 'oui' ou 'non'. Nous nous focalisons donc sur cette partie du projet pour fournir une solution à tester lors de nos rencontres de février. Cette rencontre souligne l'importance de se mettre en relation avec des linguistes. \\
+		\item \textbf{6 janvier : } réunion avec \textbf{Charlie Lopez}, rencontrée au Hackathon, graphiste qui a réalisé l'interface utilisateur de notre programme. \\
+		\item \textbf{17 janvier : } rencontre avec \textbf{Nicolas Laurent}, professeur de grammaire à l'ENS. Discussion autour des aspects linguistiques de notre projet. Il nous suggère de nous mettre en relation avec le laboratoire de linguistique informatique \textbf{ICAR} de l'ENS de Lyon. \\
+		\item \textbf{Futur, 6 février : } rencontre avec \textbf{Cécile Remy}, via Odile Souquet, spécialiste des \textbf{SLA} qu'elle soigne à domicile. Nous pourrons rencontrer des patients pour \textbf{sonder leurs besoins} et \textbf{tester notre algorithme}. \\
+		\item \textbf{Futur, 10 février : } nouveau rendez vous avec le professeur Luauté pour rencontrer des patients \textbf{LIS}. De même, nous pourrons \textbf{sonder leurs besoins} et \textbf{tester notre algorithme}.
+	\end{itemize}		
+	
+	\subsection{Graphe des intervenants}
+% Draw background
+\newcommand{\background}[5]{%
+  \begin{pgfonlayer}{background}
+% Left-top corner of the background rectangle
+\path (#4.west |- #1.north)+(-0.25,0.5) node (a1) {};
+% Right-bottom corner of the background rectanle
+\path (#2.east |- #3.south)+(+0.25,-0.25) node (a2) {};
+\path[fill=yellow!20,rounded corners, draw=black!50,dashed,thick]
+  (a1) rectangle (a2);% Draw the background
+\path (a1.east |- a1.south)+(1.5,-.1) node (u1)[]
+  {\scriptsize\textit{#5}};
+  \end{pgfonlayer}}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[node distance=1cm, auto]  
+\tikzset{
+    mynode/.style={rectangle,rounded corners,draw=black, top color=white, bottom color=gray!30,very thick, inner sep=1em, minimum size=3em, text centered},
+    hackathon/.style={double},
+    myarrow/.style={->, >=latex', shorten >=1pt,line width=2mm},
+    myedge/.style={ >=latex', shorten >=1pt, line width=1mm, dotted},
+    mylabel/.style={text width=7em, text centered} 
+} 
+\node[mynode] (MC) {Maureen Clerc};
+\node[mynode,below=of MC] (AC) {Alexandra Corneyllie};
+\node[mynode, below=of AC] (JM) {Jérémie Mattout};
+\background{MC}{AC}{JM}{AC}{Spécialistes EEG} (eeg)
+
+
+\node[mynode,right=2 of MC] (YB) {Yves Béroujon};
+\node[mynode,below=of YB] (SV) {Stéphanie Verneyre};
+\node[mynode,below=of SV] (JL) {Jacques Luauté};
+\node[mynode,below=of JL] (remy) {Cécile Remy};
+\background{YB}{SV}{remy}{SV}{En contact avec patients}
+
+\node[mynode,right=1.5cm of YB,hackathon] (lapra) {Carole Lapra};
+\node[mynode,below=of lapra,hackathon] (OS) {Odile Souquet};
+\background{lapra}{OS}{OS}{OS}{Mise en relation}
+
+\node[mynode,below=of OS,hackathon] (charlie) {Charlie Lopez};
+\node[mynode,below=of charlie] (NL) {Nicolas Laurent};
+\background{charlie}{NL}{NL}{NL}{Autres intervenants}
+
+
+\draw[myedge,bend right=5] (AC.south) to (JM.north);
+\draw[myedge,bend right=5] (JM.east) to (JL.west);
+\draw[myedge,bend right=5] (JL.south) to (remy.north);	
+\draw[myedge,bend right=5] (OS.north) to (lapra.south);	
+
+\draw[myarrow,bend right=1] (lapra.west) to (SV.east);	
+\draw[myarrow,bend right=1] (OS.west) to (JL.east);	
+
+\node[below=6mm of JM] (legend1) {\qquad\qquad collaboration};
+\draw[myedge] (JM.west |- JM.south)+(0,-.9) -- ++(,-.9);
+\node[below=3mm of legend1] (legend2) {\qquad\qquad\quad mise en contact};
+\draw[myarrow] (JM.west |- JM.south)+(0,-1.8) -- ++(,-1.8);
+\node[below=3mm of legend2,mynode,hackathon,inner sep=.2em,minimum size=0] (legend2) {participation au Hackathon};
+\end{tikzpicture} 
+\medskip
+\caption{Intervenants rencontrés} 
+\end{figure}
+	
+\section{Synthèse de l'existant et direction adoptée pour la suite}
+\subsection{Interface EEG}
+L'objectif de cette partie du projet est d'utiliser le casque à électro--encéphalographie pour que le patient puisse se faire comprendre sans bouger ni parler. Nous avons cherché à détecter au moins trois signaux différents afin de différencier les réponses "oui", "non", et "ne sait pas".
+\subsubsection{Travail Réalisé}
+\begin{itemize}
+\item Montage et prise en main du casque OpenBCI \\
+\item Travail de documentation autour de la BCI \\
+\item Sélection du paradigme \textbf{SSVEP} pour notre protocole expérimental: le sujet est soumis à une stimulation visuelle qui oscille à une certaine fréquence (entre 5 et 20Hz), le but est de retrouver ces fréquences dans les signaux EEG principalement aux positions O1,O2 et Oz. \\
+\item Premiers traitements en python des signaux EEG, premières expériences avec les ondes alpha (10Hz générés au repos). Nos traitement sont disponibles ici: \\ \url{https://github.com/cosmo-sterin/Ratel/blob/master/EegAnalysis/ChannelAnalysis.ipynb} \\
+\item Premières expériences SSVEP avec contrôle grâce à un GBF + led prêtés par le labo de physique.
+\end{itemize}
+\subsubsection{La suite}
+\begin{itemize}
+\item À la suite de notre rencontre avec le Professeur Luauté et de ses explications (cf historique), notre objectif est que notre interface fonctionne sur les sujets non malades. \\
+\item Nous rencontrons des difficultés pour faire marcher notre protocole nous prévoyons de demander un rendez vous technique avec Mme. Corneyllie ou M. Mattout pour mieux nous y prendre.\\
+\item Il nous faudra ensuite gérer une acquisition en temps réel grâce au module pyacq et l'extension développée par l'équipe de Mme. Corneyllie.
+\end{itemize}
+
+
+
+
+\subsection{Algorithme d'énumération}
+Pour permettre au patient de s'exprimer rapidement, nous avons choisi de lui proposer de naviguer de manière dichotomique dans le dictionnaire. Cette solution s'oppose à celle de l'épelage qui est utilisée la plupart du tempspar ces patients.
+\subsubsection{Algorithme initial}
+L'idée de base est d'utiliser un lexique de $N$ mots et d'atteindre le mot voulu par dichotomie : on propose un mot au patient, et il dit si le mot auquel il pense est avant, après, ou si c'est le mot proposé. A chaque itération, l'espace de recherche est divisé par deux, ce qui permet d'atteindre n'importe quel mot en $Q=\log_2(N)$ questions.
+
+Une première possibilité envisagée était de prendre un lexique réduit aux mille mots les plus courants, donnant $Q=10$. Néanmoins, il nous a paru important que les patients puissent s'exprimer à l'aide d'un panel de mots plus large. Nous avons trouvé un lexique de la langue française contenant $N=130\ 000$ mots sur le site \url{http://lexique.org}. Ce tableau comportant également la fréquence d'apparition de chaque mot, nous avons eu l'idée de pondérer notre dichotomie par l'importance fréquencielle des mots.
+
+Ainsi, les mots les plus utilisés dans la langue française sont proposés avec une plus grande probabilité. Pour une phrase simple, il faut en moyenne $9$ coups pour trouver un mot (alors que $\log_2N\approx 16$), et les mots les plus rares peuvent aussi être trouvés (avec un peu plus de patience).
+
+\subsubsection{Améliorations prévues}
+Les rencontres futures vont nous aider à améliorer la pondération pour mieux répondre aux besoins des patients. Nous envisageons principalement deux types d'optimisation.
+
+D'une part, les rencontres avec des patients, prévues en février, vont nous permettre de les interroger sur le mode d'expression qu'ils souhaitent. Nous leur avons préparé un questionnaire pour savoir ce qu'ils attendent de ce nouvel outil d'expression. Les résultats nous aideront à adapter la pondération à leurs besoins spécifiques.
+
+D'autre part, les linguistes de ICAR pourront certainement nous aider à utiliser les classes grammaticales (présentes dans le lexique) pour prédire les successions de mots : nous prévoyons de modifier la pondération en fonction des mots précédents, et ainsi d'accéder encore plus rapidement aux mots souhaités.
+
+\section*{Conclusion}
+Par l'intermédiaire de nombreuses rencontres avec des professionnels de disciplines variées, nous avons cerné de plus en plus précisément l'intérêt et les contraintes de notre projet. Nous tenons à remercier tous ces intervenants pour leurs conseils avisés et l'intérêt qu'ils nous portent. Les rencontres à venir devraient nous permettre d'aboutir rapidement à un logiciel de communication composé à la fois d'une interface cerveau-machine basique et d'une recherche de mots optimisée.
+\end{document}

@@ -1,0 +1,73 @@
+\documentclass[a4paper,12pt,landscape]{article}
+
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage[a4paper,margin=1in,landscape]{geometry}
+\usepackage{caption}
+
+\usetikzlibrary{arrows,positioning,shadows,arrows,graphs}
+% Define the layers to draw the diagram
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+
+\begin{document}
+
+% 5x {10 mots dictés en ordre croissant, 4 questions imposées, 1 expression libre; tout ca avec que dicotomix}
+% 1x {Le meme texte à épeller avec Dicotomix puis avec méthode habituelle}
+
+
+% Draw background
+\newcommand{\background}[5]{%
+  \begin{pgfonlayer}{background}
+% Left-top corner of the background rectangle
+\path (#4.west |- #1.north)+(-0.25,01) node (a1) {};
+% Right-bottom corner of the background rectanle
+\path (#2.east |- #3.south)+(+0.25,-0.25) node (a2) {};
+\path[fill=yellow!20,rounded corners, draw=black!50,dashed,thick]
+  (a1) rectangle (a2);% Draw the background
+\path (a1.east |- a1.south)+(2.2,-.3) node (u1)[]
+  {\large\textbf{\textit{#5}}};
+  \end{pgfonlayer}}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[node distance=1cm, auto]  
+\tikzset{
+    mynode/.style={rectangle,rounded corners,draw=black, top color=white, bottom color=gray!30,very thick, inner sep=1em, minimum size=3em, text centered},
+    habituelle/.style={double},
+    myarrow/.style={->, >=latex', shorten >=1pt,line width=2mm},
+    myedge/.style={ >=latex', shorten >=1pt, line width=1mm, dotted},
+    mylabel/.style={text width=7em, text centered} 
+} 
+\node[mynode] (MC) {10 mots dictés};
+\node[mynode,below=of MC] (AC) {4 questions simples};
+\node[mynode, below=of AC] (JM) {Expression libre};
+\background{MC}{AC}{JM}{AC}{Session 1} (eeg)
+
+
+\node[mynode,right=4.5 of MC] (YB) {10 mots dictés};
+\node[mynode,below=of YB] (SV) {4 questions simples};
+\node[mynode,below=of SV] (JL) {Expression libre};
+\background{YB}{SV}{JL}{SV}{Session 5}
+
+
+\node[mynode,right=3.5 of YB] (ch) {Dictée avec Dicotomix};
+\node[mynode,below=of ch, habituelle] (NL) {Même dictée épelée};
+\background{ch}{ch}{NL}{ch}{\quad\ Session finale}
+
+
+\node[right=1 of AC] (legend0) {\LARGE $\bullet\bullet\bullet$};
+
+
+\node[below=16mm of NL,mynode,inner sep=.5em,minimum size=0] (legend2) {méthode Dicotomix};
+\node[below=3mm of legend2,mynode,habituelle,inner sep=.5em,minimum size=0] (legend2) {méthode habituelle};
+\end{tikzpicture} 
+\caption*{Schéma du protocole pour l'étude pilote de Dicotomix} 
+\end{figure}
+	
+
+\end{document}
