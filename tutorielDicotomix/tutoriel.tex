@@ -2,79 +2,108 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
-\usepackage[a4paper]{geometry}
+\usepackage[a4paper, margin=2cm]{geometry}
 \usepackage{babel}
 \usepackage{graphicx}
+
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesection}{}
+\newcommand\image[2][.4]{\begin{center}\frame{\includegraphics[scale=#1]{images/#2}}\end{center}}
+
+
 \begin{document}
 	
-\begin{titlepage}
-	\vspace*{\stretch{1.0}}
-	\begin{center}
-		\Large\textbf{Dicotomix pour le locked-in pressé}\\
-		\large\textit{La team Dicotomix}
-	\end{center}
-	\vspace*{\stretch{2.0}}
-\end{titlepage}
 
-\begin{abstract}
-	Dicotomix est un logiciel de saisie de texte mot par mot au moyen d'une navigation dans le dictionnaire. Son but principal est d'offrir une saisie rapide aux personnes en situation de handicap locomoteur lourd.
-	\\
-<<<<<<< HEAD
-	Ce logiciel est développé par une équipe d'étudiants en première annére de master d'informatique à l'Ecole Normale Supérieure de Lyon.
-=======
+\begin{center}
+	\Huge\textbf{Dicotomix}\\
+	\Large\textit{Quand oui et non permettent de tout dire...}
+\end{center}
+\vspace{1cm}
+
+	Dicotomix est un logiciel qui permet d'écrire une phrase en parcourant le dictionnaire. Son but principal est d'offrir une saisie rapide à certaines personnes en situation de handicap. Les patients pourront trouver leurs mots en ne s'exprimant que par \emph{oui} ou \emph{non}. Le seul autre prérequis est de connaître l'alphabet ... mais Dicotomix vous aide pour que ce soit le plus facile possible !
+
+
 	Ce logiciel est développé par une équipe d'étudiants en première année de master d'informatique à l'Ecole Normale Supérieure de Lyon.
->>>>>>> 423023e137b84048317d273d363703d73c7c7ea3
-\end{abstract}
 
-\section*{Fonctionnalités}
-Dicotomix permet d'écrire des phrases en français. Les accents, traits d'union et apostrophes sont disponibles. Il est également possible de rectifier une erreur en annulant la dernière opération ou en effaçant le dernier mot saisi. Dicotomix offre la possibilité de passer en mode "épellation" afin de saisir certains mots inexistants dans le dictionnaire comme les noms propres. Il est ensuite possible d'ajouter ces mots au dictionnaire. De plus, Dicotomix s'adapte à son utilisateur et lui propose en priorité les mots qu'il est le plus susceptible d'utiliser !
 
-\section*{Protocole d'utilisation}
-Commencez par choisir le mot que vous souhaitez écrire. Il ne faut surtout \textbf{pas changer de mot} une fois que vous avez commencé la recherche sous peine de ne rien trouver !
-\\
-Au début, Dicotomix vous propose un mot. Il s'agit d'un mot courant situé vers le milieu du dictionnaire. Vous devez ensuite indiquer au moyen des flèches droite/gauche si le mot que vous cherchez se trouve avant ou après dans l'ordre alphabétique.
-\\
-\begin{center}
-	\includegraphics[scale=0.22]{ex1}
-\end{center}
-Une fois que le mot recherché s'affiche, validez avec la touche "Entrée".
-\\
-Si vous commettez une erreur lors de la recherche d'un mot, vous pouvez annuler la dernière action (ceci peut être fait plusieurs fois de suite) en appuyant sur l'icône adéquate.
-\\
-Au bout de plusieurs étapes, Dicotomix connaît de manière certaine le début de votre mot et l'affiche en vert. \textbf{Si le mot que vous recherchez ne commence pas par le mot vert, c'est que vous avez fait une erreur !}
-\\
-
-\begin{center}
-	\includegraphics[scale=0.22]{vierge}
-\end{center}
-Notez que le tiret et l'apostrophe ne comptent pas pour l'ordre alphabétique, c'est la lettre suivante qui est prise en compte.
-\\
-\begin{center}
-	\includegraphics[scale=0.22]{encours}
-\end{center}
-\begin{center}
-	\includegraphics[scale=0.22]{apostrophe}
-\end{center}
-
-\section*{Conseils d'utilisation}
-\textbf{Ne vous précipitez pas !} Il est tout à fait possible que le mot proposé commence comme le mot que vous recherchez et que le mot suivant soit très différent. Pour autant, ne vous inquiétez pas, vous avez progressé ! Il est fondamental d'accepter cette rigueur de l'ordre alphabétique afin de réussir à écrire vite grâce à Dicotomix.
-\\
-En cas d'erreur, il vaut souvent mieux complètement supprimer le mot plutôt que de faire plusieurs retours arrière.
-\\
-Quelques exemples illustrant l'ordre alphabétique utilisé :
+\section{Fonctionnalités}
 \begin{itemize}
-	\item "lequel" vient après "le"
-	\item "l'" vient avant "la"
-<<<<<<< HEAD
-	\item En cas d'erreur, il vaut souvent mieux complètement supprimer le mot plutôt que de faire plusieurs retours arrières.
-=======
-	\item "porte-monnaie" vient après "portée" et avant "porter", car les tirets et les accents ne comptent pas
->>>>>>> 423023e137b84048317d273d363703d73c7c7ea3
+	\item écrire rapidement des phrases en français
+	\item utiliser n'importe quel mot, avec accents, traits d'union, apostrophes...
+	\item rectifier une erreur, effacer un mot
+	\item épeler de nouveaux mots et les ajouter au dictionnaire
+	\item obtenir un logiciel personnalisé qui met en avant \emph{vos} mots préférés
 \end{itemize}
 
-\begin{center}
-	\includegraphics[scale=0.22]{tiret}
-\end{center}
+\section{Utilisation}
+Dicotomix s'utilise à deux : la personne en situation de handicap moteur, que nous appellerons Dominique, et son aide, Alex.
+\subsection{Connexion}
+En ouvrant le logiciel, les noms des différents patients sont proposés. Alex utilise les flèches Haut et Bas du clavier pour sélectionner le bon prénom ou se placer sur le champ \og Nouvel utilisateur\fg{}.
+\image{login.png}
+Une fois le nom sélectionner, il faut appuyer sur Entrée ou Espace.
+
+\subsection{Ecriture}
+Pour écrire une phrase, Dominique doit penser à un premier mot. Dicotomix propose alors un autre mot pris au milieu du dictionnaire. Alex demande à Dominique :
+\begin{itemize}
+	\item \emph{Votre mot est-il avant dans le dictionnaire ?} Si oui, Alex appuie sur la flèche Gauche
+	\item \emph{Votre mot est-il après ?} Si oui, Alex appuie sur la flèche Droite
+	\item \emph{Votre mot est-il dans la liste ?} Si oui, Alex parcourt la liste avec les flèches Haut et Bas puis appuie sur Entrée, Espace ou le bouton Valider lorsque c'est le bon mot
+	\item \emph{Avez-vous fait une erreur ?} Si oui, Alex appuie sur Annuler ou Recommencer
+	\item \emph{Voulez-vous ajouter un mot ?} Si oui, Alex appuie sur le bouton Epeler
+\end{itemize}
+
+\image{boutons.png}
+
+Au bout de quelques étapes, Dicotomix va avoir la certitude que votre mot commence par certaines lettres : il les affiche en vert. Si votre mot ne commence pas par les lettres vertes, c'est que vous avez fait une erreur (alors, faites Recommencer ou Annuler) ... ou qu'il n'existe pas dans le dictionnaire (alors, passez en Epellation) !
+
+Une lettre de l'alphabet est surlignée en orange : c'est la première lettre qui n'est pas encore verte, celle pour laquelle le logiciel n'est pas encore sûr. Vous pouvez vous en servir pour faciliter la question \emph{avant / après ?}  
+
+\image{prefix.png}
+
+Dans l'exemple ci-dessus, Dominique cherche à écrire \og vite\fg{}. Dicotomix propose \og virage\fg{}, met en vert les deux premières lettres (qui sont garanties par les questions précédentes). Comme le T de \og viTe\fg{} est après le R surligné de \og viRage\fg{}, il faut dire \emph{après}.
+
+Les lettres vertes peuvent aussi permettre à Alex de deviner le mot. Alex peut alors écrire manuellement le mot à la suite de la phrase.
+
+\subsection{Epellation}
+Lorsqu'un mot n'existe pas, Dicotomix passe automatiquement en mode Epellation. Il est possible de l'activer manuellement, soit en cliquant sur le Drapeau (en haut à droite), soit en sélectionnant une lettre seule (orange et italique).
+\image{activeSpell-small.png}
+
+Lorsque le mode Epellation est activé, le fond devient orange et le drapeau s'allume pour le signaler. Désormais, ce n'est plus entre les mots qu'on navigue mais entre les lettres : c'est beaucoup plus facile, mais beaucoup moins rapide !
+\image{spell.png}
+
+Une fois le nouveau mot écrit, Alex appuie sur le drapeau. Cela fait revenir au mode normal et ajoute le nouveau mot au dictionnaire. Ainsi la prochaine fois, Dominique pourra trouver ce mot sans l'épeler.
+
+\section{Conseils}
+\subsection{Théoriques}
+Les caractères spéciaux comme les accents, l'apostrophe, le tiret, le point, etc, n'influent pas dans l'alphabet :
+\begin{itemize}
+	\item \emph{d'accord} est avant \emph{dame}
+	\item \emph{descendre} est avant \emph{désir}
+	\item \emph{ça} est avant \emph{citrouille}
+	\item \emph{porte-monnaie} est avant \emph{porter}
+	\item \emph{portée} est avant \emph{porte-monnaie}
+\end{itemize}
+\vspace{3mm}
+Si deux mots ont le même début, le plus court est avant :
+\begin{itemize}
+	\item \emph{ça} est avant \emph{camion}
+	\item \emph{des} est avant \emph{désir}
+	\item \emph{l'} est avant \emph{la}
+\end{itemize}
+\vspace{3mm}
+Les signes de ponctuations sont listés au tout début de l'alphabet (avant \emph{a}).
+
+\subsection{Pratiques}
+Pour trouver un mot, toutes les questions sont importantes : il \textbf{ne faut pas changer d'objectif} au cours d'une question, sinon Dicotomix ne trouvera pas. Il vaut mieux Recommencer.
+\\
+
+Il est préférable d'\textbf{éviter la précipitation} pour répondre correctement à \emph{avant / après}. La navigation dans l'alphabet est une chose inhabituelle que la plupart d'entre nous n'ont pas pratiquée depuis la primaire... Mais les réflexes reviennent vite après quelques jours d'entraînement !
+\\
+
+Parfois, le premier mot proposé est très proche du mot recherché, mais le second mot proposé est très loin. Ce n'est pas une erreur : le curseur fait simplement de grands bonds dans l'alphabet, mais il finira par revenir sur votre mot.
+\\
+
+En cas d'erreur, il vaut souvent mieux complètement supprimer le mot plutôt que de faire plusieurs retours arrière.
 
 
 
