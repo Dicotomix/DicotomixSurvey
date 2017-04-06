@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{tcolorbox}
 \usepackage{pgfpages}
+\usepackage{hyperref}
 
 \setbeameroption{show notes}
 \setbeameroption{show notes on second screen=right}
@@ -37,6 +38,16 @@
 	\end{center}
 \end{frame}
 
+\begin{frame}{Some figures about Dicotomix}
+	\begin{itemize}
+		\item 24 contributors
+		\item 300 commits
+		\item 50 hours meeting at ENS
+		\item 30 hours meeting outside
+		\item 2 hackathons
+	\end{itemize}
+\end{frame}
+
 \section*{Content}
 \begin{frame}
 	\tableofcontents
@@ -47,13 +58,51 @@
 
 \begin{frame}{Charcot disease and locked-in syndrome}
 	\begin{center}
-		\includegraphics[scale=0.25]{hawking}
-	\end{center}
-	\begin{center}
 		\begin{itemize}
 			\item Almost entirely paralized
 			\item Keeping all cognitive abilities
 		\end{itemize}
+	\end{center}
+\end{frame}
+
+\subsection{Approach}
+
+\newcommand{\background}[5]{%
+	\begin{pgfonlayer}{background}
+		% Left-top corner of the background rectangle
+		\path (#4.west |- #1.north)+(-0.25,0.5) node (a1) {};
+		% Right-bottom corner of the background rectanle
+		\path (#2.east |- #3.south)+(+0.25,-0.25) node (a2) {};
+		\path[fill=yellow!20,rounded corners, draw=black!50,dashed,thick]
+		(a1) rectangle (a2);% Draw the background
+		\path (a1.east |- a1.south)+(1.5,-.1) node (u1)[]
+		{\scriptsize\textit{#5}};
+	\end{pgfonlayer}}
+	
+\begin{frame}{First, get in touch with people}
+	\begin{center}
+		\vspace{-0.8cm}
+		\hspace{-1cm}
+		\includegraphics[scale=0.3]{graphe_intervenants.pdf}
+	\end{center}
+\end{frame}
+
+\begin{frame}{BCI (Brain Computer Interface)}
+	\begin{center}
+		\includegraphics[scale=0.1]{bci}
+		\includegraphics[scale=0.1]{openbci}
+	\end{center}
+	\begin{center}
+		\begin{tcolorbox}[colback=green!5,colframe=green!40!black,title=Initial Idea]
+			Use of BCI for people who cannot move anything.
+			\note{This was our initial idea.}
+		\end{tcolorbox}
+		\pause
+		\begin{tcolorbox}[colback=red!5,colframe=red!40!black,title=Reallity]
+			Problem is having a good signal and then dealing with it was very hard !
+			\note{We decided to make a break with BCI and to focus on the software part. But we are currently working on it again with Stephan Roux and Amine Metani (physicians at ENS Lyon).}
+		\end{tcolorbox}
+		\note{Talk about the first meeting with Luauté who tells us to stop working on BCI...}
 	\end{center}
 \end{frame}
 
@@ -75,11 +124,9 @@
 	\end{center}
 \end{frame}
 
-\note[itemize]{
-	\item bob
-	\item alice
-}
+\section{The Dicotomix's original approach}
 \subsection{The concept}
+
 \begin{frame}{Concept}
 	\begin{center}
 		\begin{itemize}
@@ -94,9 +141,6 @@
 	\end{center}
 \end{frame}
 
-\section{The Dicotomix's original approach}
-
-\subsection{Demo}
 \begin{frame}{Demo}
 	\begin{center}
 		%DEMO!
@@ -104,6 +148,7 @@
 \end{frame}
 
 \subsection{Algorithm}
+
 \begin{frame}{Algorithm}
 	\begin{center}
 		\begin{itemize}
@@ -157,7 +202,7 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Demo (the return)}
+\begin{frame}{Demo (strikes back!)}
 \end{frame}
 
 \begin{frame}{Modularity}
@@ -170,39 +215,10 @@
 	\end{center}
 \end{frame}
 
-\section{Approach}
-\subsection{Evolution of the project}
-\begin{frame}{First, get in touch with people}
-	\begin{center}
-		%graphe de Fabrice (mettre à jour) -> ajouter linguistes, métropole de Lyon, (physicien)
-		%parler du bullshit?
-	\end{center}
-\end{frame}
 
-\begin{frame}{BCI (Brain Computer Interface)}
-	\begin{center}
-		\includegraphics[scale=0.1]{bci}
-		\includegraphics[scale=0.1]{openbci}
-	\end{center}
-	\begin{center}
-		\begin{tcolorbox}[colback=green!5,colframe=green!40!black,title=Initial Idea]
-			Use of BCI for people who cannot move anything.
-				\note{This was our initial idea.}
-		\end{tcolorbox}
-		\pause
-		\begin{tcolorbox}[colback=red!5,colframe=red!40!black,title=Reallity]
-			Problem is having a good signal and then dealing with it was very hard !
-				\note{We decided to make a break with BCI and to focus on the software part. But we are currently working on it again with Stephan Roux and Amine Metani (physicians at ENS Lyon).}
-		\end{tcolorbox}
-	\end{center}
-\end{frame}
 
 \begin{frame}{The ergonomy of Dicotomix}
 	content...
-\end{frame}
-
-\begin{frame}{Modularity}
-	\includegraphics[scale=0.1]{opensource}
 \end{frame}
 
 \section{What's next ?}
@@ -217,14 +233,32 @@
 	\end{center}
 \end{frame}
 
+
+\begin{frame}{Test protocol}
+	A training session:
+	\begin{itemize}
+		\item 10 words to find using Dicotomix
+		\item Spell a name
+		\item 3 questions
+		\item Chatting ("Do you want to say anything?")
+	\end{itemize}
+	Evaluation: write a text using Dicotomix, then the usual method
+\end{frame}
+
 \subsection{Distribution}
 \begin{frame}{Reaching patients}
-	With the help of: 
+	\hspace{7cm}
+	\includegraphics[scale=0.075]{website}\\
+	With the help of:
 	\begin{itemize}
 		\item metropole de Lyon
 		\item ARSLA
-		\item with possibly other partners %citer la meuf qui vient nous voir
+			\note[item]{With possibily other partners...}
+		\item The code is available from our website : \hyperref[http://avalon.ens-lyon.fr/dicotomix]{http://avalon.ens-lyon.fr/dicotomix}
+		\item A Tutorial is available to help to get started
 	\end{itemize}
+	\hspace{10cm}
+	\includegraphics[scale=0.07]{opensource}
 \end{frame}
 
 \begin{frame}{Questions ?}
