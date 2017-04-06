@@ -28,6 +28,7 @@
 
 \begin{frame}
 	\titlepage
+	\note{Speaker = Tristan}
 	\begin{center}
 		\includegraphics[scale=0.2]{dicotomix}
 		\includegraphics[scale=0.08]{logoens}
@@ -54,37 +55,23 @@
 \end{frame}
 
 \section{Introduction}
-\subsection{Motivations}
+\subsection{History}
 
-\begin{frame}{Charcot disease and locked-in syndrome}
-	\begin{center}
+\begin{frame}{The history of our project}
+	\begin{itemize}
+		\item Initial idea
 		\begin{itemize}
-			\item Almost entirely paralized
-			\item Keeping all cognitive abilities
+			\item March 3rd 2016 : SIESTE by Maureen Clerc (BCI)
+			\item Begining of September : using Akinator thanks to BCI in order to communicate
 		\end{itemize}
-	\end{center}
-\end{frame}
-
-\subsection{Approach}
-
-\newcommand{\background}[5]{%
-	\begin{pgfonlayer}{background}
-		% Left-top corner of the background rectangle
-		\path (#4.west |- #1.north)+(-0.25,0.5) node (a1) {};
-		% Right-bottom corner of the background rectanle
-		\path (#2.east |- #3.south)+(+0.25,-0.25) node (a2) {};
-		\path[fill=yellow!20,rounded corners, draw=black!50,dashed,thick]
-		(a1) rectangle (a2);% Draw the background
-		\path (a1.east |- a1.south)+(1.5,-.1) node (u1)[]
-		{\scriptsize\textit{#5}};
-	\end{pgfonlayer}}
-	
-\begin{frame}{First, get in touch with people}
-	\begin{center}
-		\vspace{-0.8cm}
-		\hspace{-1cm}
-		\includegraphics[scale=0.3]{graphe_intervenants.pdf}
-	\end{center}
+		\pause
+		\item November 2016 : Meeting with doctors
+		\begin{itemize}
+			\item November 19th : Alexandra Corneyllie lends us a BCI helmet
+			\item November 18th to 20th : 1st Hackathon at ENS Lyon, we managed to make the hemlet work
+			\item November 20th : Meeting a lot of people. Charlie who made the interface
+		\end{itemize}
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{BCI (Brain Computer Interface)}
@@ -99,12 +86,60 @@
 		\end{tcolorbox}
 		\pause
 		\begin{tcolorbox}[colback=red!5,colframe=red!40!black,title=Reallity]
-			Problem is having a good signal and then dealing with it was very hard!
+			Not only was it hard to get a good signal but also to deal with it afterwards!
 			\note{We decided to make a break with BCI and to focus on the software part. But we are currently working on it again with Stephan Roux and Amine Metani (physicians at ENS Lyon).}
 		\end{tcolorbox}
 		\note{Talk about the first meeting with Luauté who tells us to stop working on BCI...}
 	\end{center}
 \end{frame}
+
+\begin{frame}{History of our project 2}
+	\begin{itemize}
+		\item January 3rd 2017 : Meeting with Pr Luauté
+		\begin{itemize}
+			\item BCI is too complicated
+			\item Our first idea of dichotomy is a good one !
+			\item This could also be useful for the Charcot disease
+		\end{itemize}
+		\pause
+		\item April 17th : Start of clinical trials
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Quite a few people involved...}
+	\begin{center}
+		\vspace{-2cm}
+		\hspace{-1cm}
+		\includegraphics[scale=0.4]{graphe_intervenants.pdf}
+	\end{center}
+\end{frame}
+
+\subsection{Motivations}
+
+\begin{frame}{Charcot disease and locked-in syndrome}
+	\note{Speaker = Nicolas}
+	\begin{tcolorbox}[colback=red!5,colframe=red!40!black,title=Amyotrophic lateral sclerosis]
+		Causes the death of motor neurons, and the gradual weakening of most muscles.
+		\\
+		6 000 cases in France, 150 000 in the world.
+	\end{tcolorbox}
+	\note{ALS is also called "maladie de Charcot"}
+	\pause
+	\begin{tcolorbox}[colback=red!5,colframe=red!40!black,title=Locked-In Syndrom]
+	Different causes (often stroke), resulting on the unability to move most muscles, but keeping cognitive habilities.
+	\\
+	600 cases in France.
+	\end{tcolorbox}
+	
+	\begin{center}
+		\begin{itemize}
+			\item People suffering are almost entirely paralized
+			\item But they have all their cognitive abilities
+		\end{itemize}
+	\end{center}
+\end{frame}
+
+\subsection{Approach}
 
 \begin{frame}{Existing methods : EJASINT}
 	\begin{center}
@@ -142,26 +177,45 @@
 \end{frame}
 
 \begin{frame}{Demo}
+	\note{Speaker = Alexandre}
 	\begin{center}
 		\includegraphics[scale=0.6]{aladdin}
 	\end{center}
 \end{frame}
 
-\subsection{Algorithm}
+\subsection{The algorithm}
 
-\begin{frame}{Algorithm}
+\begin{frame}{The algorithm}
+	\note{Speaker = Emile}
 	\begin{center}
 		\begin{itemize}
 			\item Dichotomy over a dictionary (right/left signals)
 			\item Frequencies of words taken into account
 				\note[item]{Explainations on the board!}
-			\item We can deduce the prefix which is certain and mark it green.
+			\item We can deduce the prefix and mark it green.
 				\note[item]{This is espacially useful for error detection. We'll see later.}
 		\end{itemize}
+		\includegraphics[scale=0.4]{algo}
 	\end{center}
 \end{frame}
 
-\begin{frame}{The proof that Dicotomix is fast!}
+\begin{frame}{Its implementation}
+	\note{Speaker = Alexandre}
+	\begin{itemize}
+		\item The UI was developed with web technologies only
+		\pause
+		\item HTML/CSS for the graphical part
+		\pause
+		\item NodeJS for the logical part
+		\pause
+		\item Can run on many platforms
+	\end{itemize}
+\end{frame}
+
+\subsection{Ergonomy}
+
+\begin{frame}{But is Dicotomix really faster ?}
+	\note{Speaker = Rémi}
 	\begin{center}
 		\includegraphics[scale=0.35]{graphe_comparatif.pdf}
 	\end{center}
@@ -182,7 +236,7 @@
 	\begin{tcolorbox}[colback=red!5,colframe=red!40!black,title=Drawbacks]
 		\begin{itemize}
 			\item It's hard to deal with mistakes
-			\item Counter intuitive at the beginning (requires some training)
+			\item Counterintuitive at the beginning (requires some training)
 			\item Requires to be really focused
 			\item What about proper names ?
 		\end{itemize}
@@ -194,7 +248,7 @@
 		\item Cannot automatically correct mistakes
 			\note[item]{What is the patient is wrong on the first letter ?}
 		\pause
-		\item How to discard last choice ?
+		\item How to discard the last choice ?
 			\note[item]{We've implemented it, we will show you next.}
 		\pause
 		\item How to edit the current sentence ?
@@ -205,65 +259,107 @@
 \end{frame}
 
 \begin{frame}{Demo (strikes back!)}
+	\note{Speaker = Alexandre}
 	\begin{center}
 		\includegraphics[scale=0.6]{aladdin2}
 	\end{center}
 \end{frame}
 
-\begin{frame}{Modularity}
+%\begin{frame}{The ergonomy of Dicotomix}
+%	\begin{center}
+%		\includegraphics[scale=0.2]{vierge}
+%	\end{center}
+%\end{frame}
+
+%\begin{frame}{The ergonomy of Dicotomix 2}
+%	\begin{center}
+%		\includegraphics[scale=0.2]{example1}
+%	\end{center}
+%\end{frame}
+
+%\begin{frame}{The ergonomy of Dicotomix 3}
+%	\begin{center}
+%		\includegraphics[scale=0.2]{encours}
+%	\end{center}
+%\end{frame}
+
+\section{What's next ?}
+
+\subsection{What remains to be done ?}
+
+\begin{frame}{What remains to be done ?}
+	\note{Speaker = Fabrice ?}
 	\begin{center}
 		\begin{itemize}
-			\item Use of every possible dictionary %ajout de mots
+			\item Use of every possible dictionary
 			\item Possibility to change frequencies using some heuristics
 			\item Adaptation to the patient
 		\end{itemize}
 	\end{center}
 \end{frame}
 
-
-
-\begin{frame}{The ergonomy of Dicotomix}
-	\begin{center}
-		\includegraphics[scale=0.2]{vierge}
-	\end{center}
-\end{frame}
-
-\begin{frame}{The ergonomy of Dicotomix 2}
-	\begin{center}
-		\includegraphics[scale=0.2]{example1}
-	\end{center}
-\end{frame}
-
-\begin{frame}{The ergonomy of Dicotomix 3}
-	\begin{center}
-		\includegraphics[scale=0.2]{encours}
-	\end{center}
-\end{frame}
-
-\section{What's next ?}
 \subsection{Test phase}
+
 \begin{frame}{Clinical trials}
 	\begin{center}
 		\begin{itemize}
-			\item Hôpital Lyon Nord %à vérifier
-			\item a few patients
-			\item a training phase and a evaluation phase %décrire le protocole
+			\item Hôpital Neurologique Pierre Wertheimer
+				\note[item]{starting next week}
+			\item A few patients
+			\item A training phase and an evaluation phase
 		\end{itemize}
 	\end{center}
 \end{frame}
 
 
-\begin{frame}{Test protocol}
-	A training session:
-	\begin{itemize}
-		\item 10 words to find using Dicotomix
-		\item Spell a name
-		\item 3 questions
-		\item Chatting ("Do you want to say anything?")
-	\end{itemize}
-	Evaluation: write a text using Dicotomix, then the usual method
+%\begin{frame}{Test protocol}
+%	A training session:
+%	\begin{itemize}
+%		\item 10 words to find using Dicotomix
+%		\item Spell a name
+%		\item 3 questions
+%		\item Free talk ("Do you want to say anything?")
+%	\end{itemize}
+%	Evaluation: write a text using Dicotomix, then the usual method
+%\end{frame}
+
+\begin{frame}{Example of a test session}
+	\note{Speaker = Tristan}
+	\begin{enumerate}
+		\item Try to find the following words :
+			\begin{itemize}
+			\item présents
+			\item tout
+			\item philosophie
+			\item clochette
+			\item fichus
+			\item co-animateur
+			\item anthracine
+			\item cyclorama
+			\item polymorphes
+			\item géothermale
+		\end{itemize}
+	\pause
+	\item Spell, using the spelling mode, the proper name you want.
+	\pause
+	\item Ask 3 questions.
+	\pause
+	\item Free talk.
+	\end{enumerate}
+	Then we evaluate
 \end{frame}
 
+\begin{frame}{Protocol and evaluation}
+	\begin{itemize}
+		\item Training phase to become familiar with the method
+			\note[item]{To allow more revelance when you compare to the usual method during the test phase.}
+		\item Several session to measure the speed of progress in using the method
+		\item Measure the difference in their speeking during the time
+			\note[item]{more complex phrases, use of pronoms...}
+		\item Know their feeling about Dicotomix, and if they want to continue to use it
+			\note[item]{if they are comfortable with it and how it evolves, if they want to use it when they are familiar and not discovering it}
+	\end{itemize}
+\end{frame}
 \subsection{Distribution}
 \begin{frame}{Reaching patients}
 	\hspace{7cm}
@@ -271,11 +367,8 @@
 	\begin{itemize}
 		\item Help of metropole de Lyon and ARSLA
 			\note[item]{With possibily other partners...}
-		\pause
-		\item The code is available from our website : \hyperref[http://avalon.ens-lyon.fr/dicotomix]{http://avalon.ens-lyon.fr/dicotomix}
-		\pause
+		\item The code is available on our website : \hyperref[http://avalon.ens-lyon.fr/dicotomix]{http://avalon.ens-lyon.fr/dicotomix}
 		\item As well as on GitHub
-		\pause
 		\item A Tutorial is available
 	\end{itemize}
 	\hspace{10cm}
