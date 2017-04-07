@@ -117,7 +117,7 @@
 \subsection{Motivations}
 
 \begin{frame}{Charcot disease and locked-in syndrome}
-	\note{Speaker = Nicolas}
+	\note{Speaker = Nicolas\\}
 	\begin{tcolorbox}[colback=red!5,colframe=red!40!black,title=Amyotrophic lateral sclerosis]
 		Causes the death of motor neurons, and the gradual weakening of most muscles.
 		\\
@@ -167,9 +167,9 @@
 		\begin{itemize}
 			\item Writing word by word rather than spelling (reduce frustration)
 			\item Optimizing each question
-				\note[item]{First, we thought about using something like "Akinator".}
+				\note[item]{Strangely, it was quite a new idea in the field!}
 			\item Making it intuitive thanks to a simple interface
-				\note[item]{We've worked with designers.}
+				\note[item]{We've worked with designers (Charlie Lopez).}
 			\item The only requirement is a binary input
 				\note[item]{Our software is indenpent of the binary input.}
 		\end{itemize}
@@ -215,7 +215,7 @@
 \subsection{Ergonomy}
 
 \begin{frame}{But is Dicotomix really faster ?}
-	\note{Speaker = Rémi}
+	\note{Speaker = Rémi\\One can wonder if our method is efficient in practise.\\So we did a "bruteforce" comparison between dicotomix and some of the most used spelling methods. We can see that our method is quite efficient ! But this was a computer that used the sofwares to make this graph, not humans...}
 	\begin{center}
 		\includegraphics[scale=0.35]{graphe_comparatif.pdf}
 	\end{center}
@@ -226,8 +226,10 @@
 		\begin{itemize}
 			\item Faster than spelling
 				\note[item]{We made a comparison between some existing methods and ours. This could also be proved theoretically.}
+			\pause
 			\item One can get better by training
 				\note[item]{This will be confirmed by the study.}
+			\pause
 			\item Could even have some fun playing with Dicotomix!
 				\note[item]{The user is not as passive as in the methods described before.}
 		\end{itemize}
@@ -236,9 +238,13 @@
 	\begin{tcolorbox}[colback=red!5,colframe=red!40!black,title=Drawbacks]
 		\begin{itemize}
 			\item It's hard to deal with mistakes
+				\note[item]{I'll talk about it in a minute!}
 			\item Counterintuitive at the beginning (requires some training)
+				\note[item]{Sometimes you have the beginning of the word and at the next step you have a completely different word, it can be frustrating...}
 			\item Requires to be really focused
+				\note[item]{You have to master the use of your alphabet}
 			\item What about proper names ?
+				\note[item]{Spelling mode (letter by letter) is mandatory to type proper names. It could also be useful to add those names to the dictionary}
 		\end{itemize}
 	\end{tcolorbox}
 \end{frame}
@@ -246,15 +252,16 @@
 \begin{frame}{How to deal with mistakes ?}
 	\begin{itemize}
 		\item Cannot automatically correct mistakes
-			\note[item]{What is the patient is wrong on the first letter ?}
+			\note[item]{What is the patient is wrong on the first letter ? It is note possible to automatically correct those kind of orthographic mistakes. One solution would be to add some mistaken words to the dictionary...}
 		\pause
 		\item How to discard the last choice ?
-			\note[item]{We've implemented it, we will show you next.}
+			\note[item]{Problem is it requires more signals. Of course we can manage to do it with only two signals but we will then have to ask more intermediate questions and it will slow down the whole process.\\In practise, a nurse is available and she can "guess" and then help the patient. We've implemented it, we will show you next.}
 		\pause
 		\item How to edit the current sentence ?
-			\note[item]{Currently, Dicotomix aimed to be used in everyday life, not for writing a book!}
+			\note[item]{Currently, Dicotomix aimed to be used in everyday life, not for writing a book! Once again, a nurse is available so there is no need to save what you've written on the disk, the nurse can just write it down on a paper. However, it could be great to add this feature on the next release.}
 		\pause
 		\item Can we deal with semantic mistakes ?
+			\note[item]{This part requires machine learning. We will talk about it later.}
 	\end{itemize}
 \end{frame}
 
@@ -346,7 +353,6 @@
 	\pause
 	\item Free talk.
 	\end{enumerate}
-	Then we evaluate
 \end{frame}
 
 \begin{frame}{Protocol and evaluation}
