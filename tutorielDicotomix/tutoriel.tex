@@ -5,6 +5,7 @@
 \usepackage[a4paper, margin=2cm]{geometry}
 \usepackage{babel}
 \usepackage{graphicx}
+\usepackage{hyperref}
 
 \renewcommand{\thesubsection}{\arabic{subsection}}
 \renewcommand{\thesection}{}
@@ -20,11 +21,13 @@
 \end{center}
 \vspace{1cm}
 
-	Dicotomix est un logiciel qui permet d'écrire une phrase en parcourant le dictionnaire. Son but principal est d'offrir une saisie rapide à certaines personnes en situation de handicap. Les patients pourront trouver leurs mots en ne s'exprimant que par \emph{oui} ou \emph{non}. Le seul autre prérequis est de connaître l'alphabet ... mais Dicotomix vous aide pour que ce soit le plus facile possible !
+	Dicotomix est un logiciel qui permet d'écrire une phrase en parcourant le dictionnaire. Son but principal est d'offrir une saisie plus rapide à certaines personnes en situation de handicap. Les patients pourront trouver leurs mots en ne s'exprimant que par \emph{oui} ou \emph{non}. Le seul autre prérequis est de connaître l'alphabet ... mais Dicotomix vous aide pour que ce soit le plus facile possible !
 
 
 	Ce logiciel est développé par une équipe d'étudiants en première année de master d'informatique à l'Ecole Normale Supérieure de Lyon.
+\\
 
+Ce logiciel en construction peut présenter des bugs ou des incohérences. \textbf{Il ne faut donc pas vous inquiéter ou vous sentir fautif si des problèmes surviennent lors de l'utilisation ou si vous n'arrivez pas à vous en servir.}
 
 \section{Fonctionnalités}
 \begin{itemize}
@@ -40,11 +43,12 @@ Dicotomix s'utilise à deux : la personne en situation de handicap moteur, que n
 \subsection{Connexion}
 En ouvrant le logiciel, les noms des différents patients sont proposés. Alex utilise les flèches Haut et Bas du clavier pour sélectionner le bon prénom ou se placer sur le champ \og Nouvel utilisateur\fg{}.
 \image{login.png}
-Une fois le nom sélectionner, il faut appuyer sur Entrée ou Espace.
+Une fois le nom sélectionné, il faut appuyer sur Entrée ou Espace.
 
 \subsection{Ecriture}
-Pour écrire une phrase, Dominique doit penser à un premier mot. Dicotomix propose alors un autre mot pris au milieu du dictionnaire. Alex demande à Dominique :
+Pour écrire une phrase, Dominique doit penser à un premier mot. Dicotomix propose alors un autre mot pris dans le dictionnaire. Alex dit à Dominique :
 \begin{itemize}
+	\item \emph{Le mot proposé est \dots}, et laisse un temps de réflexion durant lequel Dominique dit oui si c'est son mot
 	\item \emph{Votre mot est-il avant dans le dictionnaire ?} Si oui, Alex appuie sur la flèche Gauche
 	\item \emph{Votre mot est-il après ?} Si oui, Alex appuie sur la flèche Droite
 	\item \emph{Votre mot est-il dans la liste ?} Si oui, Alex parcourt la liste avec les flèches Haut et Bas puis appuie sur Entrée, Espace ou le bouton Valider lorsque c'est le bon mot
@@ -62,13 +66,13 @@ Une lettre de l'alphabet est surlignée en orange : c'est la première lettre qu
 
 Dans l'exemple ci-dessus, Dominique cherche à écrire \og vite\fg{}. Dicotomix propose \og virage\fg{}, met en vert les deux premières lettres (qui sont garanties par les questions précédentes). Comme le T de \og viTe\fg{} est après le R surligné de \og viRage\fg{}, il faut dire \emph{après}.
 
-Les lettres vertes peuvent aussi permettre à Alex de deviner le mot. Alex peut alors écrire manuellement le mot à la suite de la phrase.
+Les lettres vertes peuvent aussi permettre à Alex de deviner le mot. Alex peut alors écrire manuellement le mot à la suite de la phrase, puis appuyer sur Recommencer pour chercher le mot suivant.
 
 \subsection{Epellation}
 Lorsqu'un mot n'existe pas, Dicotomix passe automatiquement en mode Epellation. Il est possible de l'activer manuellement, soit en cliquant sur le Drapeau (en haut à droite), soit en sélectionnant une lettre seule (orange et italique).
 \image{activeSpell-small.png}
 
-Lorsque le mode Epellation est activé, le fond devient orange et le drapeau s'allume pour le signaler. Désormais, ce n'est plus entre les mots qu'on navigue mais entre les lettres : c'est beaucoup plus facile, mais beaucoup moins rapide !
+Lorsque le mode Epellation est activé, le fond devient orange et le drapeau s'allume pour le signaler. Désormais, ce n'est plus entre les mots qu'on navigue mais entre les lettres : c'est beaucoup plus facile, mais généralement moins rapide !
 \image{spell.png}
 
 Une fois le nouveau mot écrit, Alex appuie sur le drapeau. Cela fait revenir au mode normal et ajoute le nouveau mot au dictionnaire. Ainsi la prochaine fois, Dominique pourra trouver ce mot sans l'épeler.
@@ -104,6 +108,10 @@ Parfois, le premier mot proposé est très proche du mot recherché, mais le sec
 \\
 
 En cas d'erreur, il vaut souvent mieux complètement supprimer le mot plutôt que de faire plusieurs retours arrière.
+
+\section{Contact}
+Si vous rencontrez un problème, souhaitez faire une suggestion, ou voulez renvoyer les données générées par les tests, vous pouvez contacter l'équipe Dicotomix via \href{mailto:dicotomix@ens-lyon.fr}{\nolinkurl{dicotomix@ens-lyon.fr}} ou sur le site internet \url{http://graal.ens-lyon.fr/dicotomix/}.
+
 
 
 
