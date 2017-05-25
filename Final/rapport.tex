@@ -150,9 +150,8 @@ T.Stérin, A.Martin, F.Lécuyer, \\ E.Hazard, P.Mangold, E.Kerinec, M.Guy, \\ R.
 \thispagestyle{empty}
 \section*{Remerciements}
 
-\paragraph{}Tout d'abord, un grand merci à \href{http://graal.ens-lyon.fr/~ecaron/}{Eddy Caron} et \href{http://perso.ens-lyon.fr/issam.rais/}{Issam Raïs}, nos encadrants de projets à
-l'ENS de Lyon. Merci pour la liberté dont nous avons joui dans l'organisation et la mise en \oe uvre de ce projet. Merci pour la confiance que vous nous avez témoignée tout au long de l'année.
-Et enfin, merci de nous avoir donné l'occasion de réaliser un projet si prenant.
+\paragraph{}Tout d'abord, un grand merci à l'ENS de Lyon, au département informatique et à \href{http://graal.ens-lyon.fr/~ecaron/}{Eddy Caron} et \href{http://perso.ens-lyon.fr/issam.rais/}{Issam Raïs}, nos encadrants de projet. Merci pour la liberté dont nous avons joui dans l'organisation et la mise en \oe uvre de ce projet. Merci pour la confiance que vous nous avez témoignée tout au long de l'année.
+Et enfin, merci de nous avoir donné l'occasion de réalisé un projet si prenant.
 
 \paragraph{}
 Nous tenons à remercier très sincèrement le professeur Jacques Luauté qui nous a très généreusement ouvert les portes de son service et toujours encouragé dans notre démarche.
@@ -212,39 +211,34 @@ C'est sur cette idée, de répondre à des questions, qu'est construite l'applic
 un personnage auquel on pense. Ainsi, sous réserve d'élargir le procédé à n'importe quel type d'objet, cette méthode pouvait servir d'alternative aux méthodes traditionnelles de communication.
 
 \paragraph{} Ces méthodes traditionnelles, que nous avons regroupées dans notre étude comparative (voir Annexe B), reposent toutes sur le même principe : énumérer les
-lettres de l'alphabet au patient et attendre qu'il dise oui au moment où l'on annonce la sienne. Ainsi, lettre par lettre les mots sont épelés. Tout l'enjeu de notre démarche est de penser une solution moins frustrante [ETUDE 9 Chez Pauloss] que l'épellation. Le système de réponse à des questions, type Akinator, était notre premier candidat.
+lettres de l'alphabet au patient et attendre qu'il dise oui au moment où l'on annonce la sienne. Lettre par lettre, les mots sont ainsi épelés. Tout l'enjeu de notre démarche est de penser une solution moins frustrante [ETUDE 9 Chez Pauloss] que l'épellation. Le système de réponse à des questions, type Akinator, était notre premier candidat.
 
-\paragraph{} Ainsi, très tôt dans notre travail c'est donc dégagé deux grands axes de réflexion:
+\paragraph{} Ainsi, deux grands axes de réflexion se sont dégagés très tôt dans notre travail :
 \begin{itemize}
 \item \textbf{L'interface}, c'est à dire le moyen physique de dire "Oui" ou "Non". Ici, les signaux EEG contre le mouvement des yeux.
 \item \textbf{La méthode} pour exprimer un mot une fois que l'on est capable de dire "Oui" ou "Non" -- peu importe le moyen. Ici, la méthode Akinator contre 
 les méthodes traditionnelles d'épellation.
 \end{itemize}
 
-\paragraph{} Les deux prochaines parties détaillent nos travaux dans les deux branches et comment, au fil de nos interactions avec le monde hospitalier, nous avons transformé nos approches
-pour en arriver à Dicotomix.
+\paragraph{} Les deux prochaines parties détaillent nos travaux dans les deux branches et comment, au fil de nos interactions avec le monde hospitalier, nous avons transformé nos approches pour en arriver à Dicotomix.
 
 \subsection{Interface cerveau machine}
 \subsubsection{Casque EEG}
-La première partie de notre travail en BCI a consisté à se renseigner autour du matériel dont l'on pouvait bénéficier pour réaliser nos
-expériences EEG. Deux catégories se sont alors dessinées:
+La première partie de notre travail en BCI a consisté à se renseigner autour du matériel dont on pouvait bénéficier pour réaliser nos expériences EEG. Deux catégories se sont alors dessinées:
 \begin{itemize}
-    \item Le matériel d'hôpital, très performant -- très bonne résolution des signaux, et donc très onéreux ($\sim$20k \euro{}) ainsi que
-    difficile d'accèsà l'hôpital -- besoin d'accréditations.
-    \item Le matériel pour particuliers. Il existe des modèles de BCI à des fins expérimentatoires, la résolution
-    est faible mais suffisante pour des premiers résultats. Aussi les budgets ne sont plus du tout les mêmes ($\sim$600 \euro{}).
+    \item Le matériel d'hôpital, très performant -- très bonne résolution des signaux -- donc très onéreux ($\sim$20k \euro{}) et difficile d'accès à l'hôpital (besoin d'accréditations).
+    \item Le matériel pour particuliers. Il existe des modèles de BCI à des fins expérimentales dont la résolution
+    est faible mais suffisante pour des premiers résultats. Le budget est sensiblement différent ($\sim$600 \euro{}).
 \end{itemize}
 
-\paragraph{}Nous nous sommes donc orientés vers les solutions pour particuliers où encore on trouve principalement deux possibilités:
+\paragraph{} Nous nous sommes donc orientés vers les solutions pour particuliers où deux possibilités se présentent à nouveau :
 \begin{itemize}
-    \item Du matériel propriétaire, édité par la société Emotiv. Le code associé au matériel (SDK) étant donc protégé et potentiellement peu malléable.
-
+    \item Du matériel propriétaire, édité par la société Emotiv. Le code associé au matériel (SDK) est protégé et peu malléable.
     \item Du matériel libre édité par l'organisation \href{http://openbci.com/}{OpenBCI} à la philosophie entièrement open software et open hardware (le casque est 3D imprimable).
 \end{itemize}
-C'est sous les conseils de Maureen Clerc que nous nous sommes orientés vers le matériel OpenBCI dont elle nous avait attesté de la qualité.
+C'est sous les conseils de Maureen Clerc que nous nous sommes orientés vers le matériel OpenBCI dont elle nous avait attesté la qualité.
 
-\paragraph{}C'est grâce à Alexandra Corneyllie et Jérémie Mattout, ingénieure de recherche et chercheur spécialistes en BCI, que nous avons pu avoir accès au casque \texttt{Ultracortex Mark IV} 
-d'OpenBCI (Figure \ref{openbci}) qu'ils nous ont prêté pendant toute la durée de notre projet.
+\paragraph{} C'est grâce à Alexandra Corneyllie et Jérémie Mattout, ingénieure de recherche et chercheur spécialistes en BCI, que nous avons pu avoir accès au casque \texttt{Ultracortex Mark IV} d'OpenBCI (Figure \ref{openbci}) qu'ils nous ont prêté pendant toute la durée de notre projet.
 
 \begin{figure}[h!]
 \centering
@@ -253,19 +247,15 @@ d'OpenBCI (Figure \ref{openbci}) qu'ils nous ont prêté pendant toute la durée
 \label{openbci}
 \end{figure}
 
-\paragraph{}Nous avions pour ambition d'être capable de détecter un signal binaire avec le casque EEG. C'est à dire de concevoir une situation qui permet au patient
-d'indiquer par son activité cérébrale un "Oui" ou un "Non". Nous avons envisagés deux paradigmes EEG, parmi les plus simples de la discipline, les ondes alpha et 
+\paragraph{} Nous avions pour ambition d'être capables de détecter un signal binaire avec le casque EEG, c'est-à-dire de concevoir une situation qui permet au patient
+d'indiquer par son activité cérébrale un "Oui" ou un "Non". Nous avons envisagés deux paradigmes EEG parmi les plus simples de la discipline : les ondes alpha et 
 le SSVEP. 
 
 \subsubsection{Paradigme Alpha}
 
-Lorsqu'on se relaxe -- fermer les yeux par exemple, le cerveau produit avec une intensité plus élevée que la moyenne des composantes à 10Hz que l'on retrouve en position O1 du système 10-20 (Figure \ref{dix}).
+\paragraph{} Lorsqu'on fermer les yeux ou qu'on se relaxe, le cerveau produit avec une intensité plus élevée que la moyenne des composantes à 10Hz que l'on retrouve en position O1 du système 10-20 (Figure \ref{dix}).
 Ces composantes sont appelées ondes Alpha [REF NECESSAIRE]. Il s'agit donc de repérer ces pics de fréquence à 10Hz et de les associer à une réponse, par
-exemple "Oui". La Figure \ref{eeghack} montre les résultats en temps fréquence issus d'un blog d'expert [REF EEG HACKER] contre les meilleurs données que nous avions pu générer en Figure \ref{ouralph}.
-On voit que les siennes sont très discriminées. Les notres sont plus hasardeuses car il s'agissait d'en retrouver sur toute la période temporelle et que l'on en voit seulement autour de 110s. Notre expérimentation avec les ondes alpha n'a pas été concluante. Une des hypothèses,
-autre que celle de la fiabilité de l'acquisition est que l'émission des ondes alpha est sujet-dépendante: certaines personnes en produisent moins que d'autres et nous faisions souvent
-les tests avec le même d'entre nous.
-
+exemple "Oui". La Figure \ref{eeghack} montre les résultats en temps fréquence issus d'un blog d'expert [REF EEG HACKER] contre les meilleures données que nous avions pu générer en Figure \ref{ouralph}, suite à un enregistrement des ondes cérébrales d'une personne de l'équipe avec le casque EEG.
 
 \begin{figure}[h!]
 \centering
@@ -274,16 +264,21 @@ les tests avec le même d'entre nous.
 \label{dix}
 \end{figure}
 
+\paragraph{} On voit que les siennes sont très discriminées. Les notres sont plus hasardeuses : on en voit seulement autour de 110s alors qu'elles auraient dû apparaître sur toute la période temporelle. Notre expérimentation avec les ondes alpha n'a pas été concluante. Pour expliquer cet échec, plusieurs possibilités ont été suggérées :
+\begin{itemize}
+	\item l'acquisition des ondes dépend de nombreux paramètres comme la position des électrodes, le placement du casque, l'immobilité des fils et câbles ; il est donc probable que notre configuration n'ait pas été optimale.
+	\item l'émission des $\alpha$ est sujet-dépendante : certaines personnes en produisent moins que d'autres. Comme nous avons principalement testé sur une même personne, l'absence d'ondes $\alpha$ peut être inhérente au sujet.
+	\item les ondes alpha sont bruitées par d'autres sources électromagnétiques et par l'activité cérébrale annexe du sujet. Un manque de concentration, l'appréhension ou l'excitation dues à l'expérience, peuvent avoir nui à la relaxation et donc à l'émission $\alpha$.
+\end{itemize}
+
 \begin{figure}[h!]
 \centering
-
 \caption{Ondes alpha : résultats d'expert}
 \includegraphics[scale=0.5]{images/eeghackerAlpha.png}
 \label{eeghack}%
 \end{figure}
 \begin{figure}[h!]
 \centering
-
 \caption{Ondes alpha : nos résultats}
 \includegraphics[scale=0.5]{images/ourAlpha.png}
 \label{ouralph}%
@@ -291,26 +286,21 @@ les tests avec le même d'entre nous.
 
 \subsubsection{Paradigme SSVEP}
 
-Le paradigme SSVEP repose sur le phénomène de potentiel évoqué [REFERENCE]. Si l'on présente à un sujet une image qui clignote à une certaine fréquence (entre 5 et 10Hz dans nos expériences) on retrouve 
-des pics à cette fréquence dans l'activité du cortex visuel (O1, O2 sur la Figure \ref{dix}). L'idée est donc de proposer deux vignettes qui clignotent à deux fréquences différentes sur l'écran, une pour
-oui et une pour non, et de repérer le choix du patient en fonction de celle sur laquelle il porte son attention. Le même blog d'expert [EEG HACKER] réussit à contrôler un robot à l'aide de ce paradigme.
-Malgré tous nos essais nous n'avons rien obtenu de concluant. Cela très certainement pour les raisons suivantes:
+\paragraph{} Le paradigme SSVEP repose sur le phénomène de potentiel évoqué [REFERENCE]. Si l'on présente à un sujet une image qui clignote à une certaine fréquence (entre 5 et 10Hz dans nos expériences) on retrouve 
+des pics à cette fréquence dans l'activité du cortex visuel (électrodes O1 et O2 sur la Figure \ref{dix}). L'idée est donc de proposer deux sources lumineuses qui clignotent à deux fréquences différentes sur l'écran (une pour Oui et une pour Non), et de repérer le choix du patient en fonction de celle sur laquelle il porte son attention. Le même blog d'expert [EEG HACKER] réussit à contrôler un robot à l'aide de ce paradigme.
+Malgré tous nos essais nous n'avons rien obtenu de concluant. Cela est très certainement dû aux raisons suivantes:
 
 \begin{itemize}
-\item Des problèmes d'acquisitions, en effet des spécialistes de l'EEG à l'ENS on remis en cause la qualité de nos signaux.
-\item Un manque de contrôle sur la fréquence exacte à laquelle la vignette clignote. Jérémie Mattout, spécialiste de l'EEG nous avait suggéré un protocole
+\item Des problèmes d'acquisitions : des physiciens de l'ENS, spécialistes de l'EEG, ont remis en cause la qualité de nos signaux. Un mauvais placement du casque ou un paramétrage approximatif du logiciel d'acquisition peuvent en être à l'origine.
+\item Un manque de contrôle sur la fréquence exacte à laquelle la vignette clignote. Jérémie Mattout, spécialiste de l'EEG, nous avait suggéré un protocole
 plus fin pour se débarasser de ce biais à l'aide d'électro-photodiodes. Nous n'avons pas réussi à aboutir non plus.
 \end{itemize}
 
 \subsubsection{Conclusions}
 
-Les difficultés que nous rencontrions avec l'EEG devaient nous inciter à persévérer. Cependant, le professeur Luauté, que nous avons rencontré à mi-parcours nous a très vite 
-mis en garde sur la faisabilité de notre démarche. En effet, alors même que nous n'arrivions pas à obtenir des résultats satisfaisants sur des sujets sains, les équipes de recherches spécialistes 
-du domaine butaient à faire fonctionner ces paradigmes chez les patients cérébrolésés [VOIR LES TROIS DOSSIER REFERENCES/HARD]. Il nous invita à nous concentrer en priorité sur la méthode que nous 
-voulions mettre en \oe uvre pour traiter ces signaux "Oui" / "Non" puisqu'il était déjà possible de la tester avec le code "Oui" / "Non" occulaire de ses patients. 
+\paragraph{} Les difficultés que nous rencontrions avec l'EEG devaient nous inciter à persévérer. Cependant, le professeur Luauté, que nous avons rencontré à mi-parcours (janvier), nous a très vite mis en garde sur la faisabilité de notre démarche. En effet, alors même que nous n'arrivions pas à obtenir des résultats satisfaisants sur des sujets sains, les équipes de recherches spécialistes du domaine butaient à faire fonctionner ces paradigmes chez les patients cérébrolésés [VOIR LES TROIS DOSSIER REFERENCES/HARD]. Il nous a invités à nous concentrer en priorité sur la méthode que nous voulions mettre en \oe uvre pour traiter ces signaux Oui/Non, arguant que nous pourrions la tester avec le code Oui/Non occulaire que beaucoup de ses patients utilisent. 
 
-\paragraph{} Nous avons donc laissé de côté nos investigations autour de la BCI. Toutefois nous avons appris beaucoup de choses pendant cette phase du projet et nous nous sommes 
-familiarisés avec un ensemble de techniques et de protocole expérimentaux qui nous étaient inconnus. Nous en tirons une idée plus claires de la réalité et des enjeux des interfaces cerveau-machine.
+\paragraph{} Nous avons donc laissé de côté nos investigations autour de l'interface BCI pour nous concentrer sur la méthode de communication. Toutefois nous avons appris beaucoup de choses pendant cette phase du projet et nous nous sommes familiarisés avec un ensemble de techniques et de protocole expérimentaux qui nous étaient inconnus. De cette investigation pluridisciplinaire, nous tirons une idée plus claire de la réalité et des enjeux des interfaces cerveau-machine.
 
 \subsection{Akinator}
 
@@ -342,7 +332,8 @@ TODO \\
 Parler ensuite du spelling Mode et de la prédiction de lettre grace aux 5-grams (remercier linguistes Quignard et Magué pour l'idée blabla).\\
 Dire qu'on pourrait faire du ngrams sur les mots pour prediction de mots.\\
 Mentionner les techniques à l'état de l'art dans le domaine LSTM et réseaux de neurones récurrents. \\
-Insister que Dicotomix en bénéficierai bcp. \\
+Insister que Dicotomix en bénéficierai bcp. \\ 
+DIRE LE MOT INTELLIGENCE ARTIFICIELLE \\
 Dire que Luauté était emballé.  \\
 P.e: reprendre les schémas de la pres
 
@@ -410,12 +401,20 @@ celle de la méthode. Encore un élément que le contact avec la réalité nous 
 
 \section{Conclusion}
 
-
+Le projet Dicotomix est avant tout une histoire de rencontres. Rencontres avec des disciplines différentes comme la BCI ou la linguistique, avec des univers différents comme le monde hospitalier. 
+Mais surtout rencontres avec des personnes, toutes passionnées, qui ont donné sens à ce que nous voulions faire. 
+\paragraph{}Cette expérience nous a initié au défi que représente le fait de vouloir réaliser une idée. Défi car, 
+c'est à mesure que l'on se rapproche de sa concrétisation, de son passage à la réalité, que celle-ci se re-modèle et change de forme. Elle change de forme sous la contrainte de cette réalité
+qui en est l'unique juge. Exactement suivant ce principe, alors que les résultats de l'étude pilote sont mitigés, ils nous ont dévoilé de nombreux moyens d'améliorer la technique. À commencer par en utiliser
+uniquement la composante prédictive afin de construire un tableau de lettre interactif.
+\paragraph{}Persuadés que pour être poursuivi dans des conditions sérieuses ce projet nécessiterait un investissement à plein temps de notre part et face à l'éparpillement qui attend notre équipe avec l'entrée 
+en M2, nous avons pris la décision de le laisser reposer pour le moment. Tous nous abordons des parcours différents et nos regards croisés pourront enrichir, dans le futur, notre rapport 
+à la problématique principale de Dicotomix. Pour l'heure, elle nous laisse forts de tout ce que l'on peut apprendre en allant à la rencontre des autres.
 
 \appendix
 \section{Intervenants extérieurs et chronologie détaillée}
 \subsection{Graphe des intervenants}
-TODO: graphe des intervenants
+TODO: mettre le graphe des intervenants
 \subsection{Chronologie détaillée}
 \begin{itemize}
         \item \textbf{Octobre : } Rendez vous téléphonique avec \textbf{Maureen Clerc}, spécialiste de la BCI à l'INRIA Grenoble. Prise de connaissance de ses travaux autour du paradigme \textbf{P300} et des \textbf{P300-spellers}. Son équipe publiera bientôt ses résultats autour de leur système d'épellation P300 présenté comme le plus performant au monde. Comme vous le verrez dans la synthèse nous n'utilisons pas ce paradigme mais pourrons donc \textbf{comparer} notre méthode à celle-ci. \\
