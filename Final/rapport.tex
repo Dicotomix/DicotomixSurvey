@@ -307,8 +307,22 @@ Nous tenons à remercier les [LINGUISTES] pour cette partie. \\
 Remercier CHarlie Lopez.
 
 \subsection{L'algorithme Dicotomix}
+%Parler d'abord de dicotomix sur l'ensemble du dictionnaire avec astuces de randomisation pour cadavre et les autres petits tricks.\\
+Pour une entrée de type "Oui" / "Non", le plus efficace est d'optimiser chaque question en l'utilisant pour diviser par deux le nombre de possibilités, d'où l'idée d'une simple dichotomie.
+Cependant, opérer ainsi sur l'ensemble des mots du dictionnaire n'est pas suffisant, puisque cela consiste à séparer à chaque étape en deux parties contenant le même nombre de mots, tandis que nous voulons deux parties de même probabilité. 
+C'est pourquoi nous procédons par dichotomie pondérée par des fréquences pour chaque mot, ce qui revient à opérer sur un segment ou chaque mot à une longueur proportionnelle à sa fréquence (figure \ref{algo}).
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.6]{schema_algo.png}
+\caption{Schéma du fonctionnement de l'algorithme}
+\label{algo}
+\end{figure}
+
+Pour déterminer la fréquence de chaque mot, nous avons utilisé une base de données donnant les fréquences des mots de la langue française en se basant sur des livres et des films. Nous avons ensuite ajouté quelques astuces en réponse à différents problèmes.\\
+Un premier problème, d'apparence anodine, est le déterminisme de cet algorithme, qui a plusieurs effets négatifs : le côté répétitif pour l'utilisateur, le fait de tomber sur un mot très improbable situé juste à côté d'un mot souvent utilisé, ou encore l'apparition fréquente d'un mot désagréable (une version de l'algorithme menait très régulièrement au mot "cadavre"). Nous avons réglé ce problème en ajoutant un léger facteur aléatoire lorsque l'on coupe un segment en deux, pour ne pas tomber systématiquement sur le même mot.\\
+Après cette modification, il a fallu mettre en place une mémorisation du chemin pour pouvoir revenir sur ses pas, puisque cette opération n'était plus déterminisée par la position actuelle.\\
 TODO \\
-Parler d'abord de dicotomix sur l'ensemble du dictionnaire avec astuces de randomisation pour cadavre et les autres petits tricks.\\
 Parler ensuite du spelling Mode et de la prédiction de lettre grace aux 5-grams (remercier linguistes Quignard et Magué pour l'idée blabla).\\
 Dire qu'on pourrait faire du ngrams sur les mots pour prediction de mots.\\
 Mentionner les techniques à l'état de l'art dans le domaine LSTM et réseaux de neurones récurrents. \\

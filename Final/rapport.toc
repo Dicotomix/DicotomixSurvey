@@ -20,14 +20,14 @@
 \contentsline {subsection}{\numberline {2.2}Akinator}{7}{subsection.2.2}
 \contentsline {section}{\numberline {3}La solution Dicotomix}{7}{section.3}
 \contentsline {subsection}{\numberline {3.1}L'algorithme Dicotomix}{7}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Le logiciel}{7}{subsection.3.2}
-\contentsline {section}{\numberline {4}L'\IeC {\'e}tude pilote}{7}{section.4}
-\contentsline {subsection}{\numberline {4.1}Le cadre}{7}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}La m\IeC {\'e}thodologie}{7}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}La r\IeC {\'e}alisation}{7}{subsection.4.3}
-\contentsline {section}{\numberline {5}Conclusion}{7}{section.5}
-\contentsline {section}{\numberline {A}Intervenants ext\IeC {\'e}rieurs et chronologie d\IeC {\'e}taill\IeC {\'e}e}{7}{appendix.A}
-\contentsline {subsection}{\numberline {A.1}Graphe des intervenants}{7}{subsection.A.1}
+\contentsline {subsection}{\numberline {3.2}Le logiciel}{8}{subsection.3.2}
+\contentsline {section}{\numberline {4}L'\IeC {\'e}tude pilote}{8}{section.4}
+\contentsline {subsection}{\numberline {4.1}Le cadre}{8}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}La m\IeC {\'e}thodologie}{8}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}La r\IeC {\'e}alisation}{8}{subsection.4.3}
+\contentsline {section}{\numberline {5}Conclusion}{8}{section.5}
+\contentsline {section}{\numberline {A}Intervenants ext\IeC {\'e}rieurs et chronologie d\IeC {\'e}taill\IeC {\'e}e}{8}{appendix.A}
+\contentsline {subsection}{\numberline {A.1}Graphe des intervenants}{8}{subsection.A.1}
 \contentsline {subsection}{\numberline {A.2}Chronologie d\IeC {\'e}taill\IeC {\'e}e}{8}{subsection.A.2}
 \contentsline {section}{\numberline {B}\IeC {\'E}tude comparative de la solution Dicotomix}{9}{appendix.B}
 \contentsline {section}{\numberline {C}Tutoriel d'utilisation de Dicotomix}{17}{appendix.C}
