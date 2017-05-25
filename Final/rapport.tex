@@ -42,7 +42,7 @@
 \usepackage{sistyle} % mise en forme des unités
 
 \usepackage{eurosym} % symbole 
-\def\{\euro{}}
+\def\€{\euro{}}
 
 \usepackage{color} % gestion de différentes couleurs
 
@@ -115,7 +115,7 @@ hyperfigures=false]
 
 \vspace{0.5cm}
 
-M.Guy, E.Hazard, E.Kerinec,\\ F.Lécuyer, P.Mangold, A.Martin,\\ R.Pellerin, N.Pinson, A.Słowik, T.Stérin
+T.Stérin, A.Martin, F.Lécuyer, \\ E.Hazard, P.Mangold, E.Kerinec, M.Guy, \\ R.Pellerin, N.Pinson, A.Słowik
 
 \vspace{1.5cm}
 
@@ -175,7 +175,7 @@ De sa genèse à l'étude pilote, c'est l'aventure humaine et scientifique du pr
 \section{Genèse du projet}
 
 L'idée initiale du projet est née à la suite d'une conférence de Maureen Clerc à l'ENS de Lyon. Elle est une des spécialistes française de l'Interface Cerveau Machine (\textbf{BCI} pour Brain Computer Interface).
-Les interfaces cerveaux machines constituent l'ensemble des techniques qui permettent de contrôler un ordinateur à l'aide de l'activité cérébrale. Sa conférence était orientée autour de l'électroencéphalographie (\textbf{EEG}), qui étudie les activités électriques du cerveau grâce à un casque d'électrodes posées sur le scalp (Figure \ref{eeg}). Il s'agissait d'une introduction aux techniques permettant d'exploiter informatiquement ces signaux EEG.
+Les interfaces cerveaux machines constituent l'ensemble des techniques qui permettent d'interagir avec un ordinateur à l'aide de l'activité cérébrale. Sa conférence était orientée autour de l'électroencéphalographie (\textbf{EEG}), qui étudie les activités électriques du cerveau grâce à un casque d'électrodes posées sur le scalp (Figure \ref{eeg}). Il s'agissait d'une introduction aux techniques permettant d'exploiter informatiquement ces signaux EEG.
 
 \begin{figure}[ht]
 \centering
@@ -184,19 +184,175 @@ Les interfaces cerveaux machines constituent l'ensemble des techniques qui perme
 \label{eeg}
 \end{figure}
 
-\paragraph{}L'idée était alors la suivante : pourquoi ne pas utiliser ces signaux EEG pour permettre au patient LIS de répondre à des questions ?
-Des questions, posées astucieusement 
+\paragraph{}L'idée était alors la suivante : utiliser les signaux EEG pour permettre au patient de répondre à des questions à réponse binaire posées par la machine.
+C'est à dire associer à certains signaux cérébraux que le patient choisit d'emettre la réponse "Oui" et aux autres la réponse "Non". 
+C'est sur cette idée, de répondre à des questions, qu'est construite l'application \href{http://fr.akinator.com/}{Akinator}. Elle devine, et souvent très rapidement, 
+un personnage auquel on pense. Ainsi, sous réserve d'élargir le procédé à n'importe quel type d'objet, cette méthode pouvait servir d'alternative aux méthodes traditionnelles.
+\paragraph{}
+Ces méthodes traditionnelles, que nous avons regroupées dans notre étude comparative (voir Annexe B), reposent toutes sur le même principe. Il s'agit d'énumérer les
+lettres de l'alphabet au patient et d'attendre qu'il dise oui au moment où l'on annonce la sienne. Ainsi, lettre par lettre les mots sont épelés. Tout l'enjeu de 
+notre démarche est de penser une solution moins frustrante [ETUDE 9 Chez Pauloss] que l'épellation. Le système de réponse à des questions, type Akinator, était notre premier candidat.
+
+\paragraph{}Ainsi, très tôt dans notre travail c'est donc dégagé deux grands axes de réflexion:
+\begin{itemize}
+\item \textbf{L'interface}, c'est à dire le moyen physique de dire "Oui" ou "Non". Ici, les signaux EEG contre le mouvement des yeux.
+\item \textbf{La méthode} pour exprimer un mot une fois que l'on est capable de dire "Oui" ou "Non" -- peu importe le moyen. Ici, la méthode Akinator contre 
+les méthodes traditionnelles d'épellation.
+\end{itemize}
+
+\paragraph{}Les deux prochaines parties détaillent nos travaux dans les deux branches et comment, au fil de nos interactions avec le monde hospitalier, nous avons transformé nos approches
+pour en arriver à Dicotomix.
 
 \subsection{Interface cerveau machine}
+Nous tenons particulièrement à remercier Maureen Clerc, Alexandra Corneyllie et Jérémie Mattout pour leur aide précieuse dans ce domaine.
+\subsubsection{Casque EEG}
+La première partie de notre travail en BCI a consisté à se renseigner autour du matériel dont l'on pouvait bénéficier pour réaliser nos
+expériences EEG. Deux catégories se sont alors dessinées:
+\begin{itemize}
+    \item Le matériel d'hôpital, très performant -- très bonne résolution des signaux, et donc très onéreux ($\sim$20k \euro{}) ainsi que
+    difficile d'accèsà l'hôpital -- besoin d'accréditations.
+    \item Le matériel pour particuliers. Il existe des modèles de BCI à des fins expérimentatoires, la résolution
+    est faible mais suffisante pour des premiers résultats. Aussi les budgets ne sont plus du tout les mêmes ($\sim$600 \euro{}).
+\end{itemize}
+
+\paragraph{}Nous nous sommes donc orientés vers les solutions pour particuliers où encore on trouve principalement deux possibilités:
+\begin{itemize}
+    \item Du matériel propriétaire, édité par la société Emotiv. Le code associé au matériel (SDK) étant donc protégé et potentiellement peu malléable.
+
+    \item Du matériel libre édité par l'organisation \href{http://openbci.com/}{OpenBCI} à la philosophie entièrement open software et open hardware (le casque est 3D imprimable).
+\end{itemize}
+C'est sous les conseils de Maureen Clerc que nous nous sommes orientés vers le matériel OpenBCI dont elle nous avait attesté de la qualité.
+
+\paragraph{}C'est grâce à Alexandra Corneyllie et Jérémie Mattout, ingénieure de recherche et chercheur spécialistes en BCI, que nous avons pu avoir accès au casque \texttt{Ultracortex Mark IV} 
+d'OpenBCI (Figure \ref{openbci}) qu'ils nous ont prêté pendant toute la durée de notre projet.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.05]{OpenBCI.jpg}
+\caption{Ultracortex Mark IV, casque EEG OpenBCI}
+\label{openbci}
+\end{figure}
+
+\paragraph{}Nous avions pour ambition d'être capable de détecter un signal binaire avec le casque EEG. C'est à dire de concevoir une situation qui permet au patient
+d'indiquer par son activité cérébrale un "Oui" ou un "Non". Nous avons envisagés deux paradigmes EEG, parmi les plus simples de la discipline, les ondes alpha et 
+le SSVEP. 
+
+\subsubsection{Paradigme Alpha}
+
+Lorsqu'on se relaxe -- fermer les yeux par exemple, le cerveau produit avec une intensité plus élevée que la moyenne des composantes à 10Hz que l'on retrouve en position O1 du système 10-20 (Figure \ref{dix}).
+Ces composantes sont appelées ondes Alpha [REF NECESSAIRE]. Il s'agit donc de repérer ces pics de fréquence à 10Hz et de les associer à une réponse, par
+exemple "Oui". La Figure \ref{eeghack} montre les résultats en temps fréquence issus d'un blog d'expert [REF EEG HACKER] contre les meilleurs données que nous avions pu générer en Figure \ref{ouralph}.
+On voit que les siennes sont très discriminées. Les notres sont plus hasardeuses car il s'agissait d'en retrouver sur toute la période temporelle et que l'on en voit seulement autour de 110s. Notre expérimentation avec les ondes alpha n'a pas été concluante. Une des hypothèses,
+autre que celle de la fiabilité de l'acquisition est que l'émission des ondes alpha est sujet-dépendante: certaines personnes en produisent moins que d'autres et nous faisions souvent
+les tests avec le même d'entre nous.
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{1020.png}
+\caption{Système 10-20, norme de placement des électrodes pour les casques EEG}
+\label{dix}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+
+\caption{Ondes alpha : résultats d'expert}
+\includegraphics[scale=0.5]{eeghackerAlpha.png}
+\label{eeghack}%
+\end{figure}
+\begin{figure}[h!]
+\centering
+
+\caption{Ondes alpha : nos résultats}
+\includegraphics[scale=0.5]{ourAlpha.png}
+\label{ouralph}%
+\end{figure}
+
+\subsubsection{Paradigme SSVEP}
+
+Le paradigme SSVEP repose sur le phénomène de potentiel évoqué [REFERENCE]. Si l'on présente à un sujet une image qui clignote à une certaine fréquence (entre 5 et 10Hz dans nos expériences) on retrouve 
+des pics à cette fréquence dans l'activité du cortex visuel (O1, O2 sur la Figure \ref{dix}). L'idée est donc de proposer deux vignettes qui clignotent à deux fréquences différentes sur l'écran, une pour
+oui et une pour non, et de repérer le choix du patient en fonction de celle sur laquelle il porte son attention. Le même blog d'expert [EEG HACKER] réussit à contrôler un robot à l'aide de ce paradigme.
+Malgré tous nos essais nous n'avons rien obtenu de concluant. Cela très certainement pour les raisons suivantes:
+
+\begin{itemize}
+\item Des problèmes d'acquisitions, en effet des spécialistes de l'EEG à l'ENS on remis en cause la qualité de nos signaux.
+\item Un manque de contrôle sur la fréquence exacte à laquelle la vignette clignote. Jérémie Mattout, spécialiste de l'EEG nous avait suggéré un protocole
+plus fin pour se débarasser de ce biais à l'aide d'électro-photodiodes. Nous n'avons pas réussi à aboutir non plus.
+\end{itemize}
+
+\subsubsection{Conclusions}
+
+Les difficultés que nous rencontrions avec l'EEG devaient nous inciter à persévérer. Cependant, le professeur Luauté, que nous avons rencontré à mi-parcours nous a très vite 
+mis en garde sur la faisabilité de notre démarche. En effet, alors même que nous n'arrivions pas à obtenir des résultats satisfaisants sur des sujets sains, les équipes de recherches spécialistes 
+du domaine butaient à faire fonctionner ces paradigmes chez les patients cérébrolésés [VOIR LES TROIS DOSSIER REFERENCES/HARD]. Il nous invita à nous concentrer en priorité sur la méthode que nous 
+voulions mettre en oeuvre pour traiter ces signaux "Oui" / "Non" puisqu'il était déjà possible de la tester avec le code "Oui" / "Non" occulaire de ses patients. 
+
+\paragraph{} Nous avons donc laissé de côté nos investigations autour de la BCI. Toutefois nous avons appris beaucoup de choses pendant cette phase du projet et nous nous sommes 
+familiarisés avec un ensemble de techniques et de protocole expérimentaux qui nous étaient inconnus. Nous en tirons une idée plus claires de la réalité et des enjeux des interfaces cerveau-machine.
+
 \subsection{Akinator}
+
+TODO\\
+
+Blabla: au début Akinator. Trop compliqué car besoin que des gens l'entrainent [METTRE LA REF SUR LE FONCTIONNEMENT AKINATOR (voir tout debut du projet)]. 
+COmment simplifier Akinator ? DICHOTOMIE. Dire que l'idée embale Luauté.
 
 
 \section{La solution Dicotomix}
+
+TODO\\
+Nous tenons à remercier les [LINGUISTES] pour cette partie. \\
+Remercier CHarlie Lopez.
+
+\subsection{L'algorithme Dicotomix}
+TODO \\
+Parler d'abord de dicotomix sur l'ensemble du dictionnaire avec astuces de randomisation pour cadavre et les autres petits tricks.\\
+Parler ensuite du spelling Mode et de la prédiction de lettre grace aux 5-grams (remercier linguistes Quignard et Magué pour l'idée blabla).\\
+Dire qu'on pourrait faire du ngrams sur les mots pour prediction de mots.\\
+Mentionner les techniques à l'état de l'art dans le domaine LSTM et réseaux de neurones récurrents. \\
+Insister que Dicotomix en bénéficierai bcp. \\
+Dire que Luauté était emballé.  \\
+P.e: reprendre les schémas de la pres
+
+\subsection{Le logiciel}
+TODO\\
+Archi client serveur \\
+JS \\
+BLABLA c'est portable (testé sur MAC Linux et Windows pour de vrai) \\
+plz: dire ce qu'à "fait" Souquet. + charlie Lopez. \\
+Des ptites captures d'écran du futur. \\
+
 \section{L'étude pilote}
+Merci bisous hopital
+\subsection{Le cadre}
+\subsection{La méthodologie}
+\subsection{La réalisation}
 \section{Conclusion}
 
 \appendix
 \section{Intervenants extérieurs et chronologie détaillée}
+\subsection{Graphe des intervenants}
+TODO: graphe des intervenants
+\subsection{Chronologie détaillée}
+\begin{itemize}
+        \item \textbf{Octobre : } Rendez vous téléphonique avec \textbf{Maureen Clerc}, spécialiste de la BCI à l'INRIA Grenoble. Prise de connaissance de ses travaux autour du paradigme \textbf{P300} et des \textbf{P300-spellers}. Son équipe publiera bientôt ses résultats autour de leur système d'épellation P300 présenté comme le plus performant au monde. Comme vous le verrez dans la synthèse nous n'utilisons pas ce paradigme mais pourrons donc \textbf{comparer} notre méthode à celle-ci. \\
+        \item \textbf{9 novembre : } Rendez vous avec Yves Béroujon et son équipe de la fondation OVE. Ces orthophonistes travaillent au contact de jeunes malentendants. Première confrontation avec les \textbf{systèmes d'expression à base d'images}, piste un temps considérée pour notre projet.  \textbf{Problème :} le caractère trop peu formalisé de ces méthodes qui les rend difficiles à implémenter de manière générale. \\
+        \item \textbf{10 novembre : } rendez-vous téléphonique avec \textbf{Carole Lapra}, docteur qui nous mettra en relation avec des professionnels de santé spécialisés dans le domaine qui nous intéresse. \\
+        \item \textbf{18 novembre : } rendez vous avec \textbf{Stéphanie Verneyre} par l'intermédiaire de Carole Lapra, du service de neurologie de l'hôpital neurologique Pierre Wertheimer. Spécialiste de l'aphasie, Mme.Verneyre nous a aidé à \textbf{cibler} les pathologies pour lesquelles notre méthode pourrait être efficace. Nous découvrons à cette occasion la maladie de Charcot (SLA). \\
+        \item \textbf{18-20 novembre : } participation au Hackathon "Hacking Health". Nous rencontrons de nombreux professionnels de santé notamment \textbf{Odile Souquet} médecin à l'ARS (Agence régionale de Santé) qui n'a eu cesse par la suite de nous accompagner de manière très personnalisée. Nous lui devons parmi les rencontres les plus déterminantes pour notre projet. \\
+        \item \textbf{19 novembre : } rencontre avec \textbf{Alexandra Corneyllie} du CNRS qui nous a prêté le système de BCI que nous utilisons. Madame Corneyllie est l'une de nos interlocuteurs principaux sur la partie BCI du projet. \\ 
+        \item \textbf{22 décembre : } rencontre téléphonique avec \textbf{Jérémie Mattout}, spécialiste de la BCI et de ses applications à la médecine au CNRS, dans l'équipe d'Alexandre Corneyllie. À la suite de cette discussion \textbf{nous adoptons définitivement le paradigme SSVEP} (au lieu de P300) pour notre interface. Sous ses conseils, nous empruntons un générateur basse-fréquence et une led au laboratoire de physique. Ce dispositif nous permet de contrôler précisément notre système oscillant et pallie les difficultés que nous avons rencontrées avec la BCI. \\
+        \item \textbf{3 janvier : } rencontre avec le Professeur \textbf{Jacques Luauté}, via Odile Souquet, chef du service de rééducation neurologique à l'hôpital Henry Gabrielle. M. Luauté nous explique que faire marcher la BCI chez les sujets handicapés est un défi non encore résolu par les chercheurs spécialistes comme M. Mattout. Cependant le Professeur se montre très enthousiaste quand à notre méthode dichotomique d'énumération du dictionnaire. Il nous propose de la tester dès février étant donné que tous ses patients disposent déjà d'interfaces personnalisées pour exprimer 'oui' ou 'non'. Nous nous focalisons donc sur cette partie du projet pour fournir une solution à tester lors de nos rencontres de février. Cette rencontre souligne l'importance de se mettre en relation avec des linguistes. \\
+        \item \textbf{6 janvier : } réunion avec \textbf{Charlie Lopez}, rencontrée au Hackathon, graphiste qui a réalisé l'interface utilisateur de notre programme. \\
+        \item \textbf{17 janvier : } rencontre avec \textbf{Nicolas Laurent}, professeur de grammaire à l'ENS. Discussion autour des aspects linguistiques de notre projet. Il nous suggère de nous mettre en relation avec le laboratoire de linguistique informatique \textbf{ICAR} de l'ENS de Lyon. \\
+        \item \textbf{6 février : } rencontre avec \textbf{Cécile Remy}, via Odile Souquet, spécialiste des \textbf{SLA} qu'elle soigne à domicile. 
+        \item \textbf{10 février : } nouveau rendez vous avec le professeur Luauté pour présenter nos nouveaux travaux et mettre en place l'étude pilote.
+        \item \textbf{10 mars : } rencontre avec Mathilde Mathon autour de la métropole de Lyon.
+    \end{itemize}       
+    
+
 \section{Étude comparative de la solution Dicotomix}
 \includepdf[pages=-]{comparison.pdf}
 \section{Tutoriel d'utilisation de Dicotomix}

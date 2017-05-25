@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2017.5.24)  24 MAY 2017 22:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2017.5.24)  25 MAY 2017 04:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1178,7 +1178,7 @@ Package epstopdf Info: Source file: <logoens.eps>
 df logoens.eps>
 (epstopdf)             \includegraphics on input line 92.
 Package epstopdf Info: Output file is already uptodate.
-<logoens-eps-converted-to.pdf, id=47, 263.98625pt x 97.36375pt>
+<logoens-eps-converted-to.pdf, id=91, 263.98625pt x 97.36375pt>
 File: logoens-eps-converted-to.pdf Graphic file (type pdf)
 
 <use logoens-eps-converted-to.pdf>
@@ -1196,7 +1196,7 @@ Package epstopdf Info: Source file: <logoucbl.eps>
 pdf logoucbl.eps>
 (epstopdf)             \includegraphics on input line 92.
 Package epstopdf Info: Output file is already uptodate.
-<logoucbl-eps-converted-to.pdf, id=48, 185.69376pt x 134.5025pt>
+<logoucbl-eps-converted-to.pdf, id=92, 185.69376pt x 134.5025pt>
 File: logoucbl-eps-converted-to.pdf Graphic file (type pdf)
 
 <use logoucbl-eps-converted-to.pdf>
@@ -1214,7 +1214,7 @@ Package epstopdf Info: Source file: <logounivlyon.eps>
 -to.pdf logounivlyon.eps>
 (epstopdf)             \includegraphics on input line 92.
 Package epstopdf Info: Output file is already uptodate.
-<logounivlyon-eps-converted-to.pdf, id=49, 301.125pt x 135.50626pt>
+<logounivlyon-eps-converted-to.pdf, id=93, 301.125pt x 135.50626pt>
 File: logounivlyon-eps-converted-to.pdf Graphic file (type pdf)
 
 <use logounivlyon-eps-converted-to.pdf>
@@ -1232,21 +1232,21 @@ icon.eps>
 (epstopdf)             \includegraphics on input line 114.
 Package epstopdf Info: Output file is already uptodate.
 
-<icon-eps-converted-to.pdf, id=50, 114.4275pt x 115.43124pt>
+<icon-eps-converted-to.pdf, id=94, 114.4275pt x 115.43124pt>
 File: icon-eps-converted-to.pdf Graphic file (type pdf)
 
 <use icon-eps-converted-to.pdf>
 Package pdftex.def Info: icon-eps-converted-to.pdf used on input line 114.
 (pdftex.def)             Requested size: 80.0987pt x 80.80132pt.
 
-<logo-hcl-plein_2995-bleu.jpg, id=51, 98.0463pt x 61.6704pt>
+<logo-hcl-plein_2995-bleu.jpg, id=95, 98.0463pt x 61.6704pt>
 File: logo-hcl-plein_2995-bleu.jpg Graphic file (type jpg)
 
 <use logo-hcl-plein_2995-bleu.jpg>
 Package pdftex.def Info: logo-hcl-plein_2995-bleu.jpg used on input line 140.
 (pdftex.def)             Requested size: 98.04604pt x 61.67023pt.
 
-<ARS-Auvergne-Rhone-Alpes.jpg, id=52, 702.625pt x 405.515pt>
+<ARS-Auvergne-Rhone-Alpes.jpg, id=96, 702.625pt x 405.515pt>
 File: ARS-Auvergne-Rhone-Alpes.jpg Graphic file (type jpg)
 
 <use ARS-Auvergne-Rhone-Alpes.jpg>
@@ -1263,254 +1263,358 @@ hone-Alpes.jpg>] (./rapport.toc)
 \openout6 = `rapport.toc'.
 
  [2]
-<a66dbabd79_26497_8712-electroencephalogramme-dr.jpg, id=93, 405.515pt x 602.25
-pt>
+<a66dbabd79_26497_8712-electroencephalogramme-dr.jpg, id=148, 405.515pt x 602.2
+5pt>
 File: a66dbabd79_26497_8712-electroencephalogramme-dr.jpg Graphic file (type jp
 g)
  <use a66dbabd79_26497_8712-electroencephalogramme-dr.jpg>
 Package pdftex.def Info: a66dbabd79_26497_8712-electroencephalogramme-dr.jpg us
 ed on input line 182.
 (pdftex.def)             Requested size: 121.65543pt x 180.67639pt.
+ [3]
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 226.
 
-<comparison.pdf, id=94, 614.295pt x 794.97pt>
+
+(/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+<OpenBCI.jpg, id=163, 2055.68pt x 2052.66875pt>
+File: OpenBCI.jpg Graphic file (type jpg)
+ <use OpenBCI.jpg>
+Package pdftex.def Info: OpenBCI.jpg used on input line 231.
+(pdftex.def)             Requested size: 102.79001pt x 102.63945pt.
+ [4 <./a66dbabd79_26497_8712-electroencephalogramme-dr.jpg>]
+<1020.png, id=178, 468.75125pt x 407.5225pt>
+File: 1020.png Graphic file (type png)
+ <use 1020.png>
+Package pdftex.def Info: 1020.png used on input line 252.
+(pdftex.def)             Requested size: 187.49716pt x 163.0061pt.
+
+<eeghackerAlpha.png, id=179, 542.025pt x 226.9278pt>
+File: eeghackerAlpha.png Graphic file (type png)
+ <use eeghackerAlpha.png>
+Package pdftex.def Info: eeghackerAlpha.png used on input line 261.
+(pdftex.def)             Requested size: 271.01183pt x 113.46361pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<ourAlpha.png, id=181, 380.42125pt x 266.9975pt>
+File: ourAlpha.png Graphic file (type png)
+ <use ourAlpha.png>
+Package pdftex.def Info: ourAlpha.png used on input line 268.
+(pdftex.def)             Requested size: 190.21014pt x 133.49841pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[5 <./OpenBCI.jpg> <./1020.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 297--298
+
+ []
+
+[6 <./eeghackerAlpha.png> <./ourAlpha.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 320--326
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 340--341
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 341--342
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 342--343
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 343--344
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 344--345
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 345--346
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 346--347
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 347--348
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 348--349
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 349--350
+
+ []
+
+[8] <comparison.pdf, id=211, 614.295pt x 794.97pt>
 File: comparison.pdf Graphic file (type pdf)
  <use comparison.pdf>
-Package pdftex.def Info: comparison.pdf used on input line 201.
+Package pdftex.def Info: comparison.pdf used on input line 357.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: comparison.pdf Graphic file (type pdf)
 
 <use comparison.pdf>
-Package pdftex.def Info: comparison.pdf used on input line 201.
+Package pdftex.def Info: comparison.pdf used on input line 357.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- <comparison.pdf, id=97, page=1, 614.295pt x 794.97pt>
+ <comparison.pdf, id=214, page=1, 614.295pt x 794.97pt>
 File: comparison.pdf Graphic file (type pdf)
 
 <use comparison.pdf, page 1>
-Package pdftex.def Info: comparison.pdf, page1 used on input line 201.
+Package pdftex.def Info: comparison.pdf, page1 used on input line 357.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: comparison.pdf Graphic file (type pdf)
  <use comparison.pdf, page 1>
-Package pdftex.def Info: comparison.pdf, page1 used on input line 201.
+Package pdftex.def Info: comparison.pdf, page1 used on input line 357.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [3] [4]
+ [9]
 File: comparison.pdf Graphic file (type pdf)
 
 <use comparison.pdf, page 1>
-Package pdftex.def Info: comparison.pdf, page1 used on input line 201.
+Package pdftex.def Info: comparison.pdf, page1 used on input line 357.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: comparison.pdf Graphic file (type pdf)
  <use comparison.pdf, page 1>
-Package pdftex.def Info: comparison.pdf, page1 used on input line 201.
+Package pdftex.def Info: comparison.pdf, page1 used on input line 357.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: comparison.pdf Graphic file (type pdf)
 
 <use comparison.pdf, page 1>
-Package pdftex.def Info: comparison.pdf, page1 used on input line 201.
+Package pdftex.def Info: comparison.pdf, page1 used on input line 357.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [5 <./comparison.pdf>]
-<comparison.pdf, id=138, page=2, 614.295pt x 794.97pt>
+ [10 <./comparison.pdf>]
+<comparison.pdf, id=244, page=2, 614.295pt x 794.97pt>
 File: comparison.pdf Graphic file (type pdf)
 
 <use comparison.pdf, page 2>
-Package pdftex.def Info: comparison.pdf, page2 used on input line 201.
+Package pdftex.def Info: comparison.pdf, page2 used on input line 357.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: comparison.pdf Graphic file (type pdf)
  <use comparison.pdf, page 2>
-Package pdftex.def Info: comparison.pdf, page2 used on input line 201.
+Package pdftex.def Info: comparison.pdf, page2 used on input line 357.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: comparison.pdf Graphic file (type pdf)
 
 <use comparison.pdf, page 2>
-Package pdftex.def Info: comparison.pdf, page2 used on input line 201.
+Package pdftex.def Info: comparison.pdf, page2 used on input line 357.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [6 <./comparison.pdf>]
-<comparison.pdf, id=147, page=3, 614.295pt x 794.97pt>
+ [11 <./comparison.pdf>]
+<comparison.pdf, id=253, page=3, 614.295pt x 794.97pt>
 File: comparison.pdf Graphic file (type pdf)
 
 <use comparison.pdf, page 3>
-Package pdftex.def Info: comparison.pdf, page3 used on input line 201.
+Package pdftex.def Info: comparison.pdf, page3 used on input line 357.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: comparison.pdf Graphic file (type pdf)
  <use comparison.pdf, page 3>
-Package pdftex.def Info: comparison.pdf, page3 used on input line 201.
+Package pdftex.def Info: comparison.pdf, page3 used on input line 357.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: comparison.pdf Graphic file (type pdf)
 
 <use comparison.pdf, page 3>
-Package pdftex.def Info: comparison.pdf, page3 used on input line 201.
+Package pdftex.def Info: comparison.pdf, page3 used on input line 357.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [7 <./comparison.pdf>]
-<comparison.pdf, id=160, page=4, 614.295pt x 794.97pt>
+ [12 <./comparison.pdf>]
+<comparison.pdf, id=265, page=4, 614.295pt x 794.97pt>
 File: comparison.pdf Graphic file (type pdf)
 
 <use comparison.pdf, page 4>
-Package pdftex.def Info: comparison.pdf, page4 used on input line 201.
+Package pdftex.def Info: comparison.pdf, page4 used on input line 357.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: comparison.pdf Graphic file (type pdf)
  <use comparison.pdf, page 4>
-Package pdftex.def Info: comparison.pdf, page4 used on input line 201.
+Package pdftex.def Info: comparison.pdf, page4 used on input line 357.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: comparison.pdf Graphic file (type pdf)
 
 <use comparison.pdf, page 4>
-Package pdftex.def Info: comparison.pdf, page4 used on input line 201.
+Package pdftex.def Info: comparison.pdf, page4 used on input line 357.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [8 <./comparison.pdf>]
-<comparison.pdf, id=172, page=5, 614.295pt x 794.97pt>
+ [13 <./comparison.pdf>]
+<comparison.pdf, id=278, page=5, 614.295pt x 794.97pt>
 File: comparison.pdf Graphic file (type pdf)
 
 <use comparison.pdf, page 5>
-Package pdftex.def Info: comparison.pdf, page5 used on input line 201.
+Package pdftex.def Info: comparison.pdf, page5 used on input line 357.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: comparison.pdf Graphic file (type pdf)
  <use comparison.pdf, page 5>
-Package pdftex.def Info: comparison.pdf, page5 used on input line 201.
+Package pdftex.def Info: comparison.pdf, page5 used on input line 357.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: comparison.pdf Graphic file (type pdf)
 
 <use comparison.pdf, page 5>
-Package pdftex.def Info: comparison.pdf, page5 used on input line 201.
+Package pdftex.def Info: comparison.pdf, page5 used on input line 357.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [9 <./comparison.pdf>]
-<comparison.pdf, id=183, page=6, 614.295pt x 794.97pt>
+ [14 <./comparison.pdf>]
+<comparison.pdf, id=288, page=6, 614.295pt x 794.97pt>
 File: comparison.pdf Graphic file (type pdf)
 
 <use comparison.pdf, page 6>
-Package pdftex.def Info: comparison.pdf, page6 used on input line 201.
+Package pdftex.def Info: comparison.pdf, page6 used on input line 357.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: comparison.pdf Graphic file (type pdf)
  <use comparison.pdf, page 6>
-Package pdftex.def Info: comparison.pdf, page6 used on input line 201.
+Package pdftex.def Info: comparison.pdf, page6 used on input line 357.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: comparison.pdf Graphic file (type pdf)
 
 <use comparison.pdf, page 6>
-Package pdftex.def Info: comparison.pdf, page6 used on input line 201.
+Package pdftex.def Info: comparison.pdf, page6 used on input line 357.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [10 <./comparison.pdf>]
-<comparison.pdf, id=192, page=7, 614.295pt x 794.97pt>
+ [15 <./comparison.pdf>]
+<comparison.pdf, id=297, page=7, 614.295pt x 794.97pt>
 File: comparison.pdf Graphic file (type pdf)
 
 <use comparison.pdf, page 7>
-Package pdftex.def Info: comparison.pdf, page7 used on input line 201.
+Package pdftex.def Info: comparison.pdf, page7 used on input line 357.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: comparison.pdf Graphic file (type pdf)
  <use comparison.pdf, page 7>
-Package pdftex.def Info: comparison.pdf, page7 used on input line 201.
+Package pdftex.def Info: comparison.pdf, page7 used on input line 357.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: comparison.pdf Graphic file (type pdf)
 
 <use comparison.pdf, page 7>
-Package pdftex.def Info: comparison.pdf, page7 used on input line 201.
+Package pdftex.def Info: comparison.pdf, page7 used on input line 357.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [11 <./comparison.pdf>]
-<tutoriel.pdf, id=197, 597.50829pt x 845.0471pt>
+ [16 <./comparison.pdf>]
+<tutoriel.pdf, id=302, 597.50829pt x 845.0471pt>
 File: tutoriel.pdf Graphic file (type pdf)
  <use tutoriel.pdf>
-Package pdftex.def Info: tutoriel.pdf used on input line 203.
+Package pdftex.def Info: tutoriel.pdf used on input line 359.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 File: tutoriel.pdf Graphic file (type pdf)
 
 <use tutoriel.pdf>
-Package pdftex.def Info: tutoriel.pdf used on input line 203.
+Package pdftex.def Info: tutoriel.pdf used on input line 359.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
- <tutoriel.pdf, id=200, page=1, 597.50829pt x 845.0471pt>
+ <tutoriel.pdf, id=305, page=1, 597.50829pt x 845.0471pt>
 File: tutoriel.pdf Graphic file (type pdf)
 
 <use tutoriel.pdf, page 1>
-Package pdftex.def Info: tutoriel.pdf, page1 used on input line 203.
+Package pdftex.def Info: tutoriel.pdf, page1 used on input line 359.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 File: tutoriel.pdf Graphic file (type pdf)
  <use tutoriel.pdf, page 1>
-Package pdftex.def Info: tutoriel.pdf, page1 used on input line 203.
+Package pdftex.def Info: tutoriel.pdf, page1 used on input line 359.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
- [12]
+ [17]
 File: tutoriel.pdf Graphic file (type pdf)
 
 <use tutoriel.pdf, page 1>
-Package pdftex.def Info: tutoriel.pdf, page1 used on input line 203.
+Package pdftex.def Info: tutoriel.pdf, page1 used on input line 359.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: tutoriel.pdf Graphic file (type pdf)
  <use tutoriel.pdf, page 1>
-Package pdftex.def Info: tutoriel.pdf, page1 used on input line 203.
+Package pdftex.def Info: tutoriel.pdf, page1 used on input line 359.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: tutoriel.pdf Graphic file (type pdf)
 
 <use tutoriel.pdf, page 1>
-Package pdftex.def Info: tutoriel.pdf, page1 used on input line 203.
+Package pdftex.def Info: tutoriel.pdf, page1 used on input line 359.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
- [13 <./tutoriel.pdf>]
-<tutoriel.pdf, id=232, page=2, 597.50829pt x 845.0471pt>
+ [18 <./tutoriel.pdf>]
+<tutoriel.pdf, id=337, page=2, 597.50829pt x 845.0471pt>
 File: tutoriel.pdf Graphic file (type pdf)
 
 <use tutoriel.pdf, page 2>
-Package pdftex.def Info: tutoriel.pdf, page2 used on input line 203.
+Package pdftex.def Info: tutoriel.pdf, page2 used on input line 359.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: tutoriel.pdf Graphic file (type pdf)
  <use tutoriel.pdf, page 2>
-Package pdftex.def Info: tutoriel.pdf, page2 used on input line 203.
+Package pdftex.def Info: tutoriel.pdf, page2 used on input line 359.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: tutoriel.pdf Graphic file (type pdf)
 
 <use tutoriel.pdf, page 2>
-Package pdftex.def Info: tutoriel.pdf, page2 used on input line 203.
+Package pdftex.def Info: tutoriel.pdf, page2 used on input line 359.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
- [14 <./tutoriel.pdf>]
-<tutoriel.pdf, id=242, page=3, 597.50829pt x 845.0471pt>
+ [19 <./tutoriel.pdf>]
+<tutoriel.pdf, id=348, page=3, 597.50829pt x 845.0471pt>
 File: tutoriel.pdf Graphic file (type pdf)
 
 <use tutoriel.pdf, page 3>
-Package pdftex.def Info: tutoriel.pdf, page3 used on input line 203.
+Package pdftex.def Info: tutoriel.pdf, page3 used on input line 359.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: tutoriel.pdf Graphic file (type pdf)
  <use tutoriel.pdf, page 3>
-Package pdftex.def Info: tutoriel.pdf, page3 used on input line 203.
+Package pdftex.def Info: tutoriel.pdf, page3 used on input line 359.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: tutoriel.pdf Graphic file (type pdf)
 
 <use tutoriel.pdf, page 3>
-Package pdftex.def Info: tutoriel.pdf, page3 used on input line 203.
+Package pdftex.def Info: tutoriel.pdf, page3 used on input line 359.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
- [15 <./tutoriel.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 204.
- [16 <./a66dbabd79_26497_8712-electroencephalogramme-dr.jpg>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 204.
+ [20 <./tutoriel.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 360.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 360.
  (./rapport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 204.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 204.
-Package rerunfilecheck Info: File `rapport.out' has not changed.
-(rerunfilecheck)             Checksum: 7EB25CD808BE65F56A627C524EFB7E70;631.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 204.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 360.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 360.
+
+
+Package rerunfilecheck Warning: File `rapport.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `rapport.out':
+(rerunfilecheck)             Before: CDD479DA67924034D9B8C374AAE01E88;1401
+(rerunfilecheck)             After:  CC34D12290DA2AE31A140D89AEA9ED9A;1400.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 360.
  ) 
 Here is how much of TeX's memory you used:
- 22494 strings out of 493013
- 408746 string characters out of 6139317
- 474708 words of memory out of 5000000
- 25569 multiletter control sequences out of 15000+600000
- 20139 words of font info for 52 fonts, out of 8000000 for 9000
+ 22578 strings out of 493013
+ 410276 string characters out of 6139317
+ 476006 words of memory out of 5000000
+ 25617 multiletter control sequences out of 15000+600000
+ 20570 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,18n,69p,944b,539s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/t
-exmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/share/texmf-dist/fonts/type1
-/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><
-/usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fo
-nts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr
-i12.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf-dist
-/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/pu
-blic/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/s
-fbx2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc0800.pfb></u
-sr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/share/texmf-
-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type
-1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-sup
-er/sfti1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb
-></usr/share/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-d
-ist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/
-palatino/uplri8a.pfb>
-Output written on rapport.pdf (16 pages, 949035 bytes).
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/font
+s/type1/public/eurosym/feymr10.pfb></usr/share/texmf-dist/fonts/type1/public/fp
+l/fplrc8a.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/sha
+re/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/typ
+e1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb>
+</usr/share/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf-dist/
+fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf-dist/fonts/type1/pub
+lic/cm-super/sfbx1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sf
+bx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></us
+r/share/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf-d
+ist/fonts/type1/public/cm-super/sfcc0800.pfb></usr/share/texmf-dist/fonts/type1
+/public/cm-super/sfcc1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-supe
+r/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
+</usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/tex
+mf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/share/texmf-dist/fonts/t
+ype1/public/cm-super/sftt1095.pfb></usr/share/texmf-dist/fonts/type1/urw/palati
+no/uplb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/
+share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on rapport.pdf (20 pages, 1776949 bytes).
 PDF statistics:
- 313 PDF objects out of 1000 (max. 8388607)
- 220 compressed objects within 3 object streams
- 34 named destinations out of 1000 (max. 500000)
- 208 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 430 PDF objects out of 1000 (max. 8388607)
+ 322 compressed objects within 4 object streams
+ 60 named destinations out of 1000 (max. 500000)
+ 316 words of extra memory for PDF output out of 10000 (max. 10000000)
 
