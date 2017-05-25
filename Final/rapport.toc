@@ -1,33 +1,38 @@
 \select@language {french}
-\contentsline {section}{\numberline {1}Introduction}{3}{section.1}
-\contentsline {paragraph}{}{3}{section*.3}
-\contentsline {paragraph}{}{3}{section*.4}
-\contentsline {paragraph}{}{3}{section*.5}
-\contentsline {section}{\numberline {2}Gen\IeC {\`e}se du projet}{3}{section.2}
-\contentsline {paragraph}{}{3}{section*.7}
-\contentsline {paragraph}{}{3}{section*.8}
+\contentsline {paragraph}{}{2}{section*.2}
+\contentsline {paragraph}{}{2}{section*.3}
+\contentsline {paragraph}{}{2}{section*.4}
+\contentsline {paragraph}{}{2}{section*.5}
+\contentsline {paragraph}{}{2}{section*.6}
+\contentsline {section}{\numberline {1}Introduction}{4}{section.1}
+\contentsline {paragraph}{}{4}{section*.8}
 \contentsline {paragraph}{}{4}{section*.9}
 \contentsline {paragraph}{}{4}{section*.10}
-\contentsline {subsection}{\numberline {2.1}Interface cerveau machine}{4}{subsection.2.1}
-\contentsline {subsubsection}{\numberline {2.1.1}Casque EEG}{4}{subsubsection.2.1.1}
-\contentsline {paragraph}{}{4}{section*.11}
-\contentsline {paragraph}{}{5}{section*.12}
+\contentsline {section}{\numberline {2}Gen\IeC {\`e}se du projet}{4}{section.2}
+\contentsline {paragraph}{}{4}{section*.12}
+\contentsline {paragraph}{}{4}{section*.13}
 \contentsline {paragraph}{}{5}{section*.14}
-\contentsline {subsubsection}{\numberline {2.1.2}Paradigme Alpha}{5}{subsubsection.2.1.2}
-\contentsline {subsubsection}{\numberline {2.1.3}Paradigme SSVEP}{5}{subsubsection.2.1.3}
-\contentsline {subsubsection}{\numberline {2.1.4}Conclusions}{6}{subsubsection.2.1.4}
-\contentsline {paragraph}{}{6}{section*.18}
+\contentsline {paragraph}{}{5}{section*.15}
+\contentsline {subsection}{\numberline {2.1}Interface cerveau machine}{5}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Casque EEG}{5}{subsubsection.2.1.1}
+\contentsline {paragraph}{}{5}{section*.16}
+\contentsline {paragraph}{}{5}{section*.17}
+\contentsline {paragraph}{}{6}{section*.19}
+\contentsline {subsubsection}{\numberline {2.1.2}Paradigme Alpha}{6}{subsubsection.2.1.2}
+\contentsline {subsubsection}{\numberline {2.1.3}Paradigme SSVEP}{6}{subsubsection.2.1.3}
+\contentsline {subsubsection}{\numberline {2.1.4}Conclusions}{7}{subsubsection.2.1.4}
+\contentsline {paragraph}{}{7}{section*.23}
 \contentsline {subsection}{\numberline {2.2}Akinator}{7}{subsection.2.2}
-\contentsline {section}{\numberline {3}La solution Dicotomix}{7}{section.3}
-\contentsline {subsection}{\numberline {3.1}L'algorithme Dicotomix}{7}{subsection.3.1}
+\contentsline {section}{\numberline {3}La solution Dicotomix}{8}{section.3}
+\contentsline {subsection}{\numberline {3.1}L'algorithme Dicotomix}{8}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Le logiciel}{8}{subsection.3.2}
-\contentsline {section}{\numberline {4}L'\IeC {\'e}tude pilote}{8}{section.4}
-\contentsline {subsection}{\numberline {4.1}Le cadre}{8}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}La m\IeC {\'e}thodologie}{8}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}La r\IeC {\'e}alisation}{8}{subsection.4.3}
-\contentsline {section}{\numberline {5}Conclusion}{8}{section.5}
-\contentsline {section}{\numberline {A}Intervenants ext\IeC {\'e}rieurs et chronologie d\IeC {\'e}taill\IeC {\'e}e}{8}{appendix.A}
-\contentsline {subsection}{\numberline {A.1}Graphe des intervenants}{8}{subsection.A.1}
-\contentsline {subsection}{\numberline {A.2}Chronologie d\IeC {\'e}taill\IeC {\'e}e}{8}{subsection.A.2}
-\contentsline {section}{\numberline {B}\IeC {\'E}tude comparative de la solution Dicotomix}{9}{appendix.B}
-\contentsline {section}{\numberline {C}Tutoriel d'utilisation de Dicotomix}{17}{appendix.C}
+\contentsline {section}{\numberline {4}L'\IeC {\'e}tude pilote}{9}{section.4}
+\contentsline {subsection}{\numberline {4.1}Le cadre}{9}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}La m\IeC {\'e}thodologie}{9}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}La r\IeC {\'e}alisation}{9}{subsection.4.3}
+\contentsline {section}{\numberline {5}Conclusion}{10}{section.5}
+\contentsline {section}{\numberline {A}Intervenants ext\IeC {\'e}rieurs et chronologie d\IeC {\'e}taill\IeC {\'e}e}{10}{appendix.A}
+\contentsline {subsection}{\numberline {A.1}Graphe des intervenants}{10}{subsection.A.1}
+\contentsline {subsection}{\numberline {A.2}Chronologie d\IeC {\'e}taill\IeC {\'e}e}{10}{subsection.A.2}
+\contentsline {section}{\numberline {B}\IeC {\'E}tude comparative de la solution Dicotomix}{12}{appendix.B}
+\contentsline {section}{\numberline {C}Tutoriel d'utilisation de Dicotomix}{20}{appendix.C}

@@ -96,7 +96,7 @@ hyperfigures=false]
 \begin{tabularx}{\textwidth}{@{} l X l @{} }
 {\sc Master d'informatique fondamentale} & & U.E Projet intégré\\
 {\it École Normale Supérieure de Lyon} & & Équipe Dicotomix\ \\
-{\it Université Claude Bernard Lyon I} 
+{\it Université Claude Bernard Lyon I} & & \url{http://avalon.ens-lyon.fr/dicotomix/}
 \end{tabularx}
 
 \begin{center}
@@ -149,6 +149,27 @@ T.Stérin, A.Martin, F.Lécuyer, \\ E.Hazard, P.Mangold, E.Kerinec, M.Guy, \\ R.
 % Pas d'entête ni de pied pour la page de sommaire
 \thispagestyle{empty}
 \section*{Remerciements}
+
+\paragraph{}Tout d'abord, un grand merci à \href{http://graal.ens-lyon.fr/~ecaron/}{Eddy Caron} et \href{http://perso.ens-lyon.fr/issam.rais/}{Issam Raïs}, nos encadrants de projets à
+l'ENS de Lyon. Merci pour la liberté dont nous avons joui dans l'organisation et la mise en oeuvre de ce projet. Merci pour la confiance que vous nous avez témoignée tout au long de l'année.
+Et enfin, merci de nous avoir donné l'occasion de réalisé un projet si prenant.
+
+\paragraph{}Nous tenons à remercier très sincèrement le professeur Jacques Luauté qui nous a très généreusement ouvert les portes de son service et toujours encouragé dans notre démarche.
+Nous voulons aussi remercier le docteur Emilien Bernard pour l'expérience qu'il nous a apporté autour de la maladie de Charcot. Un grand merci à Perrine Seguin, interne 
+du service, Melaine De Quelen et Manel Ben Romdhane, orthophonistes du service et aux externes qui ont organisé la réalisation de l'étude au quotidien. Enfin, un immemse merci
+aux patients pour leur implication dans l'étude et pour tout ce qu'ils nous ont appris humainement.
+
+\paragraph{}
+Nous tenons particulièrement à remercier Maureen Clerc, Alexandra Corneyllie et Jérémie Mattout pour leur aide précieuse dans le domaine de la BCI.
+
+\paragraph{}
+Nous tenons à remercier tous les linguistes intervenus dans le projet, Isabel Colón de Carvajal, Matthieu Quignard et Jean-Philippe Magué, qui ont contribué à nourrir notre réflexion et à permettre 
+des améliorations à l'algorithme initial. Nous souhaitons aussi remercier très chaleureusement \href{http://www.charlie-lopez.com/}{Charlie Lopez} 
+qui a réalisé tout le design graphique du logiciel. Enfin nous souhaitons remercier \href{http://thibaultsouquet.fr/}{Thibault Souquet} pour sa participation à la construction 
+de l'architecture client-serveur du logiciel et à l'organisation visuelle de celui-ci.
+
+\paragraph{}Enfin, un très grand merci à Odile Souquet, référent régional pour la thématique médecine à l'Agence Régionale de Santé du Rhône-Alpes, qui nous a accompagné tout 
+au long de notre cheminement et a contribué à l'organisation des rencontres parmi les plus décisives pour le projet.
 
 \tableofcontents
 
@@ -204,7 +225,6 @@ les méthodes traditionnelles d'épellation.
 pour en arriver à Dicotomix.
 
 \subsection{Interface cerveau machine}
-Nous tenons particulièrement à remercier Maureen Clerc, Alexandra Corneyllie et Jérémie Mattout pour leur aide précieuse dans ce domaine.
 \subsubsection{Casque EEG}
 La première partie de notre travail en BCI a consisté à se renseigner autour du matériel dont l'on pouvait bénéficier pour réaliser nos
 expériences EEG. Deux catégories se sont alors dessinées:
@@ -301,11 +321,7 @@ COmment simplifier Akinator ? DICHOTOMIE. Dire que l'idée embale Luauté.
 
 
 \section{La solution Dicotomix}
-
-TODO\\
-Nous tenons à remercier les [LINGUISTES] pour cette partie. \\
-Remercier CHarlie Lopez.
-
+ 
 \subsection{L'algorithme Dicotomix}
 %Parler d'abord de dicotomix sur l'ensemble du dictionnaire avec astuces de randomisation pour cadavre et les autres petits tricks.\\
 Pour une entrée de type "Oui" / "Non", le plus efficace est d'optimiser chaque question en l'utilisant pour diviser par deux le nombre de possibilités, d'où l'idée d'une simple dichotomie.
@@ -339,10 +355,52 @@ plz: dire ce qu'à "fait" Souquet. + charlie Lopez. \\
 Des ptites captures d'écran du futur. \\
 
 \section{L'étude pilote}
-Merci bisous hopital
+
 \subsection{Le cadre}
+
+Le professeur Jacques Luauté nous a accueilli au Service de Rééducation Post Réanimation (\textbf{SRPR}) de l'hôpital neurologique 
+Pierre Wertheimer (Vinatier). C'est dans ce service que nous avons rencontré un patient atteint de LIS afin de pouvoir lui faire tester Dicotomix.
+Perrine Seguin, interne du service, les équipes d'orthophonistes ainsi que les externes en médecine nous ont accompagné tout au long de 
+la réalisation de l'étude. \\
+
+Le docteur Émilien Bernard nous a mis en relation avec une patiente atteinte de SLA. Nous sommes allés la rencontrer à domicile.
+Ainsi notre étude pilote a reposé sur des tests réalisés chez un patient LIS et une patiente SLA.
+
 \subsection{La méthodologie}
+
+La méthodologie de l'étude a été pensée avec l'équipe du professeur Luauté et est résumée Figure \ref{etude}. Delphine Maucort-Boulch spécialiste de méthodologie 
+dans le cadre de ce type d'étude nous a aidé à finaliser le protocole.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.2]{schemaEtudePilote.jpg}
+\caption{Méthodologie de l'étude pilote}
+\label{etude}
+\end{figure}
+
+Il s'agissait d'abord d'entraîner le patient à utiliser le logiciel au cours de 5 sessions d'entraînement -- une par jour. Chaque sessions 
+consistant à lui demander de trouver 10 mots dictés avec la méthode; puis de répondre à quatre questions simples ("Quelle est votre couleur préférée ?"); et 
+enfin de le laisser s'exprimer librement avec l'outil s'il le souhaitait. \\
+Ensuite, pour la session finale ou session d'évaluation, on dicte le même texte deux fois et le patient doit l'écrire la première fois avec Dicotomix puis avec
+sa méthode habituelle. La même limite de temps est imposée pour les deux dictées et il s'agit donc de voir jusqu'où le patient a pu aller avec chacune des 
+deux méthodes.
+
+
 \subsection{La réalisation}
+
+Nous avons commencé par tester le protocole avec le patient LIS. Entièrement paralysé, son code "Oui" / "Non" consistait à lever les yeux vers le ciel 
+pour "Non" et les fermer pour "Oui". \\
+La réalité a bien sûr eu raison de notre méthodologie. Très éprouvante en pratique notre méthodologie a été simplifiée à l'extrême. On ne demandais jamais plus de 5 mots 
+au patient. Le mode Dicotomix est vite abandonné face à des difficultés trop grandes pour le patient -- il ne fallait surtout pas le décourager. Nous nous sommes donc limité
+au mode épellation. Les externes du service ont grandement contribué à la réalisation de l'étude en visitant le patient quotidiennement et lui proposant des jeux, type pendu, 
+pour rendre les sessions d'entraînement ludiques. \\
+Ce patient a perdu la volonté de s'exprimer avec le personnel médical, il s'agissait de voir si notre méthode pouvait la
+ lui rendre. Cela n'a pas été le cas car le patient n'a jamais voulu réaliser une "expression libre". \\
+ Le coût cognitif de notre méthode, que nous redoutions tant s'est fait sentir le jour de l'évaluation. En effet le patient est allé deux fois plus vite avec sa 
+ méthode traditionnelle qu'avec Dicotomix. Même si elle sont moins rapides en théorie, les méthodes traditionnelles se défendent bien car l'énumération du tableau de lettres
+ va très vite. La première idée que donne cette expérience, dans la veine de la prédiction de lettres du mode épellation, serait de dynamiser les tableaux de lettres traditionnels
+ pour qu'ils se recomposent à chaque lettre épelée pour favoriser les prochaines lettres les plus probables.
+
 \section{Conclusion}
 
 \appendix
@@ -361,9 +419,19 @@ TODO: graphe des intervenants
         \item \textbf{3 janvier : } rencontre avec le Professeur \textbf{Jacques Luauté}, via Odile Souquet, chef du service de rééducation neurologique à l'hôpital Henry Gabrielle. M. Luauté nous explique que faire marcher la BCI chez les sujets handicapés est un défi non encore résolu par les chercheurs spécialistes comme M. Mattout. Cependant le Professeur se montre très enthousiaste quand à notre méthode dichotomique d'énumération du dictionnaire. Il nous propose de la tester dès février étant donné que tous ses patients disposent déjà d'interfaces personnalisées pour exprimer 'oui' ou 'non'. Nous nous focalisons donc sur cette partie du projet pour fournir une solution à tester lors de nos rencontres de février. Cette rencontre souligne l'importance de se mettre en relation avec des linguistes. \\
         \item \textbf{6 janvier : } réunion avec \textbf{Charlie Lopez}, rencontrée au Hackathon, graphiste qui a réalisé l'interface utilisateur de notre programme. \\
         \item \textbf{17 janvier : } rencontre avec \textbf{Nicolas Laurent}, professeur de grammaire à l'ENS. Discussion autour des aspects linguistiques de notre projet. Il nous suggère de nous mettre en relation avec le laboratoire de linguistique informatique \textbf{ICAR} de l'ENS de Lyon. \\
-        \item \textbf{6 février : } rencontre avec \textbf{Cécile Remy}, via Odile Souquet, spécialiste des \textbf{SLA} qu'elle soigne à domicile. 
-        \item \textbf{10 février : } nouveau rendez vous avec le professeur Luauté pour présenter nos nouveaux travaux et mettre en place l'étude pilote.
-        \item \textbf{10 mars : } rencontre avec Mathilde Mathon autour de la métropole de Lyon.
+        \item \textbf{6 février : } rencontre avec \textbf{Cécile Remy}, via Odile Souquet, spécialiste des \textbf{SLA} qu'elle soigne à domicile. \\
+        \item \textbf{10 février : } nouveau rendez vous avec le professeur Luauté pour présenter l'avancement de nos travaux et mettre en place l'étude pilote. \\
+        \item \textbf{3-4 mars : } paraticipation au Hackathon "Hive" de l'école centrale Lyon. \\
+        \item \textbf{10 mars : } rencontre avec Mathilde Mathon autour de la métropole de Lyon. \\
+        \item \textbf{16 mars : } rencontre avec la linguiste Isabel Colon de Carvajal qui nous éclaire sur les base de données linguistiques d'interactions orales -- notamment 
+        dans le domaine de la médecine. \\
+        \item \textbf{17 mars : } nouvelle réunion de travail avec le professeur Luauté et son équipe. Nous rencontrons notamment le docteur Émilien Bernard 
+        grâce à qui nous avons pu aller à la rencontre d'une patiente SLA. \\
+        \item \textbf{24 mars : } réunion avec le professeur Luauté et Delphine Maucort-Boulch autour de la méthodologie de l'étude pilote. \\
+        \item \textbf{31 mars : } rencontre avec les linguistes spécialistes de Traitement Automatique des Langues, Matthieu Quignard et Jean-Philippe Magué.
+        Ils nous exposent les différentes techniques que l'on peut implémenter dans le cadre de la prédiction de mots. À commencer par les n-grams.
+         \\
+        \item \textbf{5-23 avril : } étude pilote. \\
     \end{itemize}       
     
 
