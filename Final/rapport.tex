@@ -245,12 +245,12 @@ les méthodes traditionnelles d'épellation.
 \end{figure}
 
 \paragraph{} Nous avions pour ambition d'être capables de détecter un signal binaire avec le casque EEG, c'est-à-dire de concevoir une situation qui permet au patient
-d'indiquer par son activité cérébrale un "Oui" ou un "Non". Nous avons envisagés deux paradigmes EEG parmi les plus simples de la discipline : les ondes alpha et 
+d'indiquer par son activité cérébrale un "Oui" ou un "Non". Nous avons envisagé deux paradigmes EEG parmi les plus simples de la discipline : les ondes alpha et 
 le SSVEP. 
 
 \subsubsection{Paradigme Alpha}
 
-\paragraph{} Lorsqu'on fermer les yeux ou qu'on se relaxe, le cerveau produit avec une intensité plus élevée que la moyenne des composantes à 10Hz que l'on retrouve en position O1 du système 10-20 (Figure \ref{dix}).
+\paragraph{} Lorsqu'on ferme les yeux ou qu'on se relaxe, le cerveau produit avec une intensité plus élevée que la moyenne des composantes à 10Hz que l'on retrouve en position O1 du système 10-20 (Figure \ref{dix}).
 Ces composantes sont appelées ondes Alpha [REF NECESSAIRE]. Il s'agit donc de repérer ces pics de fréquence à 10Hz et de les associer à une réponse, par
 exemple "Oui". La Figure \ref{eeghack} montre les résultats en temps fréquence issus d'un blog d'expert [REF EEG HACKER] contre les meilleures données que nous avions pu générer en Figure \ref{ouralph}, suite à un enregistrement des ondes cérébrales d'une personne de l'équipe avec le casque EEG.
 
@@ -301,11 +301,7 @@ plus fin pour se débarasser de ce biais à l'aide d'électro-photodiodes. Nous 
 
 \subsection{Akinator}
 
-TODO\\
-
-Blabla: au début Akinator. Trop compliqué car besoin que des gens l'entrainent [METTRE LA REF SUR LE FONCTIONNEMENT AKINATOR (voir tout debut du projet)]. 
-COmment simplifier Akinator ? DICHOTOMIE. Dire que l'idée embale Luauté.
-
+Akinator est un jeu dans lequel l'utilisateur répond à des questions sur une personnalité à laquelle il pense, de type "Oui", "Non", "Peut-être", "Ne sais pas", pour voir Akinator deviner ladite personnalité. Pour cela, Akinator se déplace dans un arbre de possibilités au fur et à mesure des réponses de l'utilisateur à ses questions. Nous avons voulu réutiliser cette idée en la généralisant pour pouvoir s'exprimer plutôt que de simplement donner un nom. Cependant, la procédure d'Akinator s'est révélée trop compliquée à mettre en place, celui-ci utilisant entre autre des techniques d'apprentissage pour lesquelles nous n'avions pas les données nécessaires. Nous avons donc tenté une approche algorithmique plus simple.
 
 \section{La solution Dicotomix}
  
@@ -378,14 +374,14 @@ deux méthodes.
 \subsection{La réalisation}
 
 \paragraph{} Nous avons commencé par tester le protocole avec le patient LIS. Entièrement paralysé, son code Oui/Non consistait à lever les yeux vers le ciel pour "Non" et les fermer pour "Oui". La réalité a bien sûr eu raison de notre méthodologie. Très éprouvante en pratique, notre méthodologie a été simplifiée à l'extrême. On ne demandait jamais plus de 5 mots 
-au patient. Le mode Dicotomix est vite abandonné face à des difficultés trop grandes pour le patient -- il ne fallait surtout pas le décourager. Nous nous sommes donc limité
+au patient. Le mode Dicotomix est vite abandonné face à des difficultés trop grandes pour le patient -- il ne fallait surtout pas le décourager. Nous nous sommes donc limités
 au mode épellation. Les externes du service ont grandement contribué à la réalisation de l'étude en visitant le patient quotidiennement et lui proposant des jeux, type pendu, 
 pour rendre les sessions d'entraînement ludiques. 
 
 \paragraph{} Ce patient a perdu la volonté de s'exprimer avec le personnel médical, il s'agissait de voir si notre méthode pouvait la  lui rendre. Cela n'a pas été le cas car le patient n'a jamais voulu réaliser une "expression libre". Cependant nous avons pris conscience que le plus important pour lui, au delà de la 
- méthode pour communiquer, était la présence humaine. Ainsi à la quesion "voulez vous que l'on s'en aille ?", que l'on posait par peur de l'avoir trop fatigué, il répondait toujours "non".
+ méthode pour communiquer, était la présence humaine. Ainsi à la question "voulez vous que l'on s'en aille ?", que l'on posait par peur de l'avoir trop fatigué, il répondait toujours "non".
  \paragraph{} Le coût cognitif de notre méthode, que nous redoutions tant s'est fait sentir le jour de l'évaluation. En effet le patient est allé deux fois plus vite avec sa 
- méthode traditionnelle qu'avec Dicotomix. Même si elle sont moins rapides en théorie, les méthodes traditionnelles se défendent bien car l'énumération du tableau de lettres
+ méthode traditionnelle qu'avec Dicotomix. Même si elles sont moins rapides en théorie, les méthodes traditionnelles se défendent bien car l'énumération du tableau de lettres
  va très vite. La première idée que donne cette expérience, dans la veine de la prédiction de lettres du mode épellation, serait de dynamiser les tableaux de lettres traditionnels
  pour qu'ils se recomposent à chaque lettre épelée pour favoriser les prochaines lettres les plus probables. 
 
