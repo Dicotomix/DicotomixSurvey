@@ -342,12 +342,11 @@ Dire que Luauté était emballé.  \\
 P.e: reprendre les schémas de la pres
 
 \subsection{Le logiciel}
-TODO\\
-Archi client serveur \\
-JS \\
-BLABLA c'est portable (testé sur MAC Linux et Windows pour de vrai) \\
-plz: dire ce qu'à "fait" Souquet. + charlie Lopez. \\
-Des ptites captures d'écran du futur. ==> On peut juste dire "voir le tuto comment c bo" \\
+\paragraph{}Concernant l'implémentation logicielle de Dicotomix, nous avons choisi d'implémenter l'algorithme en Python, ce langage étant connu par l'ensemble des membres de l'équipe, et offrant un bon rapport entre productivité et maintenabilité.
+
+\paragraph{}Nous avons ensuite dû écrire une interface graphique conviviale de façon à ce que les patients disposent d'un confort optimal d'utilisation. Nous nous sommes cette fois tournés vers des technologies Web, ces dernières proposant de très nombreux et puissants frameworks pour concevoir des interfaces graphiques. Nous avons donc utilisé une combinaison classique HTML5/CSS3 pour le frontend et le framework JavaScript Node.JS pour le backend. Un détail important était que nous ne voulions pas faire reposer l'utilisation du logiciel sur une connexion Internet, pour qu'elle soit possible dans les conditions hospitalières. Nous avons donc utilisé le framework Electron développé par GitHub, permettant de créer des applications desktop embarquant un moteur Web et un serveur Node.JS. Nous avons fait appel à la graphiste Charline Lopez pour concevoir une interface épurée et ergonomique. Le fils d'Odile Souquet, Thibault Souquet, étudiant en IUT, nous a apporté son aide pour l'écriture du code CSS.
+
+\paragraph{}Très vite la question de l'interopérabilité entre l'interface graphique en JavaScript et l'algorithme en Python s'est posée. La première méthode proposée a été d'écrire des bindings en C autour du code Python, pour pouvoir les appeler ensuite avec Node.JS. Le problème de cette méthode était qu'elle demandait un effort important pour garder un haut niveau de maintenabilité, et que les différents membres de l'équipe n'auraient pas tous été en mesure de mettre à jour les bindings à chaque modification du code Python. Nous avons donc opté pour une communication par le réseau local, l'agorithme Dicotomix faisant office de serveur et l'interface graphique de client. Nous avons conçu un protocole de communication simple, chaque message étant constitué d'un en-tête de 2 octets et décrivant l'opération à faire, suivie d'une chaîne de caractères encodée en UTF-8 transportant les données du message.
 
 \section{L'étude pilote}
 
