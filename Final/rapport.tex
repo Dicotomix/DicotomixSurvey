@@ -37,7 +37,7 @@
 \usepackage[francais]{babel}           % style français
 
 \usepackage{tabularx} % gestion avancée des tableaux
-
+\usepackage{epsfig}
 \usepackage{psfrag} % remplacement du texte d'une figure ps par du texte latex
 \usepackage{sistyle} % mise en forme des unités
 
@@ -93,10 +93,10 @@ hyperfigures=false]
 
 \vspace{0.5cm}
 
-\begin{tabularx}{\textwidth}{@{} l X l @{} }
-{\sc Master d'informatique fondamentale} & & U.E Projet intégré\\
-{\it École Normale Supérieure de Lyon} & & Équipe Dicotomix\ \\
-{\it Université Claude Bernard Lyon I} & & \url{http://avalon.ens-lyon.fr/dicotomix/}
+\begin{tabularx}{\textwidth}{@{} l X r @{} }
+{\sc Master d'informatique fondamentale} & & Unité d'enseignement « Projet intégré »\\
+{\it École Normale Supérieure de Lyon} & & Équipe Dicotomix,\ \href{mailto:dicotomix@ens-lyon.fr}{dicotomix@ens-lyon.fr} \\
+{\it Université Claude Bernard Lyon I} & & \url{http://graal.ens-lyon.fr/dicotomix/}
 \end{tabularx}
 
 \begin{center}
@@ -115,7 +115,7 @@ hyperfigures=false]
 
 \vspace{0.5cm}
 
-T.Stérin, A.Martin, F.Lécuyer, \\ E.Hazard, P.Mangold, E.Kerinec, M.Guy, \\ R.Pellerin, N.Pinson, A.Słowik
+T.Stérin, A.Martin, F.Lécuyer, \\ E.Hazard, P.Mangold, E.Kerinec, M.Guy, \\ N.Pinson, R.Pellerin, A.Słowik
 
 \vspace{1.5cm}
 
@@ -182,7 +182,7 @@ mais leurs capacités cognitives ne sont pas altérées \textit{a priori}. Les p
 Cette maladie a notamment été présentée au grand public à travers \textit{Le Scaphandre et le Papillon}, mémoires retraçant le combat de Jean-Dominique Bauby pour communiquer. 
 En effet, la motricité des yeux est généralement conservée et permet de mettre en place un code "Oui/Non" donnant un moyen élémentaire de communication.
 
-\paragraph{} La communication, c'est cette problématique qui à l' du projet Dicotomix. La rencontre avec le monde hospitalier nous a fait comprendre que ce problème est plus général 
+\paragraph{} La communication, c'est cette problématique qui est à l'origine du projet Dicotomix. La rencontre avec le monde hospitalier nous a fait comprendre que ce problème est plus général 
 que le cadre strict du LIS car il concerne d'autres maladies, comme la maladie de Charcot ou sclérose latérale amyotrophique (\textbf{SLA}). Là où des études montrent [6] que communiquer est primordial pour le bien-être psychique des patients, d'autres insistent [16] sur la pénibilité des méthodes traditionnelles. Ainsi, comment utiliser la technologie pour améliorer les moyens de communication de ces patients ? 
 
 \paragraph{} Ce rapport a donc pour objectif de présenter les différentes solutions pensées par notre équipe pour répondre à ce problème. C'est grâce à l'intervention de nombreuses personnes du monde hospitalier que 
@@ -268,18 +268,19 @@ exemple "Oui". La Figure \ref{eeghack} montre les résultats en temps fréquence
 	\item les ondes alpha sont bruitées par d'autres sources électromagnétiques et par l'activité cérébrale annexe du sujet. Un manque de concentration, l'appréhension ou l'excitation dues à l'expérience, peuvent avoir nui à la relaxation et donc à l'émission $\alpha$.
 \end{itemize}
 
+
+
 \begin{figure}[h!]
-\centering
-\caption{Ondes alpha : résultats d'expert}
-\includegraphics[scale=0.5]{images/eeghackerAlpha.png}
-\label{eeghack}%
+ \begin{minipage}[b]{.46\linewidth}
+  \centering\epsfig{figure=images/eeghackerAlpha.png,width=\linewidth,height=4.5cm}
+  \caption{Ondes $\alpha$ : résultats d'expert \label{eeghack}}
+ \end{minipage}
+ \begin{minipage}[b]{.46\linewidth}
+  \centering\epsfig{figure=images/ourAlpha.png,width=\linewidth,height=4cm}
+  \caption{Ondes $\alpha$ : nos résultats \label{ouralph}}
+ \end{minipage}
 \end{figure}
-\begin{figure}[h!]
-\centering
-\caption{Ondes alpha : nos résultats}
-\includegraphics[scale=0.5]{images/ourAlpha.png}
-\label{ouralph}%
-\end{figure}
+
 
 \subsubsection{Paradigme SSVEP}
 
@@ -309,17 +310,17 @@ Akinator est un jeu dans lequel l'utilisateur répond à des questions sur une p
 %Parler d'abord de dicotomix sur l'ensemble du dictionnaire avec astuces de randomisation pour cadavre et les autres petits tricks.\\
 \paragraph{} L'objectif initial est de trouver un mot dans le dictionnaire avec un nombre minimal de questions Oui/Non. Comme il y a deux réponses possibles, l'efficacité est maximale si chaque question élimine la moitié des possibilités. L'idée d'une dichotomie nous est venue naturellement : à chaque étape, un mot central est proposé avec la question "Votre mot est-il avant ?". Quelque soit la réponse, la moitié de l'intervalle considéré dans le dictionnaire est éliminée. D'un point de vue mathématique, la convergence se fait en $\log_2N$ étapes, soit 17 pour un lexique de $N=130\ 000$ mots.
 
-\paragraph{} Cependant, opérer ainsi sur l'ensemble des mots du dictionnaire n'est pas suffisant, puisque cela consiste à séparer à chaque étape en deux parties contenant le même nombre de mots, tandis que nous voulons deux parties de même probabilité. Intuitivement, il devrait être plus simple de trouver les mots les plus courants. Pour résoudre ce problème, la dichotomie peut être pondérée par la fréquence de chaque mot. Cela revient à opérer sur un segment ou chaque mot à une longueur proportionnelle à sa fréquence (figure \ref{algo}).
+\paragraph{} Cependant, opérer ainsi sur l'ensemble des mots du dictionnaire n'est pas suffisant, puisque cela consiste à séparer à chaque étape en deux parties contenant le même nombre de mots, tandis que nous voulons deux parties de même probabilité. Intuitivement, il devrait être plus simple de trouver les mots les plus courants. Pour résoudre ce problème, la dichotomie peut être pondérée par la fréquence de chaque mot. Cela revient à opérer sur un segment où chaque mot a une longueur proportionnelle à sa fréquence (figure \ref{algo}).
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=16cm]{schema_algo.png}
+\includegraphics[width=16cm]{images/schema_algo.png}
 \caption{Schéma du fonctionnement de l'algorithme dichotomique pondéré}
 \label{algo}
 \end{figure}
 
 \paragraph{} Pour déterminer la fréquence de chaque mot, nous avons utilisé une base de données (fournie par \href{http://lexique.org}{lexique.org}) donnant les fréquences des mots de la langue française en se basant sur des livres et des films. Nous avons ensuite ajouté quelques astuces en réponse à différents problèmes.
-\paragraph{} Un premier problème, d'apparence anodine, est le déterminisme de cet algorithme, qui a plusieurs effets négatifs. Premièrement, le "centre" de l'intervalle est fixe donc peut tomber sur un mot peu utilisé alors même que des mots courants sout à proximité. De plus, la séquence de mots proposée est toujours la même, ce qui peut rendre l'utilisation répétitive voire désagréable (une version de l'algorithme menait systématiquement au mot "cadavre" quand on cherchait "bonjour"). Pour régler ce problème, nous avons ajouté un facteur aléatoire : le "centre" de l'intervalle est légèrement décalé aléatoirement, ce qui fait statistiquement tomber sur des mots importants et variés. L'ajout de ce facteur aléatoire nous a imposé de mettre en place une mémorisation du chemin pour pouvoir revenir sur ses pas, car ce chemin n'était alors plus déterministe.
+\paragraph{} Un premier problème, d'apparence anodine, est le déterminisme de cet algorithme, qui a plusieurs effets négatifs. Premièrement, le "centre" de l'intervalle est fixe donc peut tomber sur un mot peu utilisé alors même que des mots courants sont à proximité. De plus, la séquence de mots proposée est toujours la même, ce qui peut rendre l'utilisation répétitive voire désagréable (une version de l'algorithme menait systématiquement au mot "cadavre" quand on cherchait "bonjour"). Pour régler ce problème, nous avons ajouté un facteur aléatoire : le "centre" de l'intervalle est légèrement décalé aléatoirement, ce qui fait statistiquement tomber sur des mots importants et variés. L'ajout de ce facteur aléatoire nous a imposé de mettre en place une mémorisation du chemin pour pouvoir revenir sur ses pas, car ce chemin n'était alors plus déterministe.
 
 \paragraph{} Malgré la prépondérance des mots importants, la rapidité escomptée n'était pas au rendez-vous. En particulier, l'utilisation en mode épellation (voir le tutoriel en Annexe C) menait à des situations presque risibles : alors que chacun s'attend à trouver un U après un Q, le logiciel proposait inlassablement d'autres lettres. Pour éviter ce genre de situation très frustrante, les spécialistes en linguistique informatique Matthieu Quignard et Jean-Philippe Magué nous ont suggéré d'utiliser une \textit{mémoire des n-grams}.
 
@@ -397,14 +398,18 @@ en M2, nous avons pris la décision de le laisser reposer pour le moment. Tous n
 
 \newpage
 \appendix
+%{\Huge Annexes}
 \section{Intervenants extérieurs et chronologie détaillée}
 \paragraph{} La Figure \ref{grapheIntervenants} montre les principaux intervenants extérieurs qui ont participé à l'élaboration ou à la mise en place du projet. Y sont également représentés les différents liens entre ces personnes et leurs catégories de profession. Ce graphe permet de comprendre d'un coup d'\oe il l'organisation des participants ; une étude chronologique permet cependant une meilleure appréhension des interactions que nous avons eues avec ces personnes, et de leur influence sur le projet.
+
+\paragraph{} D'autres personnes ne sont pas représentées sur ce graphe, mais ont également interagi brièvement avece nous. Nous remercions encore une fois le Jacques Luauté, Odile Souquet et Eddy Caron, qui apparaissent comme des hubs fortement connectés dans le graphe, démontrant d'une manière plus visuelle l'importance de leur investissement. \\
+
 \begin{figure}[h!]
-\centering \includegraphics[width=16.4cm]{images/grapheIntervenants.png}
+\centering \includegraphics[width=16.6cm]{images/grapheIntervenants.png}
 \caption{Graphe des intervenants}
 \label{grapheIntervenants}
 \end{figure}
-
+\vspace{1cm}
 \textbf{Octobre : } Rendez vous téléphonique avec \textbf{Maureen Clerc}, spécialiste de la BCI à l'INRIA Grenoble. Prise de connaissance de ses travaux autour du paradigme \textbf{P300} et des \textbf{P300-spellers}. Son équipe publiera bientôt ses résultats autour de leur système d'épellation P300 présenté comme le plus performant au monde. Comme vous le verrez dans la synthèse nous n'utilisons pas ce paradigme mais pourrons donc \textbf{comparer} notre méthode à celle-ci.\\
 
 \textbf{9 novembre : } Rendez vous avec Yves Béroujon et son équipe de la fondation OVE. Ces orthophonistes travaillent au contact de jeunes malentendants. Première confrontation avec les \textbf{systèmes d'expression à base d'images}, piste un temps considérée pour notre projet.  \textbf{Problème :} le caractère trop peu formalisé de ces méthodes qui les rend difficiles à implémenter de manière générale. \\
@@ -429,19 +434,19 @@ en M2, nous avons pris la décision de le laisser reposer pour le moment. Tous n
 
 \textbf{10 février : } nouveau rendez-vous avec le professeur Luauté pour présenter l'avancement de nos travaux et mettre en place l'étude pilote. \\
 
-\textbf{3-4 mars : } paraticipation au Hackathon "Hive" de l'école centrale Lyon. \\
+\textbf{3-4 mars : } paraticipation au Hackathon "Hive" de l'école Centrale Lyon. L'équipe Dicotomix était presque au complet, et Thibault Souquet s'est joint à nous. Ce week-end de travail intense a posé les bases de ce qui deviendrait le logiciel final. Les attentes du Hackathon étaient très différentes des nôtres, avec un accent sur la communication et le business model, mais ceci nous a permis de prendre conscience de ces problématiques qui sont souvent nécessaires pour motiver des gens autour d'un projet. \\
 
 \textbf{10 mars : } rencontre avec Mathilde Mathon autour de la métropole de Lyon. \\
 
-\textbf{16 mars : } rencontre avec la linguiste Isabel Colon de Carvajal qui nous éclaire sur les base de données linguistiques d'interactions orales -- notamment dans le domaine de la médecine. \\
+\textbf{16 mars : } rencontre avec la linguiste Isabel Colon de Carvajal qui nous éclaire sur les base de données linguistiques d'interactions orales, notamment dans le domaine de la médecine. Cette base de données est un immense ensemble d'enregistrements audios transcrits avec des codes précis pour signifier l'intonation, les pauses, les répétitions, etc. \\
 
 \textbf{17 mars : } nouvelle réunion de travail avec le professeur Luauté et son équipe. Nous rencontrons notamment le docteur Émilien Bernard grâce à qui nous avons pu aller à la rencontre d'une patiente SLA. \\
 
 \textbf{24 mars : } réunion avec le professeur Luauté et Delphine Maucort-Boulch autour de la méthodologie de l'étude pilote. \\
 
-\textbf{31 mars : } rencontre avec les linguistes spécialistes de Traitement Automatique des Langues, Matthieu Quignard et Jean-Philippe Magué. Ils nous exposent les différentes techniques que l'on peut implémenter dans le cadre de la prédiction de mots. À commencer par les n-grams.\\
+\textbf{31 mars : } rencontre avec les linguistes spécialistes de Traitement Automatique des Langues, Matthieu Quignard et Jean-Philippe Magué. Ils nous exposent les différentes techniques que l'on peut implémenter dans le cadre de la prédiction de mots, à commencer par les n-grams.\\
 
-\textbf{5-23 avril : } étude pilote. \\
+\textbf{5-23 avril : } étude pilote lancée auprès d'une patiente SLA à domicile et d'un patient LIS hospitalisé. Cette étude nous a mis face aux limites de notre logiciel, mais nous a aussi permis de mesurer les véritables enjeux sous-jacents. Par soucis d'anonymat concernant les données de santé, nous ne citons pas les noms de ces personnes.
     
 
 \section{Étude comparative de la solution Dicotomix}
