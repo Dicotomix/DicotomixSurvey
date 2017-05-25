@@ -154,7 +154,7 @@ T.Stérin, A.Martin, F.Lécuyer, \\ E.Hazard, P.Mangold, E.Kerinec, M.Guy, \\ R.
 Et enfin, merci de nous avoir donné l'occasion de réalisé un projet si prenant.
 
 \paragraph{}
-Nous tenons à remercier très sincèrement le professeur Jacques Luauté qui nous a très généreusement ouvert les portes de son service et toujours encouragé dans notre démarche.
+Nous tenons à remercier très sincèrement le professeur Jacques Luauté qui nous a très généreusement ouvert les portes de son service et toujours encouragés dans notre démarche.
 Nous voulons aussi remercier le docteur Emilien Bernard pour l'expérience qu'il nous a apportée autour de la maladie de Charcot. Un grand merci à Perrine Seguin, interne 
 du service, Melaine De Quelen et Manel Ben Romdhane, orthophonistes du service et aux externes qui ont organisé la réalisation de l'étude au quotidien. Enfin, un immemse merci
 aux patients pour leur implication dans l'étude et pour tout ce qu'ils nous ont appris humainement.
@@ -168,8 +168,7 @@ des améliorations à l'algorithme initial. Nous souhaitons aussi remercier trè
 qui a réalisé tout le design graphique du logiciel. Enfin nous souhaitons remercier \href{http://thibaultsouquet.fr/}{Thibault Souquet} pour sa participation à la construction 
 de l'architecture client-serveur du logiciel et à l'organisation visuelle de celui-ci.
 
-\paragraph{}Enfin, un très grand merci à Odile Souquet, référent régional pour la thématique médecine à l'Agence Régionale de Santé du Rhône-Alpes, qui nous a accompagné tout 
-au long de notre cheminement et a contribué à l'organisation de rencontres décisives pour le projet.
+\paragraph{}Enfin, un très grand merci à Odile Souquet, référente régionale pour la thématique médecine à l'Agence Régionale de Santé du Rhône-Alpes, qui nous a accompagnés tout au long de notre cheminement et a contribué à l'organisation de rencontres décisives pour le projet.
 
 \newpage
 
@@ -178,12 +177,12 @@ au long de notre cheminement et a contribué à l'organisation de rencontres dé
 \newpage
 \section{Introduction}
 
-Le Locked-In Syndrome (\textbf{LIS}) est un état neurologique qui prive les patients de la quasi-totalité de leurs capacités motrices : ils ne peuvent ni bouger ni parler,
+\paragraph{} Le Locked-In Syndrome (\textbf{LIS}) est un état neurologique qui prive les patients de la quasi-totalité de leurs capacités motrices : ils ne peuvent ni bouger ni parler,
 mais leurs capacités cognitives ne sont pas altérées \textit{a priori}. Les patients se retrouvent prisonniers de leur corps, d'où l'appellation de syndrome d'enfermement, parfois utilisée.
 Cette maladie a notamment été présentée au grand public à travers \textit{Le Scaphandre et le Papillon}, mémoires retraçant le combat de Jean-Dominique Bauby pour communiquer. 
 En effet, la motricité des yeux est généralement conservée et permet de mettre en place un code "Oui/Non" donnant un moyen élémentaire de communication.
 
-\paragraph{} La communication, c'est cette problématique qui à l'origine du projet Dicotomix. La rencontre avec le monde hospitalier nous a fait comprendre que ce problème est plus général 
+\paragraph{} La communication, c'est cette problématique qui à l' du projet Dicotomix. La rencontre avec le monde hospitalier nous a fait comprendre que ce problème est plus général 
 que le cadre strict du LIS car il concerne d'autres maladies, comme la maladie de Charcot ou sclérose latérale amyotrophique (\textbf{SLA}). Là où des études montrent ([ETUDE]) que communiquer est primordial pour le bien-être psychique des patients, d'autres insistent ([ETUDE 9 Chez Pauloss]) sur la pénibilité des méthodes traditionnelles. Ainsi, comment utiliser la technologie pour améliorer les moyens de communication de ces patients ? 
 
 \paragraph{} Ce rapport a donc pour objectif de présenter les différentes solutions pensées par notre équipe pour répondre à ce problème. C'est grâce à l'intervention de nombreuses personnes du monde hospitalier que 
@@ -314,7 +313,7 @@ COmment simplifier Akinator ? DICHOTOMIE. Dire que l'idée embale Luauté.
  
 \subsection{L'algorithme Dicotomix}
 %Parler d'abord de dicotomix sur l'ensemble du dictionnaire avec astuces de randomisation pour cadavre et les autres petits tricks.\\
-Pour une entrée de type "Oui" / "Non", le plus efficace est d'optimiser chaque question en l'utilisant pour diviser par deux le nombre de possibilités, d'où l'idée d'une simple dichotomie.
+\paragraph{} Pour une entrée de type Oui/Non, le plus efficace est d'optimiser chaque question en l'utilisant pour diviser par deux le nombre de possibilités,  d'où l'idée d'une simple dichotomie.
 Cependant, opérer ainsi sur l'ensemble des mots du dictionnaire n'est pas suffisant, puisque cela consiste à séparer à chaque étape en deux parties contenant le même nombre de mots, tandis que nous voulons deux parties de même probabilité. 
 C'est pourquoi nous procédons par dichotomie pondérée par des fréquences pour chaque mot, ce qui revient à opérer sur un segment ou chaque mot à une longueur proportionnelle à sa fréquence (figure \ref{algo}).
 
@@ -411,40 +410,60 @@ uniquement la composante prédictive afin de construire un tableau de lettre int
 en M2, nous avons pris la décision de le laisser reposer pour le moment. Tous nous abordons des parcours différents et nos regards croisés pourront enrichir, dans le futur, notre rapport 
 à la problématique principale de Dicotomix. Pour l'heure, elle nous laisse forts de tout ce que l'on peut apprendre en allant à la rencontre des autres.
 
+\newpage
 \appendix
 \section{Intervenants extérieurs et chronologie détaillée}
-\subsection{Graphe des intervenants}
-TODO: mettre le graphe des intervenants
-\subsection{Chronologie détaillée}
-\begin{itemize}
-        \item \textbf{Octobre : } Rendez vous téléphonique avec \textbf{Maureen Clerc}, spécialiste de la BCI à l'INRIA Grenoble. Prise de connaissance de ses travaux autour du paradigme \textbf{P300} et des \textbf{P300-spellers}. Son équipe publiera bientôt ses résultats autour de leur système d'épellation P300 présenté comme le plus performant au monde. Comme vous le verrez dans la synthèse nous n'utilisons pas ce paradigme mais pourrons donc \textbf{comparer} notre méthode à celle-ci. \\
-        \item \textbf{9 novembre : } Rendez vous avec Yves Béroujon et son équipe de la fondation OVE. Ces orthophonistes travaillent au contact de jeunes malentendants. Première confrontation avec les \textbf{systèmes d'expression à base d'images}, piste un temps considérée pour notre projet.  \textbf{Problème :} le caractère trop peu formalisé de ces méthodes qui les rend difficiles à implémenter de manière générale. \\
-        \item \textbf{10 novembre : } rendez-vous téléphonique avec \textbf{Carole Lapra}, docteur qui nous mettra en relation avec des professionnels de santé spécialisés dans le domaine qui nous intéresse. \\
-        \item \textbf{18 novembre : } rendez vous avec \textbf{Stéphanie Verneyre} par l'intermédiaire de Carole Lapra, du service de neurologie de l'hôpital neurologique Pierre Wertheimer. Spécialiste de l'aphasie, Mme.Verneyre nous a aidé à \textbf{cibler} les pathologies pour lesquelles notre méthode pourrait être efficace. Nous découvrons à cette occasion la maladie de Charcot (SLA). \\
-        \item \textbf{18-20 novembre : } participation au Hackathon "Hacking Health". Nous rencontrons de nombreux professionnels de santé notamment \textbf{Odile Souquet} médecin à l'ARS (Agence régionale de Santé) qui n'a eu cesse par la suite de nous accompagner de manière très personnalisée. Nous lui devons parmi les rencontres les plus déterminantes pour notre projet. \\
-        \item \textbf{19 novembre : } rencontre avec \textbf{Alexandra Corneyllie} du CNRS qui nous a prêté le système de BCI que nous utilisons. Madame Corneyllie est l'une de nos interlocuteurs principaux sur la partie BCI du projet. \\ 
-        \item \textbf{22 décembre : } rencontre téléphonique avec \textbf{Jérémie Mattout}, spécialiste de la BCI et de ses applications à la médecine au CNRS, dans l'équipe d'Alexandre Corneyllie. À la suite de cette discussion \textbf{nous adoptons définitivement le paradigme SSVEP} (au lieu de P300) pour notre interface. Sous ses conseils, nous empruntons un générateur basse-fréquence et une led au laboratoire de physique. Ce dispositif nous permet de contrôler précisément notre système oscillant et pallie les difficultés que nous avons rencontrées avec la BCI. \\
-        \item \textbf{3 janvier : } rencontre avec le Professeur \textbf{Jacques Luauté}, via Odile Souquet, chef du service de rééducation neurologique à l'hôpital Henry Gabrielle. M. Luauté nous explique que faire marcher la BCI chez les sujets handicapés est un défi non encore résolu par les chercheurs spécialistes comme M. Mattout. Cependant le Professeur se montre très enthousiaste quand à notre méthode dichotomique d'énumération du dictionnaire. Il nous propose de la tester dès février étant donné que tous ses patients disposent déjà d'interfaces personnalisées pour exprimer 'oui' ou 'non'. Nous nous focalisons donc sur cette partie du projet pour fournir une solution à tester lors de nos rencontres de février. Cette rencontre souligne l'importance de se mettre en relation avec des linguistes. \\
-        \item \textbf{6 janvier : } réunion avec \textbf{Charlie Lopez}, rencontrée au Hackathon, graphiste qui a réalisé l'interface utilisateur de notre programme. \\
-        \item \textbf{17 janvier : } rencontre avec \textbf{Nicolas Laurent}, professeur de grammaire à l'ENS. Discussion autour des aspects linguistiques de notre projet. Il nous suggère de nous mettre en relation avec le laboratoire de linguistique informatique \textbf{ICAR} de l'ENS de Lyon. \\
-        \item \textbf{6 février : } rencontre avec \textbf{Cécile Remy}, via Odile Souquet, spécialiste des \textbf{SLA} qu'elle soigne à domicile. \\
-        \item \textbf{10 février : } nouveau rendez vous avec le professeur Luauté pour présenter l'avancement de nos travaux et mettre en place l'étude pilote. \\
-        \item \textbf{3-4 mars : } paraticipation au Hackathon "Hive" de l'école centrale Lyon. \\
-        \item \textbf{10 mars : } rencontre avec Mathilde Mathon autour de la métropole de Lyon. \\
-        \item \textbf{16 mars : } rencontre avec la linguiste Isabel Colon de Carvajal qui nous éclaire sur les base de données linguistiques d'interactions orales -- notamment 
-        dans le domaine de la médecine. \\
-        \item \textbf{17 mars : } nouvelle réunion de travail avec le professeur Luauté et son équipe. Nous rencontrons notamment le docteur Émilien Bernard 
-        grâce à qui nous avons pu aller à la rencontre d'une patiente SLA. \\
-        \item \textbf{24 mars : } réunion avec le professeur Luauté et Delphine Maucort-Boulch autour de la méthodologie de l'étude pilote. \\
-        \item \textbf{31 mars : } rencontre avec les linguistes spécialistes de Traitement Automatique des Langues, Matthieu Quignard et Jean-Philippe Magué.
-        Ils nous exposent les différentes techniques que l'on peut implémenter dans le cadre de la prédiction de mots. À commencer par les n-grams.
-         \\
-        \item \textbf{5-23 avril : } étude pilote. \\
-    \end{itemize}       
+\paragraph{} La Figure \ref{grapheIntervenants} montre les principaux intervenants extérieurs qui ont participé à l'élaboration ou à la mise en place du projet. Y sont également représentés les différents liens entre ces personnes et leurs catégories de profession. Ce graphe permet de comprendre d'un coup d'\oe il l'organisation des participants ; une étude chronologique permet cependant une meilleure appréhension des interactions que nous avons eues avec ces personnes, et de leur influence sur le projet.
+\begin{figure}[h!]
+\centering \includegraphics[width=16.4cm]{images/grapheIntervenants.png}
+\caption{Graphe des intervenants}
+\label{grapheIntervenants}
+\end{figure}
+
+\textbf{Octobre : } Rendez vous téléphonique avec \textbf{Maureen Clerc}, spécialiste de la BCI à l'INRIA Grenoble. Prise de connaissance de ses travaux autour du paradigme \textbf{P300} et des \textbf{P300-spellers}. Son équipe publiera bientôt ses résultats autour de leur système d'épellation P300 présenté comme le plus performant au monde. Comme vous le verrez dans la synthèse nous n'utilisons pas ce paradigme mais pourrons donc \textbf{comparer} notre méthode à celle-ci.\\
+
+\textbf{9 novembre : } Rendez vous avec Yves Béroujon et son équipe de la fondation OVE. Ces orthophonistes travaillent au contact de jeunes malentendants. Première confrontation avec les \textbf{systèmes d'expression à base d'images}, piste un temps considérée pour notre projet.  \textbf{Problème :} le caractère trop peu formalisé de ces méthodes qui les rend difficiles à implémenter de manière générale. \\
+
+\textbf{10 novembre : } rendez-vous téléphonique avec \textbf{Carole Lapra}, docteur qui nous mettra en relation avec des professionnels de santé spécialisés dans le domaine qui nous intéresse. \\
+
+\textbf{18 novembre : } rendez vous avec \textbf{Stéphanie Verneyre} par l'intermédiaire de Carole Lapra, du service de neurologie de l'hôpital neurologique Pierre Wertheimer. Spécialiste de l'aphasie, Mme.Verneyre nous a aidé à \textbf{cibler} les pathologies pour lesquelles notre méthode pourrait être efficace. Nous découvrons à cette occasion la maladie de Charcot (SLA). \\
+
+\textbf{18-20 novembre : } participation au Hackathon "Hacking Health". Nous rencontrons de nombreux professionnels de santé notamment \textbf{Odile Souquet} médecin à l'ARS (Agence régionale de Santé) qui n'a eu cesse par la suite de nous accompagner de manière très personnalisée. Nous lui devons parmi les rencontres les plus déterminantes pour notre projet. \\
+
+\textbf{19 novembre : } rencontre avec \textbf{Alexandra Corneyllie} du CNRS qui nous a prêté le système de BCI que nous utilisons. Madame Corneyllie est l'une de nos interlocuteurs principaux sur la partie BCI du projet. \\
+
+\textbf{22 décembre : } rencontre téléphonique avec \textbf{Jérémie Mattout}, spécialiste de la BCI et de ses applications à la médecine au CNRS, dans l'équipe d'Alexandre Corneyllie. À la suite de cette discussion \textbf{nous adoptons définitivement le paradigme SSVEP} (au lieu de P300) pour notre interface. Sous ses conseils, nous empruntons un générateur basse-fréquence et une led au laboratoire de physique. Ce dispositif nous permet de contrôler précisément notre système oscillant et pallie les difficultés que nous avons rencontrées avec la BCI. \\
+
+\textbf{3 janvier : } rencontre avec le Professeur \textbf{Jacques Luauté}, via Odile Souquet, chef du service de rééducation neurologique à l'hôpital Henry Gabrielle. M. Luauté nous explique que faire marcher la BCI chez les sujets handicapés est un défi non encore résolu par les chercheurs spécialistes comme M. Mattout. Cependant le Professeur se montre très enthousiaste quand à notre méthode dichotomique d'énumération du dictionnaire. Il nous propose de la tester dès février étant donné que tous ses patients disposent déjà d'interfaces personnalisées pour exprimer 'oui' ou 'non'. Nous nous focalisons donc sur cette partie du projet pour fournir une solution à tester lors de nos rencontres de février. Cette rencontre souligne l'importance de se mettre en relation avec des linguistes. \\
+
+\textbf{6 janvier : } réunion avec \textbf{Charlie Lopez}, rencontrée au Hackathon, graphiste qui a réalisé l'interface utilisateur de notre programme. \\
+
+\textbf{17 janvier : } rencontre avec \textbf{Nicolas Laurent}, professeur de grammaire à l'ENS. Discussion autour des aspects linguistiques de notre projet. Il nous suggère de nous mettre en relation avec le laboratoire de linguistique informatique \textbf{ICAR} de l'ENS de Lyon. \\
+
+\textbf{6 février : } rencontre avec \textbf{Cécile Remy}, via Odile Souquet, spécialiste des \textbf{SLA} qu'elle soigne à domicile. \\
+
+\textbf{10 février : } nouveau rendez vous avec le professeur Luauté pour présenter l'avancement de nos travaux et mettre en place l'étude pilote. \\
+
+\textbf{3-4 mars : } paraticipation au Hackathon "Hive" de l'école centrale Lyon. \\
+
+\textbf{10 mars : } rencontre avec Mathilde Mathon autour de la métropole de Lyon. \\
+
+\textbf{16 mars : } rencontre avec la linguiste Isabel Colon de Carvajal qui nous éclaire sur les base de données linguistiques d'interactions orales -- notamment dans le domaine de la médecine. \\
+
+\textbf{17 mars : } nouvelle réunion de travail avec le professeur Luauté et son équipe. Nous rencontrons notamment le docteur Émilien Bernard grâce à qui nous avons pu aller à la rencontre d'une patiente SLA. \\
+
+\textbf{24 mars : } réunion avec le professeur Luauté et Delphine Maucort-Boulch autour de la méthodologie de l'étude pilote. \\
+
+\textbf{31 mars : } rencontre avec les linguistes spécialistes de Traitement Automatique des Langues, Matthieu Quignard et Jean-Philippe Magué. Ils nous exposent les différentes techniques que l'on peut implémenter dans le cadre de la prédiction de mots. À commencer par les n-grams.\\
+
+\textbf{5-23 avril : } étude pilote. \\
     
 
 \section{Étude comparative de la solution Dicotomix}
-\includepdf[pages=-]{comparison.pdf}
+\paragraph{} Voir ci-après.
 \section{Tutoriel d'utilisation de Dicotomix}
+\paragraph{} Voir ci-dessous.
+
+\includepdf[pages=-]{comparison.pdf}
 \includepdf[pages=-]{tutoriel.pdf}
 \end{document}
