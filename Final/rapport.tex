@@ -244,12 +244,13 @@ lettres de l'alphabet au patient et attendre qu'il dise oui au moment où l'on a
 \end{figure}
 
 \paragraph{} Nous avions pour ambition d'être capables de détecter un signal binaire avec le casque EEG, c'est-à-dire de concevoir une situation qui permet au patient
-d'indiquer par son activité cérébrale un "Oui" ou un "Non". Nous avons envisagés deux paradigmes EEG parmi les plus simples de la discipline : les ondes alpha et 
+d'indiquer par son activité cérébrale un "Oui" ou un "Non". Nous avons envisagé deux paradigmes EEG parmi les plus simples de la discipline : les ondes alpha et 
 le SSVEP. 
 
 \subsubsection{Paradigme Alpha}
 
-\paragraph{} Lorsqu'on fermer les yeux ou qu'on se relaxe, le cerveau produit avec une intensité plus élevée que la moyenne des composantes à 10Hz que l'on retrouve en position O1 du système 10-20 (Figure \ref{dix}).
+
+\paragraph{} Lorsqu'on ferme les yeux ou qu'on se relaxe, le cerveau produit avec une intensité plus élevée que la moyenne des composantes à 10Hz que l'on retrouve en position O1 du système 10-20 (Figure \ref{dix}).
 Ces composantes sont appelées ondes Alpha [15]. Il s'agit donc de repérer ces pics de fréquence à 10Hz et de les associer à une réponse, par
 exemple "Oui". La Figure \ref{eeghack} montre les résultats en temps fréquence issus d'un blog d'expert (\href{http://eeghacker.blogspot.com/}{EEG Hacker}) contre les meilleures données que nous avions pu générer en Figure \ref{ouralph}, suite à un enregistrement des ondes cérébrales d'une personne de l'équipe avec le casque EEG.
 
@@ -298,13 +299,9 @@ plus fin pour se débarasser de ce biais à l'aide d'électro-photodiodes. Nous 
 
 \paragraph{} Nous avons donc laissé de côté nos investigations autour de l'interface BCI pour nous concentrer sur la méthode de communication. Toutefois nous avons appris beaucoup de choses pendant cette phase du projet et nous nous sommes familiarisés avec un ensemble de techniques et de protocoles expérimentaux qui nous étaient inconnus. De cette investigation pluridisciplinaire, nous tirons une idée plus claire de la réalité et des enjeux des interfaces cerveau-machine.
 
-\subsection{Akinator} [13]
+\subsection{Akinator}
 
-\\
-
-Blabla: au début Akinator. Trop compliqué car besoin que des gens l'entrainent [AKINATOR]. 
-COmment simplifier Akinator ? DICHOTOMIE. Dire que l'idée embale Luauté.
-
+Akinator est un jeu dans lequel l'utilisateur répond à des questions sur une personnalité à laquelle il pense, de type "Oui", "Non", "Peut-être", "Ne sais pas", pour voir Akinator deviner ladite personnalité. Pour cela, Akinator se déplace dans un arbre de possibilités au fur et à mesure des réponses de l'utilisateur à ses questions. Nous avons voulu réutiliser cette idée en la généralisant pour pouvoir s'exprimer plutôt que de simplement donner un nom. Cependant, la procédure d'Akinator s'est révélée trop compliquée à mettre en place, celui-ci utilisant entre autre des techniques d'apprentissage [13] pour lesquelles nous n'avions pas les données nécessaires. Nous avons donc tenté une approche algorithmique plus simple.
 
 \section{La solution Dicotomix}
  
@@ -335,12 +332,11 @@ COmment simplifier Akinator ? DICHOTOMIE. Dire que l'idée embale Luauté.
 Montrant des résultats impressionnants pour la prédiction de textes, cette méthode promet d'être très bénéfique pour Dicotomix. Cette approche a notamment beaucoup intéressé le docteur Luauté, car l'amélioration des suggestions de mots permettrait d'aller bien plus vite.
 
 \subsection{Le logiciel}
-TODO\\
-Archi client serveur \\
-JS \\
-BLABLA c'est portable (testé sur MAC Linux et Windows pour de vrai) \\
-plz: dire ce qu'à "fait" Souquet. + charlie Lopez. \\
-Des ptites captures d'écran du futur. ==> On peut juste dire "voir le tuto comment c bo" \\
+\paragraph{}Concernant l'implémentation logicielle de Dicotomix, nous avons choisi d'implémenter l'algorithme en Python, ce langage étant connu par l'ensemble des membres de l'équipe, et offrant un bon rapport entre productivité et maintenabilité.
+
+\paragraph{}Nous avons ensuite dû écrire une interface graphique conviviale de façon à ce que les patients disposent d'un confort optimal d'utilisation. Nous nous sommes cette fois tournés vers des technologies Web, ces dernières proposant de très nombreux et puissants frameworks pour concevoir des interfaces graphiques. Nous avons donc utilisé une combinaison classique HTML5/CSS3 pour le frontend et le framework JavaScript Node.JS pour le backend. Un détail important était que nous ne voulions pas faire reposer l'utilisation du logiciel sur une connexion Internet, pour qu'elle soit possible dans les conditions hospitalières. Nous avons donc utilisé le framework Electron développé par GitHub, permettant de créer des applications desktop embarquant un moteur Web et un serveur Node.JS. Nous avons fait appel à la graphiste Charline Lopez pour concevoir une interface épurée et ergonomique. Le fils d'Odile Souquet, Thibault Souquet, étudiant en IUT, nous a apporté son aide pour l'écriture du code CSS.
+
+\paragraph{}Très vite la question de l'interopérabilité entre l'interface graphique en JavaScript et l'algorithme en Python s'est posée. La première méthode proposée a été d'écrire des bindings en C autour du code Python, pour pouvoir les appeler ensuite avec Node.JS. Le problème de cette méthode était qu'elle demandait un effort important pour garder un haut niveau de maintenabilité, et que les différents membres de l'équipe n'auraient pas tous été en mesure de mettre à jour les bindings à chaque modification du code Python. Nous avons donc opté pour une communication par le réseau local, l'agorithme Dicotomix faisant office de serveur et l'interface graphique de client. Nous avons conçu un protocole de communication simple, chaque message étant constitué d'un en-tête de 2 octets et décrivant l'opération à faire, suivie d'une chaîne de caractères encodée en UTF-8 transportant les données du message.
 
 \section{L'étude pilote}
 
@@ -372,14 +368,14 @@ deux méthodes.
 \subsection{La réalisation}
 
 \paragraph{} Nous avons commencé par tester le protocole avec le patient LIS. Entièrement paralysé, son code Oui/Non consistait à lever les yeux vers le ciel pour "Non" et les fermer pour "Oui". La réalité a bien sûr eu raison de notre méthodologie. Très éprouvante en pratique, notre méthodologie a été simplifiée à l'extrême. On ne demandait jamais plus de 5 mots 
-au patient. Le mode Dicotomix est vite abandonné face à des difficultés trop grandes pour le patient -- il ne fallait surtout pas le décourager. Nous nous sommes donc limité
+au patient. Le mode Dicotomix est vite abandonné face à des difficultés trop grandes pour le patient -- il ne fallait surtout pas le décourager. Nous nous sommes donc limités
 au mode épellation. Les externes du service ont grandement contribué à la réalisation de l'étude en visitant le patient quotidiennement et lui proposant des jeux, type pendu, 
 pour rendre les sessions d'entraînement ludiques. 
 
 \paragraph{} Ce patient a perdu la volonté de s'exprimer avec le personnel médical, il s'agissait de voir si notre méthode pouvait la  lui rendre. Cela n'a pas été le cas car le patient n'a jamais voulu réaliser une "expression libre". Cependant nous avons pris conscience que le plus important pour lui, au delà de la 
- méthode pour communiquer, était la présence humaine. Ainsi à la quesion "voulez vous que l'on s'en aille ?", que l'on posait par peur de l'avoir trop fatigué, il répondait toujours "non".
+ méthode pour communiquer, était la présence humaine. Ainsi à la question "voulez vous que l'on s'en aille ?", que l'on posait par peur de l'avoir trop fatigué, il répondait toujours "non".
  \paragraph{} Le coût cognitif de notre méthode, que nous redoutions tant s'est fait sentir le jour de l'évaluation. En effet le patient est allé deux fois plus vite avec sa 
- méthode traditionnelle qu'avec Dicotomix. Même si elle sont moins rapides en théorie, les méthodes traditionnelles se défendent bien car l'énumération du tableau de lettres
+ méthode traditionnelle qu'avec Dicotomix. Même si elles sont moins rapides en théorie, les méthodes traditionnelles se défendent bien car l'énumération du tableau de lettres
  va très vite. La première idée que donne cette expérience, dans la veine de la prédiction de lettres du mode épellation, serait de dynamiser les tableaux de lettres traditionnels
  pour qu'ils se recomposent à chaque lettre épelée pour favoriser les prochaines lettres les plus probables. 
 
