@@ -1,0 +1,85 @@
+\documentclass[12pt]{article}
+
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning,shadows,arrows,graphs}
+% Define the layers to draw the diagram
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+
+\begin{document}
+
+% Draw background
+\newcommand{\background}[5]{%
+  \begin{pgfonlayer}{background}
+% Left-top corner of the background rectangle
+\path (#4.west |- #1.north)+(-0.25,0.5) node (a1) {};
+% Right-bottom corner of the background rectanle
+\path (#2.east |- #3.south)+(+0.25,-0.25) node (a2) {};
+\path[fill=yellow!20,rounded corners, draw=black!50,dashed,thick]
+  (a1) rectangle (a2);% Draw the background
+\path (a1.east |- a1.south)+(1.5,-.1) node (u1)[]
+  {\scriptsize\textit{#5}};
+  \end{pgfonlayer}}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[node distance=1cm, auto]  
+\tikzset{
+    mynode/.style={rectangle,rounded corners,draw=black, top color=white, bottom color=gray!30,very thick, inner sep=1em, minimum size=3em, text centered},
+    hackathon/.style={double},
+    myarrow/.style={->, >=latex', shorten >=1pt,line width=2mm},
+    myedge/.style={ >=latex', shorten >=1pt, line width=1mm, dotted},
+    mylabel/.style={text width=7em, text centered} 
+} 
+\node[mynode] (MC) {Maureen Clerc};
+\node[mynode,below=of MC] (AC) {Alexandra Corneyllie};
+\node[mynode, below=of AC] (JM) {Jérémie Mattout};
+\background{MC}{AC}{JM}{AC}{Spécialistes EEG} (eeg)
+
+\node[mynode,below=1cm of JM] (sla) {Patiente SLA};
+\node[mynode,below=of sla] (lock) {Patient Locked-in};
+\background{sla}{lock}{lock}{lock}{Patients}
+
+\node[mynode,right=2 of MC] (YB) {Yves Béroujon};
+\node[mynode,below=of YB] (SV) {Stéphanie Verneyre};
+\node[mynode,below=of SV] (remy) {Cécile Remy};
+\node[mynode,below=of remy] (JL) {Jacques Luauté};
+\node[mynode,below=of JL] (EB) {Emilien Bernard};
+\background{YB}{SV}{EB}{SV}{Personnel de santé}
+
+\node[mynode,right=1.5cm of YB,hackathon] (lapra) {Carole Lapra};
+\node[mynode,below=of lapra,hackathon] (osouq) {Odile Souquet};
+\background{lapra}{osouq}{osouq}{osouq}{Mise en relation}
+
+\node[mynode,below=of osouq,hackathon] (tsouq) {Thibault Souquet};
+\node[mynode,below=of tsouq,hackathon] (charlie) {Charlie Lopez};
+\node[mynode,below=of charlie] (NL) {Nicolas Laurent};
+\background{tsouq}{tsouq}{NL}{tsouq}{Autres intervenants}
+
+% dotted lines: working with
+\draw[myedge,bend right=5] (AC.south) to (JM.north);
+\draw[myedge,bend right=5] (JM.east |- JM.south) to (JL.west |- JL.north);
+\draw[myedge,bend right=5] (JL.north) to (remy.south);	
+\draw[myedge,bend right=5] (osouq.north) to (lapra.south);	
+\draw[myedge,bend right=5] (JL.south) to (EB.north);	
+
+% bold lines: gave contact
+\draw[myarrow,bend right=1] (lapra.west) to (SV.east);	
+\draw[myarrow,bend right=1] (osouq.west) to (JL.east);	
+\draw[myarrow,bend right=0] (osouq.south)++(1,0) -- ++(0,-1.1);	
+\draw[myarrow,bend right=1] (JL.west) to (sla.east);	
+
+\node[below=6mm of EB] (legend1) {\qquad\qquad collaboration};
+\draw[myedge] (EB.west |- EB.south)+(0,-.9) -- ++(,-.9);
+\node[below=3mm of legend1] (legend2) {\qquad\qquad\quad mise en contact};
+\draw[myarrow] (EB.west |- EB.south)+(0,-1.8) -- ++(,-1.8);
+\node[below=3mm of legend2,mynode,hackathon,inner sep=.2em,minimum size=0] (legend2) {participation au Hackathon};
+\end{tikzpicture} 
+\end{figure}
+	
+\end{document}
