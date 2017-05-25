@@ -120,7 +120,7 @@ T.Stérin, A.Martin, F.Lécuyer, \\ E.Hazard, P.Mangold, E.Kerinec, M.Guy, \\ R.
 \vspace{1.5cm}
 
 \parbox{15cm}{\small
-\textbf{Résumé} : \it TODOOOOOOOOOOO WTF Les réseaux de neurones récurrents sont des modèles aptes à apprendre et à générer des séquences temporelles. Ces réseaux se déclinent en plusieurs variantes dont les deux principales sont Vanilla et LSTM. À travers un exemple concret d'inférence grammaticale on constate la faiblesse des Vanilla à exploiter des dépendances temporelles longues. Sur la base de ces résultats expérimentaux on remet en cause l'importance de la raison la plus souvent invoquée dans la littérature pour expliquer cette faiblesse. On propose une autre explication que l'on conjuge avec l'introduction d'une mesure de la capacité de mémoire d'un modèle récurrent. On confronte cette mesure à la théorie des Echo States Networks qui aborde ces questions de mémoire différemment. Forts de ces expériences on applique les techniques décrites à la génération de musique à travers les chorals de Bach.
+\textbf{Résumé} : \it Pour aider les personnes ayant subi une perte de leurs capacités motrices, nous avons voulu mettre en place un outil de communication utilisant un signal très minimaliste. Initialement, nous espérions détecter différentes ondes cérébrales pour symboliser la réponse à des questions. Face aux difficultés techniques et grâce aux conseils avisés de nombreux spécialistes impliqués, nous avons laissé de côté la partie interface pour nous concentrer sur le logiciel. Celui-ci a pour but de proposer le plus rapidement possible les mots que la personne veut écrire. Il repose sur des méthodes à la fois mathématiques (avec la dichotomie et la randomisation), linguistiques (avec l'utilisation des fréquences de la langue) et d'intelligence artificielle. Après avoir fait face à de nombreux obstacles, nous avons obtenu une solution relativement efficace et de nombreuses idées d'amélioration au futur prometteur.
 
 } %fin de la commande \parbox du résumé
 
@@ -128,7 +128,7 @@ T.Stérin, A.Martin, F.Lécuyer, \\ E.Hazard, P.Mangold, E.Kerinec, M.Guy, \\ R.
 \vspace{0.5cm}
 
 \parbox{15cm}{
-\textbf{Mots clefs} : \it un, deux, trois
+\textbf{Mots clefs} : \it locked-in, électroencéphalographie, langage, dichotomie, intelligence artificielle
 } %fin de la commande \parbox des mots clefs
 
 \vspace{1.5cm}
@@ -183,7 +183,7 @@ Cette maladie a notamment été présentée au grand public à travers \textit{L
 En effet, la motricité des yeux est généralement conservée et permet de mettre en place un code "Oui/Non" donnant un moyen élémentaire de communication.
 
 \paragraph{} La communication, c'est cette problématique qui à l' du projet Dicotomix. La rencontre avec le monde hospitalier nous a fait comprendre que ce problème est plus général 
-que le cadre strict du LIS car il concerne d'autres maladies, comme la maladie de Charcot ou sclérose latérale amyotrophique (\textbf{SLA}). Là où des études montrent ([ETUDE]) que communiquer est primordial pour le bien-être psychique des patients, d'autres insistent ([ETUDE 9 Chez Pauloss]) sur la pénibilité des méthodes traditionnelles. Ainsi, comment utiliser la technologie pour améliorer les moyens de communication de ces patients ? 
+que le cadre strict du LIS car il concerne d'autres maladies, comme la maladie de Charcot ou sclérose latérale amyotrophique (\textbf{SLA}). Là où des études montrent [6] que communiquer est primordial pour le bien-être psychique des patients, d'autres insistent [16] sur la pénibilité des méthodes traditionnelles. Ainsi, comment utiliser la technologie pour améliorer les moyens de communication de ces patients ? 
 
 \paragraph{} Ce rapport a donc pour objectif de présenter les différentes solutions pensées par notre équipe pour répondre à ce problème. C'est grâce à l'intervention de nombreuses personnes du monde hospitalier que 
 nous avons pu confronter nos "idées de laboratoire" aux besoins réels des patients et du monde médical. Cette confrontation a constamment guidé notre démarche et a conduit à notre réalisation principale, le logiciel Dicotomix.
@@ -210,13 +210,12 @@ C'est sur cette idée, de répondre à des questions, qu'est construite l'applic
 un personnage auquel on pense. Ainsi, sous réserve d'élargir le procédé à n'importe quel type d'objet, cette méthode pouvait servir d'alternative aux méthodes traditionnelles de communication.
 
 \paragraph{} Ces méthodes traditionnelles, que nous avons regroupées dans notre étude comparative (voir Annexe B), reposent toutes sur le même principe : énumérer les
-lettres de l'alphabet au patient et attendre qu'il dise oui au moment où l'on annonce la sienne. Lettre par lettre, les mots sont ainsi épelés. Tout l'enjeu de notre démarche est de penser une solution moins frustrante [ETUDE 9 Chez Pauloss] que l'épellation. Le système de réponse à des questions, type Akinator, était notre premier candidat.
+lettres de l'alphabet au patient et attendre qu'il dise oui au moment où l'on annonce la sienne. Lettre par lettre, les mots sont ainsi épelés. Tout l'enjeu de notre démarche est de penser une solution moins frustrante [16] que l'épellation. Le système de réponse à des questions, type Akinator, était notre premier candidat.
 
 \paragraph{} Ainsi, deux grands axes de réflexion se sont dégagés très tôt dans notre travail :
 \begin{itemize}
 \item \textbf{L'interface}, c'est à dire le moyen physique de dire "Oui" ou "Non". Ici, les signaux EEG contre le mouvement des yeux.
-\item \textbf{La méthode} pour exprimer un mot une fois que l'on est capable de dire "Oui" ou "Non" -- peu importe le moyen. Ici, la méthode Akinator contre 
-les méthodes traditionnelles d'épellation.
+\item \textbf{La méthode} pour exprimer un mot une fois que l'on est capable de dire "Oui" ou "Non" -- peu importe le moyen. Ici, la méthode Akinator contre les méthodes traditionnelles d'épellation.
 \end{itemize}
 
 \paragraph{} Les deux prochaines parties détaillent nos travaux dans les deux branches et comment, au fil de nos interactions avec le monde hospitalier, nous avons transformé nos approches pour en arriver à Dicotomix.
@@ -251,8 +250,8 @@ le SSVEP.
 \subsubsection{Paradigme Alpha}
 
 \paragraph{} Lorsqu'on fermer les yeux ou qu'on se relaxe, le cerveau produit avec une intensité plus élevée que la moyenne des composantes à 10Hz que l'on retrouve en position O1 du système 10-20 (Figure \ref{dix}).
-Ces composantes sont appelées ondes Alpha [REF NECESSAIRE]. Il s'agit donc de repérer ces pics de fréquence à 10Hz et de les associer à une réponse, par
-exemple "Oui". La Figure \ref{eeghack} montre les résultats en temps fréquence issus d'un blog d'expert [REF EEG HACKER] contre les meilleures données que nous avions pu générer en Figure \ref{ouralph}, suite à un enregistrement des ondes cérébrales d'une personne de l'équipe avec le casque EEG.
+Ces composantes sont appelées ondes Alpha [15]. Il s'agit donc de repérer ces pics de fréquence à 10Hz et de les associer à une réponse, par
+exemple "Oui". La Figure \ref{eeghack} montre les résultats en temps fréquence issus d'un blog d'expert (\href{http://eeghacker.blogspot.com/}{EEG Hacker}) contre les meilleures données que nous avions pu générer en Figure \ref{ouralph}, suite à un enregistrement des ondes cérébrales d'une personne de l'équipe avec le casque EEG.
 
 \begin{figure}[h!]
 \centering
@@ -283,8 +282,8 @@ exemple "Oui". La Figure \ref{eeghack} montre les résultats en temps fréquence
 
 \subsubsection{Paradigme SSVEP}
 
-\paragraph{} Le paradigme SSVEP repose sur le phénomène de potentiel évoqué [REFERENCE]. Si l'on présente à un sujet une image qui clignote à une certaine fréquence (entre 5 et 10Hz dans nos expériences) on retrouve 
-des pics à cette fréquence dans l'activité du cortex visuel (électrodes O1 et O2 sur la Figure \ref{dix}). L'idée est donc de proposer deux sources lumineuses qui clignotent à deux fréquences différentes sur l'écran (une pour Oui et une pour Non), et de repérer le choix du patient en fonction de celle sur laquelle il porte son attention. Le même blog d'expert [EEG HACKER] réussit à contrôler un robot à l'aide de ce paradigme.
+\paragraph{} Le paradigme SSVEP repose sur le phénomène de potentiel évoqué [8]. Si l'on présente à un sujet une image qui clignote à une certaine fréquence (entre 5 et 10Hz dans nos expériences) on retrouve 
+des pics à cette fréquence dans l'activité du cortex visuel (électrodes O1 et O2 sur la Figure \ref{dix}). L'idée est donc de proposer deux sources lumineuses qui clignotent à deux fréquences différentes sur l'écran (une pour Oui et une pour Non), et de repérer le choix du patient en fonction de celle sur laquelle il porte son attention. Le même blog d'expert (\href{http://eeghacker.blogspot.com/}{EEG Hacker}) réussit à contrôler un robot à l'aide de ce paradigme.
 Malgré tous nos essais nous n'avons rien obtenu de concluant. Cela est très certainement dû aux raisons suivantes:
 
 \begin{itemize}
@@ -295,15 +294,15 @@ plus fin pour se débarasser de ce biais à l'aide d'électro-photodiodes. Nous 
 
 \subsubsection{Conclusions}
 
-\paragraph{} Les difficultés que nous rencontrions avec l'EEG devaient nous inciter à persévérer. Cependant, le professeur Luauté, que nous avons rencontré à mi-parcours (janvier), nous a très vite mis en garde sur la faisabilité de notre démarche. En effet, alors même que nous n'arrivions pas à obtenir des résultats satisfaisants sur des sujets sains, les équipes de recherches spécialistes du domaine butaient à faire fonctionner ces paradigmes chez les patients cérébrolésés [VOIR LES TROIS DOSSIER REFERENCES/HARD]. Il nous a invités à nous concentrer en priorité sur la méthode que nous voulions mettre en \oe uvre pour traiter ces signaux Oui/Non, arguant que nous pourrions la tester avec le code Oui/Non occulaire que beaucoup de ses patients utilisent. 
+\paragraph{} Les difficultés que nous rencontrions avec l'EEG devaient nous inciter à persévérer. Cependant, le professeur Luauté, que nous avons rencontré à mi-parcours (janvier), nous a très vite mis en garde sur la faisabilité de notre démarche. En effet, alors même que nous n'arrivions pas à obtenir des résultats satisfaisants sur des sujets sains, les équipes de recherches spécialistes du domaine butaient à faire fonctionner ces paradigmes chez les patients cérébrolésés [2,9,14]. Il nous a invités à nous concentrer en priorité sur la méthode que nous voulions mettre en \oe uvre pour traiter ces signaux Oui/Non, arguant que nous pourrions la tester avec le code Oui/Non occulaire que beaucoup de ses patients utilisent. 
 
 \paragraph{} Nous avons donc laissé de côté nos investigations autour de l'interface BCI pour nous concentrer sur la méthode de communication. Toutefois nous avons appris beaucoup de choses pendant cette phase du projet et nous nous sommes familiarisés avec un ensemble de techniques et de protocoles expérimentaux qui nous étaient inconnus. De cette investigation pluridisciplinaire, nous tirons une idée plus claire de la réalité et des enjeux des interfaces cerveau-machine.
 
-\subsection{Akinator}
+\subsection{Akinator} [13]
 
-TODO\\
+\\
 
-Blabla: au début Akinator. Trop compliqué car besoin que des gens l'entrainent [METTRE LA REF SUR LE FONCTIONNEMENT AKINATOR (voir tout debut du projet)]. 
+Blabla: au début Akinator. Trop compliqué car besoin que des gens l'entrainent [AKINATOR]. 
 COmment simplifier Akinator ? DICHOTOMIE. Dire que l'idée embale Luauté.
 
 
@@ -331,15 +330,9 @@ COmment simplifier Akinator ? DICHOTOMIE. Dire que l'idée embale Luauté.
 
 \paragraph{} Nous avons choisi d'utiliser les $n$-grams sur les lettres car c'était un moyen simple de se rendre compte de leur efficacité. Toutefois, la méthode peut être étendue aux mots entiers pour pévoir le mot suivant à partir des précédents, et c'était une des perspectives envisagées pour notre logiciel. Au vu des résultats sur les lettres, une accélération importante de la communication peut être attendue d'un tel ajout.
 
-\paragraph{} Une autre possibilité est d'utiliser la LSTM (Long Short-Term Memory). Cette technique d'intelligence artificielle est basée sur des réseaux de neurones récurrents auxquels on affecte une mémoire à court et long terme %\cite{LSTM}
-TODO \\
-
-Dire qu'on pourrait faire du ngrams sur les mots pour prediction de mots.\\
-Mentionner les techniques à l'état de l'art dans le domaine LSTM et réseaux de neurones récurrents. \\
-Insister que Dicotomix en bénéficierai bcp. \\ 
-DIRE LE MOT INTELLIGENCE ARTIFICIELLE \\
-Dire que Luauté était emballé.  \\
-P.e: reprendre les schémas de la pres
+\paragraph{} Une autre possibilité est d'utiliser la LSTM (Long Short-Term Memory). Cette technique d'intelligence artificielle est basée sur des réseaux de neurones récurrents auxquels on affecte une mémoire à court et long terme%\cite{LSTM}
+.
+Montrant des résultats impressionnants pour la prédiction de textes, cette méthode promet d'être très bénéfique pour Dicotomix. Cette approche a notamment beaucoup intéressé le docteur Luauté, car l'amélioration des suggestions de mots permettrait d'aller bien plus vite.
 
 \subsection{Le logiciel}
 TODO\\

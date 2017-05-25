@@ -33,7 +33,7 @@
 
 \usepackage{graphicx}
 
-\usepackage[a4paper,hmarginratio=1:1,top=3cm,bottom=2cm,columnsep=20pt,left=20mm,right=20mm]{geometry} % Document margins
+\usepackage[a4paper,hmarginratio=1:1,top=28mm,bottom=2cm,columnsep=20pt,left=17mm,right=17mm]{geometry} % Document margins
 \usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
 \usepackage[format=plain,indention=0mm]{caption} % To change caption style
 \usepackage{booktabs} % Horizontal rules in tables
@@ -172,6 +172,9 @@ La méthode d'épellation dichotomique, quant à elle, donne des résultats proc
 \subsection{Moyenne et maximum}
 
 Les distributions donnent beaucoup d'informations sur les méthodes, mais les graphes sont difficilement lisibles. D'un point de vue pratique, on s'intéresse principalement au temps moyen nécessaire pour écrire un mot, et le temps maximal garanti.
+
+La figure \ref{mean} montre que la recherche dichotomique a une longueur de frappe moyenne significativement plus faible que toutes les autres méthodes considérées, ce qui signifie que les mots sont en moyenne tapés trois à cinq fois plus vite. De plus, son écart-type est plus faible donc il est peu probable d'avoir à écrire un mot ``long''.
+
 \begin{center}
 \begin{figure}
   \includegraphics[scale=0.5]{mean.png}
@@ -179,9 +182,6 @@ Les distributions donnent beaucoup d'informations sur les méthodes, mais les gr
   \label{mean}
 \end{figure}
 \end{center}
-La figure \ref{mean} montre que la recherche dichotomique a une longueur de frappe moyenne significativement plus faible que toutes les autres méthodes considérées, ce qui signifie que les mots sont en moyenne tapés trois à cinq fois plus vite. De plus, son écart-type est plus faible donc il est peu probable d'avoir à écrire un mot ``long''.
-
-
 
 Même si l'intervention de l'aidant permet souvent de trouver les mots sans épeler toutes les lettres, on peut s'intéresser au pire des cas, c'est-à-dire au mot du dictionnaire le plus long à trouver. On remarque sur la figure \ref{maxi} que la dichotomie sur le lexique offre une performance drastiquement meilleure que les autres méthodes, avec un facteur variant de quatre à sept.
 
@@ -193,6 +193,8 @@ Même si l'intervention de l'aidant permet souvent de trouver les mots sans épe
 \end{figure}
 \end{center}
 %------------------------------------------------
+
+\section{Épellation des 4 premières lettres}
 \begin{center}
 \begin{figure}
   \includegraphics[scale=0.55]{dico.png}
@@ -200,12 +202,6 @@ Même si l'intervention de l'aidant permet souvent de trouver les mots sans épe
   \label{dico}
 \end{figure}
 \end{center}
-\section{Épellation des 4 premières lettres}
-
-Remarquons que, en fréquence, plus de la moitié des mots du français continennent moins de 4 lettres (cf figure \ref{dico}). Par ailleurs, faisons l'hypothèse qu'en pratique, l'on arrive à savoir quel est le mot tapé à partir de la quatrième lettre. Nous reprenons donc dans cette partie la même comparaison des différentes méthodes, cette fois en se limitant à l'épellation des 4 premières lettres de chaque mot. Notons par ailleurs, que la méthode de recherche dichotomique continue, en revanche, à épeler les mots complètement.
-
-
-
 \begin{center}
 \begin{figure}
   \includegraphics[scale=0.35]{distrib4.png}
@@ -213,6 +209,10 @@ Remarquons que, en fréquence, plus de la moitié des mots du français continen
   \label{distrib4}
 \end{figure}
 \end{center}
+
+Remarquons que, en fréquence, plus de la moitié des mots du français continennent moins de 4 lettres (cf figure \ref{dico}). Par ailleurs, faisons l'hypothèse qu'en pratique, l'on arrive à savoir quel est le mot tapé à partir de la quatrième lettre. Nous reprenons donc dans cette partie la même comparaison des différentes méthodes, cette fois en se limitant à l'épellation des 4 premières lettres de chaque mot. Notons par ailleurs, que la méthode de recherche dichotomique continue, en revanche, à épeler les mots complètement.
+
+
 
 \begin{center}
 \begin{figure}
@@ -223,7 +223,13 @@ Remarquons que, en fréquence, plus de la moitié des mots du français continen
 \end{center}
 
 \subsection{Distribution des temps de frappe}
-
+\begin{center}
+\begin{figure}
+  \includegraphics[scale=0.5]{mean4.png}
+  \caption{Longueur de frappe moyenne sur l'ensemble du dictionnaire (barre violettes), avec l'écart-type de la distribution (petites barres violettes claires) (épellation des 4 premières lettres uniquement). 0 - recherche dichotomique, 1 - épellation dichotomique, 2 - alphabet EJASINT, 3 à 6 - méthodes 3 à 6}
+  \label{mean4}
+\end{figure}
+\end{center}
 La distribution des temps de frappe (figure \ref{distrib4}) continue à donner la même tendance que précedemment, et la méthode de recherche dichotomique permet toujours de trouver plus rapidement les mots les plus fréquents.
 
 Cette tendance est également confirmée par la fréquence des mots ayant une longueur de frappe supérieure à la longueur donnée en abscisse (figure \ref{frappe-mini4}).
@@ -236,13 +242,7 @@ Cette tendance est également confirmée par la fréquence des mots ayant une lo
 
 La longueur moyenne de frappe (figure \ref{mean4}) reste aussi avantageuse par rapport aux autres méthodes. Cependant, la longueur maximale (\ref{maxi4}) est plus élevée que pour l'épellation dichotomique. Malgré tout, la recherche dichotomique reste meilleure, de ce point de vue, que toutes les méthodes à présent utilisées dans le milieu médical.
 
-\begin{center}
-\begin{figure}
-  \includegraphics[scale=0.5]{mean4.png}
-  \caption{Longueur de frappe moyenne sur l'ensemble du dictionnaire (barre violettes), avec l'écart-type de la distribution (petites barres violettes claires) (épellation des 4 premières lettres uniquement). 0 - recherche dichotomique, 1 - épellation dichotomique, 2 - alphabet EJASINT, 3 à 6 - méthodes 3 à 6}
-  \label{mean4}
-\end{figure}
-\end{center}
+
 
 \begin{center}
 \begin{figure}
